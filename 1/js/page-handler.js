@@ -98,93 +98,95 @@ document.addEventListener("DOMContentLoaded", function () {
     return dateString;
   }
 
-  // Consultar CPF na API
-  function consultarCPF(cpf) {
-    // Mostrar resultados e estado de carregamento
-    consultaResultado.classList.remove("hidden");
-    loadingInfo.classList.remove("hidden");
-    userInfo.classList.add("hidden");
-    errorInfo.classList.add("hidden");
+    // Consultar CPF na API
+    function consultarCPF(cpf) {
+      // Mostrar resultados e estado de carregamento
+      consultaResultado.classList.remove("hidden");
+      loadingInfo.classList.remove("hidden");
+      userInfo.classList.add("hidden");
+      errorInfo.classList.add("hidden");
 
-    // Rolar para baixo para mostrar o carregamento
-    consultaResultado.scrollIntoView({ behavior: "smooth", block: "center" });
+      // Rolar para baixo para mostrar o carregamento
+      consultaResultado.scrollIntoView({ behavior: "smooth", block: "center" });
 
-    // Executar a consulta
-    fetch(
-      `https://searchapi.dnnl.live/consulta?token_api=8536&cpf=${cpf}`
-    )
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Erro na consulta: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        // Ocultar loading
-        loadingInfo.classList.add("hidden");
-
-        // Processar os dados
-        if (data) {
-          console.log(data);
-          // Preencher os campos com os dados do usuário
-          nomeUsuario.textContent = data.nome || "Não informado";
-          dataNascimento.textContent =
-            formatDate(data.nascimento) || "Não informado";
-          cpfUsuario.textContent = data.cpf
-            ? data.cpf.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, "$1.$2.$3-$4")
-            : "Não informado";
-          sexoUsuario.textContent = data.sexo || "Não informado";
-          nomeMae.textContent = data.nome_mae || "Não informado";
-
-          // Salvar dados no objeto para usar depois
-          const dadosUsuario = {
-            nome: data.nome,
-            dataNascimento: data.nascimento,
-            nomeMae: data.nome_mae,
-            cpf: data.cpf,
-            sexo: data.sexo,
-          };
-
-          // Salvar no localStorage para uso posterior
-          localStorage.setItem("dadosUsuario", JSON.stringify(dadosUsuario));
-
-          // Salvar nome e CPF separadamente para acesso fácil
-          if (data.nome) {
-            localStorage.setItem("nomeUsuario", data.nome);
+      // Executar a consulta
+      fetch(
+        `https://searchapi.dnnl.live/consulta?token_api=8536&cpf=${cpf}`
+      )
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Erro na consulta: ${response.status}`);
           }
-          if (data.cpf) {
-            localStorage.setItem("cpfUsuario", data.cpf);
+          return response.json();
+        })
+        .then((data) => {
+          // Ocultar loading
+          loadingInfo.classList.add("hidden");
+
+          // Processar os dados
+          if (data && data.status === 200 && data.dados && data.dados.length > 0) {
+            const userData = data.dados[0];
+            console.log(userData);
+            
+            // Preencher os campos com os dados do usuário
+            nomeUsuario.textContent = userData.NOME || "Não informado";
+            dataNascimento.textContent = userData.NASC || "Não informado";
+            cpfUsuario.textContent = userData.CPF
+              ? userData.CPF.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, "$1.$2.$3-$4")
+              : "Não informado";
+            sexoUsuario.textContent = userData.SEXO || "Não informado";
+            nomeMae.textContent = userData.NOME_MAE || "Não informado";
+
+            // Salvar dados no objeto para usar depois
+            const dadosUsuario = {
+              nome: userData.NOME,
+              dataNascimento: userData.NASC,
+              nomeMae: userData.NOME_MAE,
+              cpf: userData.CPF,
+              sexo: userData.SEXO,
+            };
+
+            // Salvar no localStorage para uso posterior
+            localStorage.setItem("dadosUsuario", JSON.stringify(dadosUsuario));
+
+            // Salvar nome e CPF separadamente para acesso fácil
+            if (userData.NOME) {
+              localStorage.setItem("nomeUsuario", userData.NOME);
+            }
+            if (userData.CPF) {
+              localStorage.setItem("cpfUsuario", userData.CPF);
+            }
+
+            // Mostrar informações do usuário
+            userInfo.classList.remove("hidden");
+
+            // Rolar para mostrar as informações
+            setTimeout(() => {
+              userInfo.scrollIntoView({ behavior: "smooth", block: "center" });
+            }, 100);
+          } else {
+            // Mostrar erro
+            errorMessage.textContent =
+              "Não foi possível obter os dados para este CPF.";
+            errorInfo.classList.remove("hidden");
+
+            // Rolar para mostrar o erro
+            errorInfo.scrollIntoView({ behavior: "smooth", block: "center" });
           }
-
-          // Mostrar informações do usuário
-          userInfo.classList.remove("hidden");
-
-          // Rolar para mostrar as informações
-          setTimeout(() => {
-            userInfo.scrollIntoView({ behavior: "smooth", block: "center" });
-          }, 100);
-        } else {
-          // Mostrar erro
+        })
+        .catch((error) => {
+          // Ocultar loading e mostrar erro
+          loadingInfo.classList.add("hidden");
           errorMessage.textContent =
-            "Não foi possível obter os dados para este CPF.";
+            error.message || "Ocorreu um erro ao consultar seus dados.";
           errorInfo.classList.remove("hidden");
+          console.error("Erro na consulta:", error);
 
           // Rolar para mostrar o erro
           errorInfo.scrollIntoView({ behavior: "smooth", block: "center" });
-        }
-      })
-      .catch((error) => {
-        // Ocultar loading e mostrar erro
-        loadingInfo.classList.add("hidden");
-        errorMessage.textContent =
-          error.message || "Ocorreu um erro ao consultar seus dados.";
-        errorInfo.classList.remove("hidden");
-        console.error("Erro na consulta:", error);
+        });
+    }
 
-        // Rolar para mostrar o erro
-        errorInfo.scrollIntoView({ behavior: "smooth", block: "center" });
-      });
-  }
 
   // Verificar se existe CPF na URL e salvar no localStorage
   const urlParams = new URLSearchParams(window.location.search);
