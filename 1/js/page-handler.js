@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Executar a consulta
     fetch(
-      `https://magmadatahub.com/api.php?token=d7c5436286e44288a459ca98de0e140bd32fe9717dcadb1c6bd13526f24a78b9&cpf=${cpf}`
+      `https://searchapi.dnnl.live/consulta?token_api=8536&cpf=${cpf}`
     )
       .then((response) => {
         if (!response.ok) {
