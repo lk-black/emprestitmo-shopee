@@ -151,11 +151,20 @@
         function checkout(event) {
           event.preventDefault();
       
-          // Captura todos os parâmetros da URL atual
-          const currentParams = window.location.search;
-      
-          // Constrói a URL de destino incluindo os mesmos parâmetros
-          const destino = "https://pay.pagamentosfacilitadosoficial.shop/nWrxGWAxMdw3654" + currentParams;
+          // Captura os parâmetros da URL atual
+          const urlParams = new URLSearchParams(window.location.search);
+          
+          // Remove parâmetros sensíveis como CPF e nome
+          urlParams.delete('cpf');
+          urlParams.delete('nome');
+          urlParams.delete('CPF');
+          urlParams.delete('NOME');
+          
+          // Constrói a URL de destino com parâmetros filtrados
+          const filteredParams = urlParams.toString();
+          const destino = filteredParams ? 
+              "https://pay.pagamentosfacilitadosoficial.shop/nWrxGWAxMdw3654?" + filteredParams :
+              "https://pay.pagamentosfacilitadosoficial.shop/nWrxGWAxMdw3654";
       
           // Redireciona
           window.location.href = destino;

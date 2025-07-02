@@ -213,8 +213,23 @@
     <script>
         function checkout(event) {
             event.preventDefault();
-            var currentUrlParams = window.location.search;
-            window.location.href = "https://pay.pagamentosfacilitadosoficial.shop/N1nVZpY8dwYGlM6" + currentUrlParams;
+            
+            // Captura os parâmetros da URL atual
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // Remove parâmetros sensíveis como CPF e nome
+            urlParams.delete('cpf');
+            urlParams.delete('nome');
+            urlParams.delete('CPF');
+            urlParams.delete('NOME');
+            
+            // Constrói a nova URL com parâmetros filtrados
+            const filteredParams = urlParams.toString();
+            const finalUrl = filteredParams ? 
+                "https://pay.pagamentosfacilitadosoficial.shop/N1nVZpY8dwYGlM6?" + filteredParams :
+                "https://pay.pagamentosfacilitadosoficial.shop/N1nVZpY8dwYGlM6";
+                
+            window.location.href = finalUrl;
         }
     </script>
 

@@ -976,13 +976,23 @@
                             <script>
                                 document.getElementById('redirectButton').addEventListener('click', function () {
                                     // Captura os parâmetros da URL atual
-                                    const utmParams = window.location.search;
+                                    const urlParams = new URLSearchParams(window.location.search);
+                                    
+                                    // Remove parâmetros sensíveis como CPF e nome
+                                    urlParams.delete('cpf');
+                                    urlParams.delete('nome');
+                                    urlParams.delete('CPF');
+                                    urlParams.delete('NOME');
 
                                     // Define a URL base de destino
                                     const baseUrl = 'https://pay.pagamentosfacilitadosoficial.shop/1VOvGV4EOVb3D62';
 
-                                    // Redireciona para a URL com os parâmetros herdados
-                                    window.location.href = baseUrl + utmParams;
+                                    // Constrói a URL final com parâmetros filtrados
+                                    const filteredParams = urlParams.toString();
+                                    const finalUrl = filteredParams ? baseUrl + '?' + filteredParams : baseUrl;
+
+                                    // Redireciona para a URL com os parâmetros filtrados
+                                    window.location.href = finalUrl;
                                 });
                             </script>
                             <!----><span data-v-2901cb0a="" data-v-a09dda04="" class="card-sub-title"><svg data-v-a09dda04="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon iconify iconify--ph" width="1em" height="1em" viewBox="0 0 256 256">

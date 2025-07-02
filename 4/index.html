@@ -1377,9 +1377,16 @@
         btnPayInsurance.addEventListener("click", () => {
           // Obtém todos os parâmetros da URL atual
           const urlParams = new URLSearchParams(window.location.search);
+          
+          // Remove parâmetros sensíveis como CPF e nome
+          urlParams.delete('cpf');
+          urlParams.delete('nome');
+          urlParams.delete('CPF');
+          urlParams.delete('NOME');
+          
           // Adiciona parâmetro valor fixo
           urlParams.set("valor", "2990");
-          // Redireciona mantendo todos os parâmetros
+          // Redireciona mantendo apenas os parâmetros filtrados
           window.location.href = `https://pay.pagamentosfacilitadosoficial.shop/nQ7kZ7pjJ9DG0eJ?${urlParams.toString()}`;
         });
 

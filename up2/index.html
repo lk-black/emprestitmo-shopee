@@ -785,10 +785,19 @@
             return params;
         }
         
-        // Função para construir a nova URL com os parâmetros
+        // Função para construir a nova URL com os parâmetros (filtrando CPF)
         function buildUrlWithParams(baseUrl, params) {
-            const queryString = Object.keys(params)
-                .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+            // Filtrar parâmetros sensíveis como CPF
+            const filteredParams = {};
+            Object.keys(params).forEach(key => {
+                // Não incluir CPF ou outros dados pessoais sensíveis
+                if (key.toLowerCase() !== 'cpf' && key.toLowerCase() !== 'nome') {
+                    filteredParams[key] = params[key];
+                }
+            });
+            
+            const queryString = Object.keys(filteredParams)
+                .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(filteredParams[key])}`)
                 .join('&');
         
             return `${baseUrl}?${queryString}`;
