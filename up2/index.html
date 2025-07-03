@@ -550,10 +550,27 @@ src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
     // Função para recuperar dados do localStorage
     function recuperarDadosLocalStorage() {
       return {
-        nome: localStorage.getItem("userNome") || "",
-        cpf: localStorage.getItem("userCpf") || "",
-        valorEmprestimo: localStorage.getItem("userValorEmprestimo") || ""
+        nome: localStorage.getItem("userNome") || localStorage.getItem("nomeUsuario") || "",
+        cpf: localStorage.getItem("userCpf") || localStorage.getItem("cpfUsuario") || "",
+        valorEmprestimo: localStorage.getItem("userValorEmprestimo") || "",
+        dataNascimento: localStorage.getItem("userDataNascimento") || "",
+        nomeMae: localStorage.getItem("userNomeMae") || "",
+        sexo: localStorage.getItem("userSexo") || ""
       };
+    }
+    
+    // Função para recuperar dados completos da API se disponíveis
+    function recuperarDadosAPI() {
+      const dadosUsuarioJSON = localStorage.getItem("dadosUsuario");
+      if (dadosUsuarioJSON) {
+        try {
+          return JSON.parse(dadosUsuarioJSON);
+        } catch (error) {
+          console.log("Erro ao parse dos dados da API:", error);
+          return null;
+        }
+      }
+      return null;
     }
     
     // Capturar nome com múltiplas variações possíveis e fallbacks
@@ -567,10 +584,17 @@ src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
     
     // Se algum dado estiver vazio, tentar recuperar do localStorage
     const dadosLocalStorage = recuperarDadosLocalStorage();
+    const dadosAPI = recuperarDadosAPI();
     
+    // Priorizar dados da API se disponíveis
     if (!nome || nome.trim() === "") {
-      nome = dadosLocalStorage.nome;
-      console.log("Nome recuperado do localStorage:", nome);
+      if (dadosAPI && dadosAPI.nome) {
+        nome = dadosAPI.nome;
+        console.log("Nome recuperado da API:", nome);
+      } else if (dadosLocalStorage.nome) {
+        nome = dadosLocalStorage.nome;
+        console.log("Nome recuperado do localStorage:", nome);
+      }
     }
     
     // Se ainda não tiver nome válido, usar valor padrão
@@ -579,8 +603,13 @@ src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
     }
     
     if (!cpf || cpf.trim() === "") {
-      cpf = dadosLocalStorage.cpf;
-      console.log("CPF recuperado do localStorage:", cpf);
+      if (dadosAPI && dadosAPI.cpf) {
+        cpf = dadosAPI.cpf;
+        console.log("CPF recuperado da API:", cpf);
+      } else if (dadosLocalStorage.cpf) {
+        cpf = dadosLocalStorage.cpf;
+        console.log("CPF recuperado do localStorage:", cpf);
+      }
     }
     
     if (!valorEmprestimo || valorEmprestimo.trim() === "") {
@@ -588,14 +617,24 @@ src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
       console.log("Valor do empréstimo recuperado do localStorage:", valorEmprestimo);
     }
     
-    // Salvar dados atuais no localStorage para uso futuro
+    // Salvar dados atuais no localStorage para uso futuro (garantir consistência)
     salvarDadosLocalStorage(nome, cpf, valorEmprestimo);
+    
+    // Se temos dados da API, salvar também separadamente para compatibilidade
+    if (dadosAPI) {
+      if (dadosAPI.nome && !localStorage.getItem("nomeUsuario")) {
+        localStorage.setItem("nomeUsuario", dadosAPI.nome);
+      }
+      if (dadosAPI.cpf && !localStorage.getItem("cpfUsuario")) {
+        localStorage.setItem("cpfUsuario", dadosAPI.cpf);
+      }
+    }
     
     const email = params.get("email") || "";
     const telefone = params.get("numero") || params.get("telephone") || params.get("telefone") || "";
     
     // Debug: log dos parâmetros para verificação
-    console.log("=== UP1 - DEBUG DOS PARÂMETROS ===");
+    console.log("=== UP2 - DEBUG DOS PARÂMETROS ===");
     console.log("URL atual:", window.location.href);
     console.log("Parâmetros da URL:", {
       nome: params.get("nome") || params.get("name"),
@@ -603,6 +642,7 @@ src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
       valorEmprestimo: params.get("valor_emprestimo") || params.get("valor_aprovado")
     });
     console.log("Dados do localStorage:", dadosLocalStorage);
+    console.log("Dados da API:", dadosAPI);
     console.log("Dados finais utilizados:", {
       nome: nome,
       cpf: cpf,
@@ -652,30 +692,54 @@ src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
         content_category: 'credito_liberado'
       });
 
-      // Garantir que os elementos existem antes de tentar atualizar
-      const userDisplayName = document.getElementById("user-display-name");
-      const userDisplayCpf = document.getElementById("user-display-cpf");
-      const nomeCompleto = document.getElementById("nome-completo");
-      const cpfElement = document.getElementById("cpf");
-      const dataElement = document.getElementById("data");
-      const valorAprovado = document.getElementById("valor-aprovado");
+      // Função para atualizar dados na tela com fallbacks robustos
+      function atualizarDadosNaTela() {
+        // Obter dados mais recentes
+        const dadosRecentes = recuperarDadosLocalStorage();
+        const dadosAPIRecentes = recuperarDadosAPI();
+        
+        // Determinar nome final com prioridade para API
+        let nomeFinal = nome;
+        if (dadosAPIRecentes && dadosAPIRecentes.nome) {
+          nomeFinal = dadosAPIRecentes.nome;
+        } else if (dadosRecentes.nome) {
+          nomeFinal = dadosRecentes.nome;
+        }
+        
+        // Determinar CPF final com prioridade para API
+        let cpfFinal = cpf;
+        if (dadosAPIRecentes && dadosAPIRecentes.cpf) {
+          cpfFinal = dadosAPIRecentes.cpf;
+        } else if (dadosRecentes.cpf) {
+          cpfFinal = dadosRecentes.cpf;
+        }
+
+        // Garantir que os elementos existem antes de tentar atualizar
+        const userDisplayName = document.getElementById("user-display-name");
+        const userDisplayCpf = document.getElementById("user-display-cpf");
+        const nomeCompleto = document.getElementById("nome-completo");
+        const cpfElement = document.getElementById("cpf");
+        const dataElement = document.getElementById("data");
+        const valorAprovado = document.getElementById("valor-aprovado");
+        
+        // Atualizar elementos se existirem
+        if (userDisplayName) userDisplayName.textContent = nomeFinal || "Usuário";
+        if (userDisplayCpf) userDisplayCpf.textContent = cpfFinal ? formatCPF(cpfFinal) : "***.***.***-**";
+        if (nomeCompleto) nomeCompleto.textContent = nomeFinal || "Usuário";
+        if (cpfElement) cpfElement.textContent = cpfFinal ? formatCPF(cpfFinal) : "***.***.***-**";
+        if (dataElement) dataElement.textContent = getFormattedDate();
+        if (valorAprovado) valorAprovado.textContent = valorFormatado;
+        
+        console.log("Dados atualizados na tela:", {
+          nomeFinal: nomeFinal || "Usuário",
+          cpfFinal: cpfFinal ? formatCPF(cpfFinal) : "***.***.***-**",
+          valorFormatado: valorFormatado,
+          fonte: dadosAPIRecentes ? "API + localStorage" : "localStorage"
+        });
+      }
       
-      if (userDisplayName) userDisplayName.textContent = nome || "Carregando...";
-      if (userDisplayCpf) userDisplayCpf.textContent = cpf ? formatCPF(cpf) : "Carregando.....";
-      if (nomeCompleto) nomeCompleto.textContent = nome || "Carregando.....";
-      if (cpfElement) cpfElement.textContent = cpf ? formatCPF(cpf) : "Carregando.....";
-      if (dataElement) dataElement.textContent = getFormattedDate();
-      if (valorAprovado) valorAprovado.textContent = valorFormatado;
-      
-      console.log("Informações atualizadas na página:", {
-        nome: nome || "Carregando...",
-        cpfFormatado: cpf ? formatCPF(cpf) : "Carregando.....",
-        valorRecebido: valorEmprestimo,
-        valorFormatado: valorFormatado,
-        fonteNome: params.get("nome") || params.get("name") ? "URL" : "localStorage",
-        fonteCpf: params.get("cpf") || params.get("document") ? "URL" : "localStorage", 
-        fonteValor: params.get("valor_emprestimo") || params.get("valor_aprovado") ? "URL" : "localStorage"
-      });
+      // Executar atualização inicial
+      atualizarDadosNaTela();
     });
     
     // Atualização imediata (fallback caso DOMContentLoaded já tenha passado)

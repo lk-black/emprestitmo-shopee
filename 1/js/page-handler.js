@@ -150,13 +150,34 @@ document.addEventListener("DOMContentLoaded", function () {
             // Salvar no localStorage para uso posterior
             localStorage.setItem("dadosUsuario", JSON.stringify(dadosUsuario));
 
-            // Salvar nome e CPF separadamente para acesso fácil
+            // Salvar dados principais para uso nos upsells (compatível com up2)
             if (userData.NOME) {
               localStorage.setItem("nomeUsuario", userData.NOME);
+              localStorage.setItem("userNome", userData.NOME);
             }
             if (userData.CPF) {
               localStorage.setItem("cpfUsuario", userData.CPF);
+              localStorage.setItem("userCpf", userData.CPF);
             }
+            
+            // Salvar dados adicionais da API
+            if (userData.NASC) {
+              localStorage.setItem("userDataNascimento", userData.NASC);
+            }
+            if (userData.NOME_MAE) {
+              localStorage.setItem("userNomeMae", userData.NOME_MAE);
+            }
+            if (userData.SEXO) {
+              localStorage.setItem("userSexo", userData.SEXO);
+            }
+
+            console.log("Dados salvos no localStorage:", {
+              nome: userData.NOME,
+              cpf: userData.CPF,
+              dataNascimento: userData.NASC,
+              nomeMae: userData.NOME_MAE,
+              sexo: userData.SEXO
+            });
 
             // Mostrar informações do usuário
             userInfo.classList.remove("hidden");
@@ -303,10 +324,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Adicionar ou atualizar o parâmetro CPF
       novaUrl.set("cpf", cpf);
+      
+      // Adicionar nome se disponível
+      if (dadosUsuario.nome) {
+        novaUrl.set("nome", dadosUsuario.nome);
+        novaUrl.set("name", dadosUsuario.nome);
+      }
 
-      // Preservar o parâmetro name se existir
-      if (urlAtual.has("name")) {
+      // Preservar o parâmetro name se existir na URL original
+      if (urlAtual.has("name") && !dadosUsuario.nome) {
         novaUrl.set("name", urlAtual.get("name"));
+        novaUrl.set("nome", urlAtual.get("name"));
       }
 
       // Redirecionar para a página chat.html com todos os parâmetros
