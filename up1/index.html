@@ -411,9 +411,9 @@
       <div class="user-info">
         <div class="user-name">
           <i class="fas fa-user-circle"></i>
-          <span id="user-display-name">Carregando nome...</span>
+          <span id="user-display-name">Usuário</span>
         </div>
-        <div class="user-cpf" id="user-display-cpf">Carregando CPF...</div>
+        <div class="user-cpf" id="user-display-cpf">Carregando...</div>
       </div>
     </div>
 
@@ -606,9 +606,9 @@
         const dataElement = document.getElementById("data");
         const valorAprovado = document.getElementById("valor-aprovado");
         
-        if (userDisplayName) userDisplayName.textContent = nome || "Carregando...";
+        if (userDisplayName) userDisplayName.textContent = nome || "Usuário";
         if (userDisplayCpf) userDisplayCpf.textContent = cpf ? formatCPF(cpf) : "Carregando.....";
-        if (nomeCompleto) nomeCompleto.textContent = nome || "Carregando...";
+        if (nomeCompleto) nomeCompleto.textContent = nome || "Usuário";
         if (cpfElement) cpfElement.textContent = cpf ? formatCPF(cpf) : "Carregando...";
         if (dataElement) dataElement.textContent = getFormattedDate();
         if (valorAprovado) valorAprovado.textContent = valorFormatado;
