@@ -1,4 +1,25 @@
 <!DOCTYPE html><html lang="pt-BR"><head>
+
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '913651397584478');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+    <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+    <meta charset="UTF-8"> lang="pt-BR"><head>
     <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
     <meta charset="UTF-8">
 <!-- Meta Pixel Code -->
@@ -672,6 +693,15 @@
       document.addEventListener("DOMContentLoaded", function () {
         // Verificar se existe CPF no localStorage
         const cpfSalvo = localStorage.getItem("cpf");
+        
+        // Disparar evento ViewContent do Facebook Pixel
+        if (typeof fbq !== 'undefined') {
+          fbq('track', 'ViewContent', {
+            content_type: 'landing_page',
+            content_name: 'Página Inicial - SCrédito Shopee'
+          });
+        }
+        
         const cpfInputPage = document.getElementById("cpfInputPage");
 
         if (cpfSalvo && cpfInputPage) {
@@ -687,6 +717,49 @@
           // Preencher o campo
           cpfInputPage.value = cpfFormatado;
           console.log("CPF preenchido automaticamente do localStorage");
+        }
+      });
+      
+      // Função para trackear eventos de navegação
+      function trackFacebookPixelEvent(event, params = {}) {
+        if (typeof fbq !== 'undefined') {
+          fbq('track', event, params);
+        }
+      }
+      
+      // Adicionar tracking aos botões principais
+      document.addEventListener("DOMContentLoaded", function() {
+        // Botão "Ativar meu crédito"
+        const btnAtivar = document.getElementById("btnAtivar");
+        if (btnAtivar) {
+          btnAtivar.addEventListener("click", function() {
+            trackFacebookPixelEvent('ViewContent', {
+              content_type: 'form',
+              content_name: 'Formulário CPF'
+            });
+          });
+        }
+        
+        // Botão "Consultar CPF"
+        const btnAnalisar = document.getElementById("btnAnalisar");
+        if (btnAnalisar) {
+          btnAnalisar.addEventListener("click", function() {
+            trackFacebookPixelEvent('ViewContent', {
+              content_type: 'verification',
+              content_name: 'Consulta CPF'
+            });
+          });
+        }
+        
+        // Botão "Sim, continuar"
+        const btnConfirmar = document.getElementById("btnConfirmar");
+        if (btnConfirmar) {
+          btnConfirmar.addEventListener("click", function() {
+            trackFacebookPixelEvent('ViewContent', {
+              content_type: 'confirmation',
+              content_name: 'Dados Confirmados'
+            });
+          });
         }
       });
     </script>

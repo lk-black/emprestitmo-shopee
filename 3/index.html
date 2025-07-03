@@ -1,6 +1,24 @@
 <!DOCTYPE html><html lang="pt-BR"><head><script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
     <meta charset="UTF-8">
 
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '913651397584478');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
 <script async="" defer="" src="js/pixel.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulação de Crédito | SCrédito Shopee</title>
@@ -414,6 +432,20 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Função para disparar eventos do Facebook Pixel
+            function trackFacebookEvent(eventName, parameters = {}) {
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', eventName, parameters);
+                    console.log(`Facebook Pixel - Evento ${eventName} enviado`);
+                }
+            }
+
+            // Disparar ViewContent quando a página carregar
+            trackFacebookEvent('ViewContent', {
+                content_type: 'page',
+                content_category: 'simulacao_credito'
+            });
+
             // Elementos das etapas
             const step1 = document.getElementById('step1');
             const step2 = document.getElementById('step2');
@@ -547,6 +579,12 @@
             
             // Simulação - Etapa 1 para Etapa 2
             btnContinue.addEventListener('click', function() {
+                // Disparar evento do Facebook Pixel
+                trackFacebookEvent('AddToCart', {
+                    content_type: 'service',
+                    content_category: 'simulacao_aprovada'
+                });
+
                 if (!creditValue.value) {
                     alert('Por favor, digite um valor para simular.');
                     return;
@@ -609,6 +647,12 @@
             
             // Simulação - Etapa 3 para redirecionamento
             btnRequest.addEventListener('click', function() {
+                // Disparar evento do Facebook Pixel
+                trackFacebookEvent('Purchase', {
+                    content_type: 'service',
+                    content_category: 'solicitacao_credito'
+                });
+
                 // Obter o CPF e nome diretamente dos parâmetros da URL atual
                 const urlParams = new URLSearchParams(window.location.search);
                 const cpf = urlParams.get('cpf') || '';
