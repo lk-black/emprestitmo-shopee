@@ -1015,15 +1015,16 @@ src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
           });
         }
         
-        // Função para trackear eventos de Facebook Pixel
-        function trackFacebookPixelEvent(event, params = {}) {
+        // Função para disparar eventos do Facebook Pixel
+        function trackFacebookEvent(eventName, parameters = {}) {
           if (typeof fbq !== 'undefined') {
-            fbq('track', event, params);
+            fbq('track', eventName, parameters);
+            console.log(`Facebook Pixel - Evento ${eventName} enviado`);
           }
         }
         
         // Disparar evento ViewContent no carregamento da página
-        trackFacebookPixelEvent('ViewContent', {
+        trackFacebookEvent('ViewContent', {
           content_type: 'pre_analysis_form',
           content_name: 'Pré-Análise - SCrédito Shopee'
         });
@@ -1032,7 +1033,7 @@ src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
         const btnContinuar = document.getElementById("btnContinuar");
         if (btnContinuar) {
           btnContinuar.addEventListener("click", function() {
-            trackFacebookPixelEvent('ViewContent', {
+            trackFacebookEvent('Lead', {
               content_type: 'form_submission',
               content_name: 'Dados Enviados para Simulação'
             });

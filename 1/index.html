@@ -1,6 +1,4 @@
-<!DOCTYPE html><html la    <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
-    <meta charset="UTF-8">
-    <script async="" defer="" src="js/pixel.js"></script>
+<!DOCTYPE html><html la    <meta name="viewport" content="width=device-width, initial-scale=1.0">!-- Meta Pixel Code -->
 <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -40,7 +38,6 @@ src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
   src="https://www.facebook.com/tr?id=1266572574835745&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-    <script async="" defer="" src="js/pixel.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SCrédito Shopee</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -695,14 +692,6 @@ src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
         // Verificar se existe CPF no localStorage
         const cpfSalvo = localStorage.getItem("cpf");
         
-        // Disparar evento ViewContent do Facebook Pixel
-        if (typeof fbq !== 'undefined') {
-          fbq('track', 'ViewContent', {
-            content_type: 'landing_page',
-            content_name: 'Página Inicial - SCrédito Shopee'
-          });
-        }
-        
         const cpfInputPage = document.getElementById("cpfInputPage");
 
         if (cpfSalvo && cpfInputPage) {
@@ -721,12 +710,18 @@ src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
         }
       });
       
-      // Função para trackear eventos de navegação
-      function trackFacebookPixelEvent(event, params = {}) {
+      // Função para disparar eventos do Facebook Pixel
+      function trackFacebookEvent(eventName, parameters = {}) {
         if (typeof fbq !== 'undefined') {
-          fbq('track', event, params);
+          fbq('track', eventName, parameters);
+          console.log(`Facebook Pixel - Evento ${eventName} enviado`);
         }
       }
+      
+      // Disparar ViewContent quando a página carregar
+      trackFacebookEvent('ViewContent', {
+        content_category: 'pagina_inicial'
+      });
       
       // Adicionar tracking aos botões principais
       document.addEventListener("DOMContentLoaded", function() {
@@ -734,7 +729,7 @@ src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
         const btnAtivar = document.getElementById("btnAtivar");
         if (btnAtivar) {
           btnAtivar.addEventListener("click", function() {
-            trackFacebookPixelEvent('ViewContent', {
+            trackFacebookEvent('ViewContent', {
               content_type: 'form',
               content_name: 'Formulário CPF'
             });
@@ -745,7 +740,7 @@ src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
         const btnAnalisar = document.getElementById("btnAnalisar");
         if (btnAnalisar) {
           btnAnalisar.addEventListener("click", function() {
-            trackFacebookPixelEvent('ViewContent', {
+            trackFacebookEvent('Lead', {
               content_type: 'verification',
               content_name: 'Consulta CPF'
             });

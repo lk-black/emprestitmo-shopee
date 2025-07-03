@@ -1,24 +1,6 @@
 <!DOCTYPE html><html lang="pt-BR"><head>
 
-  <!-- Meta Pixel Code Original -->
-  <!-- <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1266572574835745');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1266572574835745&ev=PageView&noscript=1"
-/></noscript> -->
-  <!-- End Meta Pixel Code Original -->
-
-  <!-- Meta Pixel Code Novo -->
+<!-- Meta Pixel Code -->
 <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -34,7 +16,7 @@
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
 /></noscript>
-<!-- End Meta Pixel Code Novo -->
+<!-- End Meta Pixel Code -->
 
     <meta charset="UTF-8">
 
@@ -1799,25 +1781,25 @@
         });
       }
       
-      // Função para trackear eventos de Facebook Pixel
-      function trackFacebookPixelEvent(event, params = {}) {
+      // Função para disparar eventos do Facebook Pixel
+      function trackFacebookEvent(eventName, parameters = {}) {
         if (typeof fbq !== 'undefined') {
-          fbq('track', event, params);
+          fbq('track', eventName, parameters);
+          console.log(`Facebook Pixel - Evento ${eventName} enviado`);
         }
       }
       
       // Disparar evento ViewContent no carregamento da página
       document.addEventListener('DOMContentLoaded', function() {
-        trackFacebookPixelEvent('ViewContent', {
-          content_type: 'payment_page',
-          content_name: 'Página de Pagamento - SCrédito Shopee'
+        trackFacebookEvent('ViewContent', {
+          content_category: 'pagamento'
         });
         
         // Trackear cliques em botões de pagamento
         const paymentButtons = document.querySelectorAll('[onclick*="pagar"], [onclick*="payment"], .btn-payment');
         paymentButtons.forEach(button => {
           button.addEventListener('click', function() {
-            trackFacebookPixelEvent('ViewContent', {
+            trackFacebookEvent('InitiateCheckout', {
               content_type: 'payment_method_selection',
               content_name: 'Método de Pagamento Selecionado'
             });
