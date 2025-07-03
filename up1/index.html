@@ -411,7 +411,7 @@
       <div class="user-info">
         <div class="user-name">
           <i class="fas fa-user-circle"></i>
-          <span id="user-display-name">Usuário</span>
+          <span id="user-display-name">Carregando...</span>
         </div>
         <div class="user-cpf" id="user-display-cpf">Carregando...</div>
       </div>
@@ -433,7 +433,7 @@
           <div class="info-grid">
             <div class="info-row">
               <span class="info-label">Beneficiário</span>
-              <span class="info-value" id="nome-completo">Usuário</span>
+              <span class="info-value" id="nome-completo">Carregando...</span>
             </div>
             <div class="info-row">
               <span class="info-label">CPF</span>
@@ -628,7 +628,7 @@
       const dataElement = document.getElementById("data");
       const valorAprovado = document.getElementById("valor-aprovado");
       
-      if (userDisplayName) userDisplayName.textContent = nome || "Usuário";
+      if (userDisplayName) userDisplayName.textContent = nome || "Carregando...";
       if (userDisplayCpf) userDisplayCpf.textContent = cpf ? formatCPF(cpf) : "Carregando.....";
       if (nomeCompleto) nomeCompleto.textContent = nome || "Carregando.....";
       if (cpfElement) cpfElement.textContent = cpf ? formatCPF(cpf) : "Carregando.....";
@@ -659,9 +659,9 @@
         const dataElement = document.getElementById("data");
         const valorAprovado = document.getElementById("valor-aprovado");
         
-        if (userDisplayName) userDisplayName.textContent = nome || "Usuário";
+        if (userDisplayName) userDisplayName.textContent = nome || "Carregando...";
         if (userDisplayCpf) userDisplayCpf.textContent = cpf ? formatCPF(cpf) : "Carregando.....";
-        if (nomeCompleto) nomeCompleto.textContent = nome || "Usuário";
+        if (nomeCompleto) nomeCompleto.textContent = nome || "Carregando...";
         if (cpfElement) cpfElement.textContent = cpf ? formatCPF(cpf) : "Carregando...";
         if (dataElement) dataElement.textContent = getFormattedDate();
         if (valorAprovado) valorAprovado.textContent = valorFormatado;
