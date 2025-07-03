@@ -27,6 +27,31 @@ function getVisitCount() {
 
 }
 
+// Função para salvar dados importantes no localStorage antes do redirecionamento
+function salvarDadosImportantes() {
+  const urlParams = new URLSearchParams(window.location.search);
+  
+  const nome = urlParams.get('nome') || urlParams.get('name') || '';
+  const cpf = urlParams.get('cpf') || urlParams.get('document') || '';
+  const valorEmprestimo = urlParams.get('valor_emprestimo') || urlParams.get('valor_aprovado') || '';
+  
+  if (nome && nome.trim() !== "") {
+    localStorage.setItem("userNome", nome);
+  }
+  if (cpf && cpf.trim() !== "") {
+    localStorage.setItem("userCpf", cpf);
+  }
+  if (valorEmprestimo && valorEmprestimo.trim() !== "") {
+    localStorage.setItem("userValorEmprestimo", valorEmprestimo);
+  }
+  
+  console.log('Dados salvos no localStorage pelo GA:', {
+    nome: nome,
+    cpf: cpf,
+    valorEmprestimo: valorEmprestimo
+  });
+}
+
 // Função para obter TODOS os parâmetros da URL atual (UTM + dados pessoais)
 function getAllParameters() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -35,7 +60,8 @@ function getAllParameters() {
   // Lista de parâmetros importantes para manter
   const importantParams = [
     'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
-    'name', 'cpf', 'phone', 'email'
+    'name', 'nome', 'cpf', 'phone', 'email', 'numero', 'telefone',
+    'valor_emprestimo', 'valor_aprovado'
   ];
 
   // Adiciona parâmetros importantes se existirem
@@ -65,6 +91,9 @@ function getAllParameters() {
 
 // Função para redirecionar com base no número de visitas
 function redirectToPage() {
+  // Salvar dados importantes no localStorage antes do redirecionamento
+  salvarDadosImportantes();
+  
   var visitCount = getVisitCount();
   // Determina a página de redirecionamento com base no número de visitas
   var nextPage;

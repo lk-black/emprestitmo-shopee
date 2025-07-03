@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "utm_term",
       "utm_id",
       "xcod",
+      "name", // Adicionado parâmetro name
     ].forEach((param) => {
       if (urlParams.has(param)) {
         utmParams[param] = urlParams.get(param);
@@ -198,6 +199,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Verificar se existe name na URL e salvar no localStorage
+  if (urlParams.has("name")) {
+    const nameFromUrl = urlParams.get("name");
+    localStorage.setItem("userName", nameFromUrl);
+    console.log("Name da URL salvo no localStorage:", nameFromUrl);
+  }
+
   // Mostrar página de CPF
   function showCPFPage() {
     // Adiciona classe para fade-out da página principal
@@ -295,6 +303,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Adicionar ou atualizar o parâmetro CPF
       novaUrl.set("cpf", cpf);
+
+      // Preservar o parâmetro name se existir
+      if (urlAtual.has("name")) {
+        novaUrl.set("name", urlAtual.get("name"));
+      }
 
       // Redirecionar para a página chat.html com todos os parâmetros
       window.location.href = `../2/index.html?${novaUrl.toString()}`;

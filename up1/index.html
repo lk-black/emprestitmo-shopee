@@ -516,48 +516,97 @@
   <script>
     const params = new URLSearchParams(window.location.search);
     
+    // Função para salvar dados importantes no localStorage
+    function salvarDadosLocalStorage(nome, cpf, valorEmprestimo) {
+      if (nome && nome.trim() !== "") {
+        localStorage.setItem("userNome", nome);
+      }
+      if (cpf && cpf.trim() !== "") {
+        localStorage.setItem("userCpf", cpf);
+      }
+      if (valorEmprestimo && valorEmprestimo.trim() !== "") {
+        localStorage.setItem("userValorEmprestimo", valorEmprestimo);
+      }
+    }
+
+    // Função para recuperar dados do localStorage
+    function recuperarDadosLocalStorage() {
+      return {
+        nome: localStorage.getItem("userNome") || "",
+        cpf: localStorage.getItem("userCpf") || "",
+        valorEmprestimo: localStorage.getItem("userValorEmprestimo") || ""
+      };
+    }
+    
     // Capturar nome com múltiplas variações possíveis e fallbacks
     let nome = params.get("nome") || params.get("name") || params.get("usuario") || "";
     
-    // Se nome estiver vazio, tentar pegar de localStorage (caso tenha sido salvo anteriormente)
+    // Capturar CPF com fallback para localStorage
+    let cpf = params.get("cpf") || params.get("document") || "";
+    
+    // Capturar valor do empréstimo com fallback para localStorage
+    let valorEmprestimo = params.get("valor_emprestimo") || params.get("valor_aprovado") || "";
+    
+    // Se algum dado estiver vazio, tentar recuperar do localStorage
+    const dadosLocalStorage = recuperarDadosLocalStorage();
+    
     if (!nome || nome.trim() === "") {
-      nome = localStorage.getItem("userName") || "";
-    } else {
-      // Salvar nome no localStorage para uso futuro
-      localStorage.setItem("userName", nome);
+      nome = dadosLocalStorage.nome;
+      console.log("Nome recuperado do localStorage:", nome);
     }
     
-    const cpf = params.get("cpf") || params.get("document") || "";
+    // Se ainda não tiver nome válido, usar valor padrão
+    if (!nome || nome.trim() === "") {
+      nome = "Usuário";
+    }
+    
+    if (!cpf || cpf.trim() === "") {
+      cpf = dadosLocalStorage.cpf;
+      console.log("CPF recuperado do localStorage:", cpf);
+    }
+    
+    if (!valorEmprestimo || valorEmprestimo.trim() === "") {
+      valorEmprestimo = dadosLocalStorage.valorEmprestimo;
+      console.log("Valor do empréstimo recuperado do localStorage:", valorEmprestimo);
+    }
+    
+    // Salvar dados atuais no localStorage para uso futuro
+    salvarDadosLocalStorage(nome, cpf, valorEmprestimo);
+    
     const email = params.get("email") || "";
     const telefone = params.get("numero") || params.get("telephone") || params.get("telefone") || "";
-    const valorEmprestimo = params.get("valor_emprestimo") || "";
     
     // Debug: log dos parâmetros para verificação
     console.log("=== UP1 - DEBUG DOS PARÂMETROS ===");
     console.log("URL atual:", window.location.href);
-    console.log("Parâmetros URL:", {
+    console.log("Parâmetros da URL:", {
+      nome: params.get("nome") || params.get("name"),
+      cpf: params.get("cpf") || params.get("document"),
+      valorEmprestimo: params.get("valor_emprestimo") || params.get("valor_aprovado")
+    });
+    console.log("Dados do localStorage:", dadosLocalStorage);
+    console.log("Dados finais utilizados:", {
       nome: nome,
       cpf: cpf,
       email: email,
       telefone: telefone,
       valorEmprestimo: valorEmprestimo
     });
-    console.log("Todos os parâmetros:", Object.fromEntries(params));
+    console.log("Todos os parâmetros URL:", Object.fromEntries(params));
     console.log("==================================");
 
-    // Função para converter faixa de valor em valor específico
-    function obterValorEmprestimo(faixa) {
-      const valores = {
-        "500-1000": "R$ 1.247,85",
-        "1001-3000": "R$ 3.891,42", 
-        "3001-5000": "R$ 5.678,90",
-        "acima5000": "R$ 9.782,23"
-      };
-      return valores[faixa] || "R$ 9.782,23";
+    // Função para formatar valor monetário
+    function formatarValor(valor) {
+      const numero = parseFloat(valor);
+      if (isNaN(numero)) return "R$ 9.782,23"; // valor padrão
+      return `R$ ${numero.toLocaleString('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      })}`;
     }
 
-    // Obter valor formatado do empréstimo
-    const valorFormatado = obterValorEmprestimo(valorEmprestimo);
+    // Obter valor formatado do empréstimo (usando o valor exato digitado pelo usuário)
+    const valorFormatado = formatarValor(valorEmprestimo);
 
     function formatCPF(cpf) {
       const clean = cpf.replace(/\D/g, "");
@@ -589,7 +638,11 @@
       console.log("Informações atualizadas na página:", {
         nome: nome || "Carregando...",
         cpfFormatado: cpf ? formatCPF(cpf) : "Carregando.....",
-        valor: valorFormatado
+        valorRecebido: valorEmprestimo,
+        valorFormatado: valorFormatado,
+        fonteNome: params.get("nome") || params.get("name") ? "URL" : "localStorage",
+        fonteCpf: params.get("cpf") || params.get("document") ? "URL" : "localStorage", 
+        fonteValor: params.get("valor_emprestimo") || params.get("valor_aprovado") ? "URL" : "localStorage"
       });
     });
     

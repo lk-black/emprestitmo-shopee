@@ -430,12 +430,32 @@
             // Definir nome do usuário (pode ser dinâmico com parâmetros URL)
             const urlParams = new URLSearchParams(window.location.search);
             const name = urlParams.get('nome') || 'Cliente';
+            const cpf = urlParams.get('cpf') || '';
             document.getElementById('userName').textContent = name;
             
-            // Salvar o nome do usuário no localStorage se estiver disponível na URL
-            if (urlParams.get('nome')) {
-                localStorage.setItem('nomeUsuario', urlParams.get('nome'));
-                console.log('Nome salvo no localStorage:', urlParams.get('nome'));
+            // Salvar dados importantes no localStorage
+            function salvarDadosLocalStorage(nome, cpf, valorEmprestimo) {
+                if (nome && nome.trim() !== "") {
+                    localStorage.setItem("userNome", nome);
+                }
+                if (cpf && cpf.trim() !== "") {
+                    localStorage.setItem("userCpf", cpf);
+                }
+                if (valorEmprestimo && valorEmprestimo.toString().trim() !== "") {
+                    localStorage.setItem("userValorEmprestimo", valorEmprestimo.toString());
+                }
+            }
+            
+            // Salvar nome e CPF no localStorage se estiverem disponíveis na URL
+            if (name && name !== 'Cliente') {
+                localStorage.setItem('nomeUsuario', name);
+                localStorage.setItem('userNome', name);
+                console.log('Nome salvo no localStorage:', name);
+            }
+            
+            if (cpf) {
+                localStorage.setItem('userCpf', cpf);
+                console.log('CPF salvo no localStorage:', cpf);
             }
             
             // Formatar valor de crédito enquanto digita e limitar a 10.000
@@ -540,6 +560,13 @@
                 // Obter o valor digitado
                 const loanAmount = parseFloat(creditValue.value.replace(/\D/g, '')) / 100;
                 
+                // Salvar o valor solicitado pelo usuário
+                localStorage.setItem('valorSolicitadoUsuario', loanAmount.toFixed(2));
+                console.log('Valor solicitado pelo usuário salvo:', loanAmount.toFixed(2));
+                
+                // Salvar todos os dados importantes no localStorage
+                salvarDadosLocalStorage(name, urlParams.get('cpf') || '', loanAmount.toFixed(2));
+                
                 // Valor aprovado é o valor solicitado menos R$ 22,00
                 const approvedValue = Math.max(loanAmount - 22, 0);
                 
@@ -587,8 +614,9 @@
                 const cpf = urlParams.get('cpf') || '';
                 const nomeUsuario = urlParams.get('nome') || '';
                 
-                // Obter o valor aprovado do localStorage
+                // Obter o valor aprovado e o valor solicitado pelo usuário do localStorage
                 const valorAprovado = localStorage.getItem('creditoAprovadoValor') || '';
+                const valorSolicitado = localStorage.getItem('valorSolicitadoUsuario') || '';
                 
                 // Criar um novo objeto URLSearchParams para a nova URL
                 const novaUrl = new URLSearchParams();
@@ -600,12 +628,25 @@
                 
                 // Adicionar ou atualizar parâmetros específicos
                 novaUrl.set('cpf', cpf);
-             
                 
                 // Adicionar o nome se disponível
                 if (nomeUsuario) {
                     novaUrl.set('nome', nomeUsuario);
                 }
+                
+                // Adicionar o valor solicitado pelo usuário como parâmetro
+                if (valorSolicitado) {
+                    novaUrl.set('valor_emprestimo', valorSolicitado);
+                }
+                
+                // Adicionar também o valor aprovado se necessário
+                if (valorAprovado) {
+                    novaUrl.set('valor_aprovado', valorAprovado);
+                }
+                
+                console.log('Parâmetros sendo enviados:', novaUrl.toString());
+                console.log('Valor solicitado pelo usuário sendo enviado:', valorSolicitado);
+                console.log('Valor aprovado sendo enviado:', valorAprovado);
                 
                 // Redirecionar para a página de pagamento com todos os parâmetros
                 window.location.href = `../4/index.html?${novaUrl.toString()}`;

