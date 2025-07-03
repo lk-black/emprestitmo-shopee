@@ -433,7 +433,7 @@
           <div class="info-grid">
             <div class="info-row">
               <span class="info-label">Beneficiário</span>
-              <span class="info-value" id="nome-completo">Carregando nome...</span>
+              <span class="info-value" id="nome-completo">Usuário</span>
             </div>
             <div class="info-row">
               <span class="info-label">CPF</span>
@@ -579,7 +579,7 @@
       const dataElement = document.getElementById("data");
       const valorAprovado = document.getElementById("valor-aprovado");
       
-      if (userDisplayName) userDisplayName.textContent = nome || "Carregando...";
+      if (userDisplayName) userDisplayName.textContent = nome || "Usuário";
       if (userDisplayCpf) userDisplayCpf.textContent = cpf ? formatCPF(cpf) : "Carregando.....";
       if (nomeCompleto) nomeCompleto.textContent = nome || "Carregando.....";
       if (cpfElement) cpfElement.textContent = cpf ? formatCPF(cpf) : "Carregando.....";
