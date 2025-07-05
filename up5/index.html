@@ -12,11 +12,6 @@
   a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
   document.head.appendChild(a);
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-    
     <script>
         localStorage.setItem("upsell", "up4");
     </script>
@@ -236,33 +231,6 @@ src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
                 
             window.location.href = finalUrl;
         }
-        
-        // Função para trackear eventos de Facebook Pixel
-        function trackFacebookPixelEvent(event, params = {}) {
-          if (typeof fbq !== 'undefined') {
-            fbq('track', event, params);
-          }
-        }
-        
-        // Disparar eventos ViewContent
-        document.addEventListener('DOMContentLoaded', function() {
-          // Evento ViewContent no carregamento da página
-          trackFacebookPixelEvent('ViewContent', {
-            content_type: 'tax_regularization',
-            content_name: 'Regularização Receita Federal - Up4'
-          });
-          
-          // Trackear clique no botão "Regularizar Agora"
-          const btnRegularizar = document.querySelector('[onclick="checkout(event)"]');
-          if (btnRegularizar) {
-            btnRegularizar.addEventListener('click', function() {
-              trackFacebookPixelEvent('ViewContent', {
-                content_type: 'regularization_payment',
-                content_name: 'Pagamento Taxa de Regularização'
-              });
-            });
-          }
-        });
     </script>
 
 

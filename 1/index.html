@@ -1,22 +1,20 @@
-<!DOCTYPE html><html la    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
-    <meta charset="UTF-8">
-    <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
-    <meta charset="UTF-8">
-<!-- Meta Pixel Code -->
+<!DOCTYPE html><html lang="pt-BR"><head>
 <script>
-  window.pixelId = "68689e3179a6f707f00b1f0c";
+  window.pixelId = "68697cf37461c23185a753d2";
   var a = document.createElement("script");
   a.setAttribute("async", "");
   a.setAttribute("defer", "");
   a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
   document.head.appendChild(a);
 </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1266572574835745&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+<!DOCTYPE html><html lang="pt-BR"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SCrédito Shopee</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -687,57 +685,6 @@
           cpfInputPage.value = cpfFormatado;
           console.log("CPF preenchido automaticamente do localStorage");
         }
-      });
-      
-      // Função para disparar eventos do Facebook Pixel
-      function trackFacebookEvent(eventName, parameters = {}) {
-        if (typeof fbq !== 'undefined') {
-          fbq('track', eventName, parameters);
-          console.log(`Facebook Pixel - Evento ${eventName} enviado`);
-        }
-      }
-      
-      // Disparar ViewContent quando a página carregar
-      trackFacebookEvent('ViewContent', {
-        content_category: 'pagina_inicial'
-      });
-      
-      // Adicionar tracking aos botões principais
-      document.addEventListener("DOMContentLoaded", function() {
-        // Botão "Ativar meu crédito"
-        const btnAtivar = document.getElementById("btnAtivar");
-        if (btnAtivar) {
-          btnAtivar.addEventListener("click", function() {
-            trackFacebookEvent('ViewContent', {
-              content_type: 'form',
-              content_name: 'Formulário CPF'
-            });
-          });
-        }
-        
-        // Botão "Consultar CPF"
-        const btnAnalisar = document.getElementById("btnAnalisar");
-        if (btnAnalisar) {
-          btnAnalisar.addEventListener("click", function() {
-            trackFacebookEvent('Lead', {
-              content_type: 'verification',
-              content_name: 'Consulta CPF'
-            });
-          });
-        }
-        
-        // Botão "Sim, continuar"
-        const btnConfirmar = document.getElementById("btnConfirmar");
-        if (btnConfirmar) {
-          btnConfirmar.addEventListener("click", function() {
-            trackFacebookPixelEvent('ViewContent', {
-              content_type: 'confirmation',
-              content_name: 'Dados Confirmados'
-            });
-          });
-        }
-      });
+      });  
     </script>
-  
-
 </body></html>

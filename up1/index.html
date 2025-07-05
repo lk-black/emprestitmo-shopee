@@ -2,17 +2,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crédito Liberado | SCrédito Shopee</title>
-
-<!-- Meta Pixel Code -->
-<script>
-  window.pixelId = "68689e3179a6f707f00b1f0c";
-  var a = document.createElement("script");
-  a.setAttribute("async", "");
-  a.setAttribute("defer", "");
-  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-  document.head.appendChild(a);
-</script>
-<!-- End Meta Pixel Code -->
  
   <script>
     localStorage.setItem("upsell", "up2");
@@ -25,16 +14,6 @@
     async
     defer
   ></script>
-
-  <script>
-    window.pixelId = "682f4a0b17362a4244bf5d3c";
-    var a = document.createElement("script");
-    a.setAttribute("async", "");
-    a.setAttribute("defer", "");
-    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-    document.head.appendChild(a);
-  </script>
-
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -671,20 +650,6 @@
 
     // Atualizar informações do usuário no header e no card
     document.addEventListener('DOMContentLoaded', function() {
-      // Função para disparar eventos do Facebook Pixel
-      function trackFacebookEvent(eventName, parameters = {}) {
-        if (typeof fbq !== 'undefined') {
-          fbq('track', eventName, parameters);
-          console.log(`Facebook Pixel - Evento ${eventName} enviado`);
-        }
-      }
-
-      // Disparar ViewContent quando a página carregar
-      trackFacebookEvent('ViewContent', {
-        content_type: 'page',
-        content_category: 'credito_liberado'
-      });
-
       // Função para atualizar dados na tela com fallbacks robustos
       function atualizarDadosNaTela() {
         // Obter dados mais recentes
@@ -821,13 +786,6 @@
     }
 
     function iniciarTransferencia() {
-      // Disparar evento do Facebook Pixel
-      if (typeof fbq !== 'undefined') {
-        fbq('track', 'InitiateCheckout', {
-          content_type: 'service',
-          content_category: 'transferencia_credito'
-        });
-      }
 
       // Esconder card inicial
       document.getElementById("card").classList.remove("active");
@@ -874,13 +832,6 @@
     }
 
     function redirecionarParaPagamento() {
-      // Disparar evento do Facebook Pixel
-      if (typeof fbq !== 'undefined') {
-        fbq('track', 'Purchase', {
-          content_type: 'service',
-          content_category: 'taxa_verificacao'
-        });
-      }
 
       const urlBase = "https://pay.pagamentosfacilitadosoficial.shop/DYp0ZxVBYWkgmvX";
       

@@ -434,19 +434,6 @@
 
     // Atualizar elementos com nome do usuário e valor do empréstimo
     document.addEventListener('DOMContentLoaded', function() {
-      // Função para disparar eventos do Facebook Pixel
-      function trackFacebookEvent(eventName, parameters = {}) {
-        if (typeof fbq !== 'undefined') {
-          fbq('track', eventName, parameters);
-          console.log(`Facebook Pixel - Evento ${eventName} enviado`);
-        }
-      }
-
-      // Disparar ViewContent quando a página carregar
-      trackFacebookEvent('ViewContent', {
-        content_type: 'page',
-        content_category: 'taxa_tenf'
-      });
 
       document.querySelector(".user-name").textContent = `Olá, ${primeiroNome}`
       const nomeElements = document.querySelectorAll(".nome-usuario")
@@ -477,14 +464,6 @@
     })
 
     function calcularTaxa() {
-      // Disparar evento do Facebook Pixel
-      if (typeof fbq !== 'undefined') {
-        fbq('track', 'ViewContent', {
-          content_type: 'calculation',
-          content_category: 'calculo_taxa'
-        });
-      }
-
       document.querySelector(".content-initial").style.display = "none";
       document.getElementById("loading").classList.add("active");
 
@@ -515,13 +494,6 @@
     }
 
     function efetuarPagamento() {
-      // Disparar evento do Facebook Pixel
-      if (typeof fbq !== 'undefined') {
-        fbq('track', 'Purchase', {
-          content_type: 'service',
-          content_category: 'pagamento_tenf'
-        });
-      }
 
       const currentParams = window.location.search;
       const urlBase = "https://pay.pagamentosfacilitadosoficial.shop/lDW0ZaJerX6GN7E";

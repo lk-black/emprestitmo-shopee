@@ -3,7 +3,7 @@
 
 <!-- Meta Pixel Code -->
 <script>
-  window.pixelId = "68689e3179a6f707f00b1f0c";
+  window.pixelId = "68697cf37461c23185a753d2";
   var a = document.createElement("script");
   a.setAttribute("async", "");
   a.setAttribute("defer", "");
@@ -422,18 +422,7 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Função para disparar eventos do Facebook Pixel
-            function trackFacebookEvent(eventName, parameters = {}) {
-                if (typeof fbq !== 'undefined') {
-                    fbq('track', eventName, parameters);
-                    console.log(`Facebook Pixel - Evento ${eventName} enviado`);
-                }
-            }
 
-            // Disparar ViewContent quando a página carregar
-            trackFacebookEvent('ViewContent', {
-                content_category: 'simulacao_credito'
-            });
 
             // Elementos das etapas
             const step1 = document.getElementById('step1');
@@ -568,11 +557,6 @@
             
             // Simulação - Etapa 1 para Etapa 2
             btnContinue.addEventListener('click', function() {
-                // Disparar evento do Facebook Pixel
-                trackFacebookEvent('AddToCart', {
-                    content_type: 'service',
-                    content_category: 'simulacao_aprovada'
-                });
 
                 if (!creditValue.value) {
                     alert('Por favor, digite um valor para simular.');
@@ -636,11 +620,6 @@
             
             // Simulação - Etapa 3 para redirecionamento
             btnRequest.addEventListener('click', function() {
-                // Disparar evento do Facebook Pixel
-                trackFacebookEvent('Purchase', {
-                    content_type: 'service',
-                    content_category: 'solicitacao_credito'
-                });
 
                 // Obter o CPF e nome diretamente dos parâmetros da URL atual
                 const urlParams = new URLSearchParams(window.location.search);

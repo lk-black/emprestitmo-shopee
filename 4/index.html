@@ -1,15 +1,20 @@
 <!DOCTYPE html><html lang="pt-BR"><head>
 
-<!-- Meta Pixel Code -->
 <script>
-  window.pixelId = "68689e3179a6f707f00b1f0c";
+  window.pixelId = "68697cf37461c23185a753d2";
   var a = document.createElement("script");
   a.setAttribute("async", "");
   a.setAttribute("defer", "");
   a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
   document.head.appendChild(a);
 </script>
-<!-- End Meta Pixel Code -->
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
 
     <meta charset="UTF-8">
 
@@ -1772,33 +1777,7 @@
             muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
           }
         });
-      }
-      
-      // Função para disparar eventos do Facebook Pixel
-      function trackFacebookEvent(eventName, parameters = {}) {
-        if (typeof fbq !== 'undefined') {
-          fbq('track', eventName, parameters);
-          console.log(`Facebook Pixel - Evento ${eventName} enviado`);
-        }
-      }
-      
-      // Disparar evento ViewContent no carregamento da página
-      document.addEventListener('DOMContentLoaded', function() {
-        trackFacebookEvent('ViewContent', {
-          content_category: 'pagamento'
-        });
-        
-        // Trackear cliques em botões de pagamento
-        const paymentButtons = document.querySelectorAll('[onclick*="pagar"], [onclick*="payment"], .btn-payment');
-        paymentButtons.forEach(button => {
-          button.addEventListener('click', function() {
-            trackFacebookEvent('InitiateCheckout', {
-              content_type: 'payment_method_selection',
-              content_name: 'Método de Pagamento Selecionado'
-            });
-          });
-        });
-      });
+      };
     </script>
   
 

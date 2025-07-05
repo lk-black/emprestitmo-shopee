@@ -2,17 +2,20 @@
 
 <!-- Meta Pixel Code -->
 <script>
-  window.pixelId = "68689e3179a6f707f00b1f0c";
+  window.pixelId = "68697cf37461c23185a753d2";
   var a = document.createElement("script");
   a.setAttribute("async", "");
   a.setAttribute("defer", "");
   a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
   document.head.appendChild(a);
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1008,31 +1011,6 @@ src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
             }
 
             e.target.value = value;
-          });
-        }
-        
-        // Função para disparar eventos do Facebook Pixel
-        function trackFacebookEvent(eventName, parameters = {}) {
-          if (typeof fbq !== 'undefined') {
-            fbq('track', eventName, parameters);
-            console.log(`Facebook Pixel - Evento ${eventName} enviado`);
-          }
-        }
-        
-        // Disparar evento ViewContent no carregamento da página
-        trackFacebookEvent('ViewContent', {
-          content_type: 'pre_analysis_form',
-          content_name: 'Pré-Análise - SCrédito Shopee'
-        });
-        
-        // Adicionar tracking aos botões principais
-        const btnContinuar = document.getElementById("btnContinuar");
-        if (btnContinuar) {
-          btnContinuar.addEventListener("click", function() {
-            trackFacebookEvent('Lead', {
-              content_type: 'form_submission',
-              content_name: 'Dados Enviados para Simulação'
-            });
           });
         }
       });

